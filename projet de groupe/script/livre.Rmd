@@ -1,0 +1,172 @@
+---
+title: "Optimisation du placement des antennes au Sénégal"
+author: "SOMA Ben Idriss Diloma"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+# Introduction
+
+Ce projet vise à étudier l'**optimisation du placement des antennes** pour une meilleure couverture réseau et réduction des interferences, en tenant compte des contraintes de propagation des ondes, de répartition de fréquences, et des contraintes coûts.
+
+---
+
+# Modélisation de la propagation des ondes
+
+## Modèle de propagation dans le vide (Equation de Friis)
+
+Dans le modèle idéalisé sans obstacles (propagation en espace libre), la puissance reçue est donnée par **l’équation de Friis** :
+
+$$
+P_r(d) = \frac{P_t G_t G_r \lambda^2}{(4 \pi d)^2 L}
+$$
+
+**Où :**
+- $P_r(d)$ : puissance reçue à une distance $d$
+- $P_t$ : puissance transmise
+- $G_t$, $G_r$ : gain des antennes émettrice et réceptrice
+- $\lambda$ : longueur d’onde ($\lambda = c / f$)
+- $L$ : pertes système (câbles, connecteurs...)
+- $d$ : distance entre émetteur et récepteur
+
+En dB, cela devient :
+
+$$
+P_r(dB) = P_t(dB) + G_t(dB) + G_r(dB) - 20\log_{10}(4\pi d / \lambda) - L(dB)
+$$
+
+## Modèles plus réalistes
+
+- **Modèle à deux trajets (sol) :** présence d'un trajet direct + un trajet réfléchi sur le sol.
+- **Modèle de diffraction (Ikegami, Walfisch-Bertoni)** : prise en compte de la géométrie urbaine.
+
+## Loi de décroissance de la puissance (modèle général)
+
+$$
+P_r(d) = P_0 \left(\frac{d_0}{d}\right)^n
+$$
+
+- $P_0$ : puissance à distance référence $d_0$
+- $n$ : coefficient d’affaiblissement (entre 2 et 5)
+
+---
+
+# Multiplexage et répartition des fréquences
+
+## Multiplexage Fréquentiel (FDMA)
+
+On divise le spectre en $N$ canaux :
+
+$$
+B_{total} = N \cdot B_{canal}
+$$
+
+Chaque utilisateur utilise un canal fixe.
+
+## Multiplexage Temporel (TDMA)
+
+Le temps est divisé en $C$ créneaux de durée $T$ :
+
+$$
+T_{total} = C \cdot T
+$$
+
+Chaque utilisateur communique à tour de rôle.
+
+## Combiné TDMA/FDMA
+
+Chaque canal fréquentiel est subdivisé en créneaux temporels, pour une meilleure utilisation du spectre.
+
+---
+
+# Optimisation du placement des antennes
+
+## Objectif de couverture
+
+Donnons un modèle mathématique :
+
+Soit $x_i$ les coordonnées des antennes à placer, $y_j$ les points à couvrir.
+
+- $P_{ij}$ : puissance reçue à $y_j$ depuis l’antenne $i$.
+- $\gamma$ : seuil minimum de puissance.
+
+**Contraintes :**
+
+$$
+P_{ij} \geq \gamma \quad \text{pour tous } j \,\Rightarrow \, y_j \,\text{est couvert}
+$$
+
+**Fonction objectif (par exemple) :**
+
+- Max. nombre de points couverts
+- Min. nombre d'antennes placées
+- Max. somme de puissances reçues (pondérées)
+
+## Modèles d'interférences
+
+Le rapport signal-bruit (SNR) :
+
+$$
+\text{SNR} = \frac{P_{signal}}{P_{bruit} + P_{interférences}}
+$$
+
+Une zone est jugée couverte si $\text{SNR} \geq \theta$ (seuil).
+
+---
+
+# Optimisation de l'assignation de fréquences
+
+On affecte à chaque antenne $i$ une fréquence $f_i \in \mathcal{F}$.
+
+Objectif : 
+
+$$
+\min \sum_{(i,j) \in \text{Paires}} I_{ij}(f_i, f_j)
+$$
+
+- $I_{ij}$ : fonction modélisant les interferences entre antennes $i$ et $j$.
+
+C’est un **problème combinatoire**, souvent traité par :
+
+- Algorithmes gloutons
+- Algorithmes génétiques
+- Recuit simulé (simulated annealing)
+- Programmation linéaire en nombres entiers (MILP)
+
+---
+
+# Optimisation conjointe (placement + fréquence)
+
+Fonction objectif conjointe :
+
+$$
+\min \Big[ \text{coût}_{placement} + \text{interférences} \Big]
+$$
+
+On doit déterminer simultanément :
+
+- Coordonnées $x_i$ des antennes
+- Fréquences $f_i$ associées
+
+Algorithmes utilisables :
+
+- Algorithmes évolutionnaires multi-objectifs
+- Algorithmes hybrides
+
+---
+
+# Implémentation R (idées)
+
+- Simuler une grille 10x10 avec `expand.grid()`
+- Calculer les distances et puissances avec `dist()` et la formule de Friis
+- Optimisation via `optim()`, `GA`, `GenSA`
+- Visualisation avec `ggplot2`, `leaflet`, `shiny`
+
+---
+
+# Conclusion
+
+Ce projet propose une modélisation rigoureuse du placement optimal des antennes, intégrant les principes physiques de propagation, les contraintes réseaux, et l’optimisation combinatoire. Il peut servir de base à une application Shiny interactive pour l’analyse territoriale au Sénégal.
