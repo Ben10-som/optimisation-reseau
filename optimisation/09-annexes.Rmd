@@ -1,0 +1,58 @@
+# Annexes {#annexes}
+
+## Détails techniques des modèles
+
+### Formules mathématiques complètes
+- Dérivations
+- Preuves
+- Cas particuliers
+
+### Paramètres et constantes
+- Valeurs numériques
+- Sources
+- Justifications
+
+## Codes R utilisés
+
+### Préparation des données
+```{r data-prep-code, echo=TRUE}
+# Code complet pour la préparation des données
+```
+
+### Optimisation
+```{r optimization-code, echo=TRUE}
+# Code complet pour l'optimisation
+```
+
+### Visualisation
+```{r visualization-code, echo=TRUE}
+# Code complet pour les visualisations
+```
+
+## Tableaux et figures supplémentaires
+
+### Données brutes
+- Tableaux de données
+- Statistiques descriptives
+- Analyses complémentaires
+
+### Visualisations additionnelles
+- Cartes détaillées
+- Graphiques d'analyse
+- Comparaisons
+
+## Sources de données
+
+### Données démographiques
+- ANSD
+- Autres sources officielles
+
+### Données géographiques
+- OpenStreetMap
+- Données satellitaires
+- Cartes topographiques
+
+### Données techniques
+- Spécifications des antennes
+- Coûts d'installation
+- Paramètres de propagation 

@@ -1,0 +1,14 @@
+knitr
+kableExtra
+ggplot2
+dplyr
+plotly
+leaflet
+DT
+tidyr
+sf
+ggrepel
+ompr
+ompr.roi
+ROI.plugin.glpk
+tmap

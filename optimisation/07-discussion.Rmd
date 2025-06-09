@@ -1,0 +1,52 @@
+# Discussion {#discussion}
+
+## Interprétation des résultats
+
+### Points forts
+- Avantages de la solution proposée
+- Améliorations par rapport à l'existant
+- Opportunités identifiées
+
+### Limites identifiées
+- Contraintes techniques
+- Limitations des données
+- Hypothèses simplificatrices
+
+### Comparaison avec la littérature
+- Approches similaires
+- Méthodologies alternatives
+- Résultats comparables
+
+## Implications pratiques
+
+### Pour les opérateurs
+- Stratégies d'implémentation
+- Coûts et bénéfices
+- Planning de déploiement
+
+### Pour les décideurs
+- Recommandations politiques
+- Cadre réglementaire
+- Incitations possibles
+
+### Pour les communautés
+- Impact social
+- Développement économique
+- Services améliorés
+
+## Perspectives d'amélioration
+
+### Aspects techniques
+- Raffinement du modèle
+- Intégration de nouvelles données
+- Optimisation des algorithmes
+
+### Aspects méthodologiques
+- Approches alternatives
+- Nouvelles contraintes
+- Métriques supplémentaires
+
+### Aspects opérationnels
+- Gestion du déploiement
+- Maintenance et suivi
+- Évolution du réseau 

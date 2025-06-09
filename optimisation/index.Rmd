@@ -5,118 +5,50 @@ author: "Étudiant ISE - Cours d'Optimisation et Convexité"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography:
+  - book.bib
+  - packages.bib
 biblio-style: apalike
-link-citations: yes
+link-citations: true
 description: "Projet innovant d'optimisation du placement des antennes de télécommunication au Sénégal utilisant un algorithme hybride GSAGC (Genetic-Simulated Annealing with Geographic Clustering)."
-cover-image: "images/cover.png"
+output:
+  bookdown::gitbook:
+    config:
+      toc:
+        collapse: section
+        scroll_highlight: true
+    lib_dir: libs
+    self_contained: false
+    split_by: chapter
+    download: ["R", "data"]
+  bookdown::pdf_book:
+    toc_depth: 3
+    number_sections: true
+    fig_caption: true
+    latex_engine: xelatex
+  bookdown::epub_book:
+    toc_depth: 3
+    number_sections: true
+    fig_caption: true
+    epub_dependencies:
+      - "images/cover.png"
+  bookdown::html_document2:
+    toc_depth: 3
+    number_sections: true
+    fig_caption: true
+    self_contained: false
+    lib_dir: libs
+    download: ["R", "data"]
+    config:
+      toc:
+        collapse: section
+        scroll_highlight: true
+    mathjax: "local"
+    df_print: paged
+    code_folding: hide
+    code_download: true
+    code_download_path: "R"
+    code_download_name: "code.R"
+    css: styles.css
 ---
 
-# Préface {-}
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  comment = "#>",
-  collapse = TRUE,
-  cache = TRUE,
-  out.width = "70%",
-  fig.align = 'center',
-  fig.width = 6,
-  fig.asp = 0.618,
-  fig.show = "hold"
-)
-
-# Chargement des packages nécessaires
-library(knitr)
-library(kableExtra)
-library(ggplot2)
-library(dplyr)
-library(plotly)
-library(leaflet)
-library(DT)
-```
-
-## Résumé Exécutif {-}
-
-Ce projet présente une **approche innovante** pour l'optimisation du placement des antennes de télécommunication au Sénégal, en développant un algorithme hybride inédit appelé **GSAGC** (*Genetic-Simulated Annealing with Geographic Clustering*).
-
-### 🎯 Objectifs Principaux {-}
-
-- **Maximiser la couverture réseau** dans les zones urbaines (≥95%) et rurales (≥85%)
-- **Minimiser les coûts d'infrastructure** en tenant compte du budget de 50M FCFA
-- **Optimiser la qualité de service** avec intégration des technologies 4G/5G
-- **Intégrer les contraintes géoclimatiques** spécifiques au Sénégal
-
-### 🚀 Innovation Technologique {-}
-
-L'algorithme **GSAGC** combine trois approches complémentaires :
-
-1. **Algorithmes Génétiques** pour l'exploration globale de l'espace de solutions
-2. **Recuit Simulé** pour l'optimisation locale et l'évitement des optima locaux  
-3. **Clustering Géographique** pour la décomposition intelligente du problème
-
-### 🌍 Impact Sociétal {-}
-
-Ce projet vise à :
-- **Réduire la fracture numérique** entre zones urbaines et rurales
-- **Améliorer l'accès aux technologies** de communication modernes
-- **Stimuler le développement économique** par une meilleure connectivité
-- **Créer un modèle reproductible** pour d'autres pays de l'UEMOA
-
-### 📊 Résultats Attendus {-}
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-# Tableau des métriques cibles
-metriques_cibles <- data.frame(
-  Indicateur = c("Couverture Population Urbaine", "Couverture Population Rurale", 
-                 "Budget Utilisé", "Nombre d'Antennes", "ROI Social"),
-  Cible = c("≥ 95%", "≥ 85%", "≤ 50M FCFA", "Optimal", "Maximal"),
-  Impact = c("Très Élevé", "Élevé", "Contrôlé", "Optimisé", "Significatif")
-)
-
-kable(metriques_cibles, 
-      caption = "Indicateurs de Performance Cibles du Projet",
-      booktabs = TRUE) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
-```
-
-# Optimisation du placement des antennes
-# Optimisation de la distribution des fréquences
----
-
-# superficie
-# installation des antennnes des autres opérateurs
-# densité de la population
-
-## Structure du Document {-}
-
-Ce livre est organisé en **8 chapitres principaux** :
-
-1. **Introduction** - Contexte et problématique
-2. **État de l'Art** - Revue littérature et méthodes existantes  
-3. **Méthodologie** - Approche générale et modélisation
-4. **Algorithme GSAGC** - Cœur technique de l'innovation
-5. **Implémentation** - Détails techniques et développement R
-6. **Résultats** - Analyses et évaluations de performance
-7. **Discussion** - Interprétation et limites
-8. **Conclusion** - Synthèse et perspectives
-
----
-
-## Remerciements {-}
-
-Ce projet a été réalisé dans le cadre du cours **"Optimisation et Convexité"** à l'**Institut Supérieur d'Économie (ISE)**. 
-
-Remerciements particuliers :
-- À l'équipe pédagogique pour l'encadrement scientifique
-- Aux opérateurs télécoms sénégalais pour les données sectorielles
-- À la communauté R pour les outils open-source exceptionnels
-
----
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'ggplot2', 'dplyr', 'GA'
-), 'packages.bib')
-``` 

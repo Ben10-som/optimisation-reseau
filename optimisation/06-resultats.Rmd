@@ -1,0 +1,59 @@
+# Résultats et visualisations {#resultats}
+
+## Résultats numériques
+
+### Configuration optimale
+- Nombre d'antennes
+- Localisation
+- Types d'antennes
+
+### Coûts estimés
+- Coûts d'installation
+- Coûts d'exploitation
+- Retour sur investissement
+
+### Couverture réseau
+- Pourcentage de couverture
+- Zones prioritaires
+- Gaps de couverture
+
+## Visualisations
+
+### Cartes de placement
+```{r placement-maps, echo=TRUE}
+# Code pour les cartes de placement des antennes
+```
+
+### Analyse comparative
+```{r comparative-analysis, echo=TRUE}
+# Code pour l'analyse comparative
+```
+
+### Indicateurs de performance
+```{r performance-metrics, echo=TRUE}
+# Code pour les indicateurs de performance
+```
+
+## Analyse de sensibilité
+
+### Variation des paramètres
+- Portée des antennes
+- Budget disponible
+- Contraintes techniques
+
+### Scénarios alternatifs
+- Solutions de repli
+- Optimisations partielles
+- Extensions futures
+
+## Validation des résultats
+
+### Comparaison avec l'existant
+- Implantations actuelles
+- Performances comparées
+- Améliorations apportées
+
+### Tests de robustesse
+- Stabilité des solutions
+- Sensibilité aux données
+- Fiabilité des résultats 

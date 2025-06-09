@@ -1,0 +1,42 @@
+# Bibliographie {#bibliographie}
+
+## Références académiques
+
+### Optimisation et recherche opérationnelle
+- Méthodes d'optimisation
+- Algorithmes
+- Applications
+
+### Réseaux et télécommunications
+- Architecture des réseaux
+- Propagation des ondes
+- Planification de réseaux
+
+### Analyse spatiale
+- Méthodes géostatistiques
+- SIG
+- Cartographie
+
+## Documents officiels
+
+### Rapports et études
+- ANSD
+- ARTP
+- Autres institutions
+
+### Normes et réglementations
+- Standards techniques
+- Cadres réglementaires
+- Directives
+
+## Ressources en ligne
+
+### Bases de données
+- Portails de données
+- Repositories
+- APIs
+
+### Documentation technique
+- Manuels
+- Guides
+- Tutoriels 

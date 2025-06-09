@@ -1,0 +1,44 @@
+# Contexte géographique et socio-économique {#contexte}
+
+## Présentation des régions
+
+### Tambacounda
+- Population et densité
+- Caractéristiques géographiques
+- Besoins en connectivité
+
+### Kédougou
+- Population et densité
+- Caractéristiques géographiques
+- Besoins en connectivité
+
+### Matam
+- Population et densité
+- Caractéristiques géographiques
+- Besoins en connectivité
+
+## Analyse socio-économique
+
+### Données démographiques
+- Évolution de la population
+- Distribution spatiale
+- Indicateurs socio-économiques
+
+### Besoins en connectivité
+- Accès aux services numériques
+- Développement économique
+- Services publics
+
+## Cartographie des zones d'étude
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(sf)
+library(tmap)
+library(leaflet)
+```
+
+### Visualisation des données spatiales
+- Carte des régions
+- Densité de population
+- Zones de couverture actuelle 

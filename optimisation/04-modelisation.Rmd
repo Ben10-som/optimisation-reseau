@@ -1,0 +1,52 @@
+# Modélisation mathématique {#modelisation}
+
+## Définition du problème
+
+### Variables de décision
+- Localisation des antennes
+- Types d'antennes
+- Puissance d'émission
+
+### Fonction objectif
+- Minimisation des coûts
+- Maximisation de la couverture
+- Optimisation multi-objectif
+
+### Contraintes
+- Budgétaires
+- Géographiques
+- Techniques
+
+## Formulation mathématique
+
+### Structure du modèle
+```{r model-structure, echo=FALSE}
+# Code R pour illustrer la structure du modèle
+```
+
+### Justification de la convexité
+- Propriétés des fonctions
+- Conditions de convexité
+- Implications pour la résolution
+
+### Analyse de complexité
+- Taille du problème
+- Difficulté de résolution
+- Approches de simplification
+
+## Implémentation
+
+### Préparation des données
+```{r data-prep, echo=TRUE}
+# Code R pour la préparation des données
+```
+
+### Résolution numérique
+```{r numerical-solution, echo=TRUE}
+# Code R pour la résolution
+```
+
+### Validation du modèle
+- Tests de cohérence
+- Sensibilité aux paramètres
+- Robustesse des solutions 

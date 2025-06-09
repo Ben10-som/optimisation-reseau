@@ -1,0 +1,47 @@
+# Cadre théorique {#cadre-theorique}
+
+## Concepts de base en optimisation
+
+### Optimisation convexe
+- Définition et propriétés
+- Conditions d'optimalité
+- Applications aux problèmes de couverture réseau
+
+### Programmation linéaire et quadratique
+- Formulation standard
+- Méthodes de résolution
+- Cas d'application
+
+### Notions fondamentales
+- Couverture réseau
+- Distance et portée
+- Coûts d'installation et d'exploitation
+
+## Modélisation de la couverture réseau
+
+### Caractéristiques des antennes
+- Types d'antennes
+- Portée effective
+- Facteurs d'atténuation
+
+### Contraintes physiques et géographiques
+- Topographie
+- Obstacles naturels
+- Zones d'exclusion
+
+### Modèles de propagation
+- Modèles théoriques
+- Facteurs environnementaux
+- Incertitudes et variabilités
+
+## État de l'art
+
+### Approches existantes
+- Méthodes exactes
+- Heuristiques
+- Métaheuristiques
+
+### Applications similaires
+- Cas d'études
+- Résultats comparatifs
+- Leçons apprises 

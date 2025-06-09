@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 10 Annexes | Optimisation du Placement des Antennes au Sénégal</title>
+  <meta name="description" content="Projet innovant d’optimisation du placement des antennes de télécommunication au Sénégal utilisant un algorithme hybride GSAGC (Genetic-Simulated Annealing with Geographic Clustering)." />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 10 Annexes | Optimisation du Placement des Antennes au Sénégal" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Projet innovant d’optimisation du placement des antennes de télécommunication au Sénégal utilisant un algorithme hybride GSAGC (Genetic-Simulated Annealing with Geographic Clustering)." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 10 Annexes | Optimisation du Placement des Antennes au Sénégal" />
+  
+  <meta name="twitter:description" content="Projet innovant d’optimisation du placement des antennes de télécommunication au Sénégal utilisant un algorithme hybride GSAGC (Genetic-Simulated Annealing with Geographic Clustering)." />
+  
+
+<meta name="author" content="Étudiant ISE - Cours d’Optimisation et Convexité" />
+
+
+<meta name="date" content="2025-06-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="conclusion.html"/>
+<link rel="next" href="bibliographie.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Optimisation Antennes Sénégal</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Résumé</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#contexte-et-problématique"><i class="fa fa-check"></i><b>2.1</b> Contexte et Problématique</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introduction.html"><a href="introduction.html#enjeux-nationaux"><i class="fa fa-check"></i><b>2.1.1</b> 🌍 Enjeux Nationaux</a></li>
+<li class="chapter" data-level="2.1.2" data-path="introduction.html"><a href="introduction.html#opportunités-de-développement"><i class="fa fa-check"></i><b>2.1.2</b> 📈 Opportunités de Développement</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#objectifs-du-projet"><i class="fa fa-check"></i><b>2.2</b> Objectifs du Projet</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#objectif-principal"><i class="fa fa-check"></i><b>2.2.1</b> 🎯 Objectif Principal</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction.html"><a href="introduction.html#objectifs-spécifiques"><i class="fa fa-check"></i><b>2.2.2</b> 🎯 Objectifs Spécifiques</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction.html"><a href="introduction.html#innovation-proposée"><i class="fa fa-check"></i><b>2.2.3</b> 💡 Innovation Proposée</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#contribution-et-originalité"><i class="fa fa-check"></i><b>2.3</b> Contribution et Originalité</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction.html"><a href="introduction.html#apports-scientifiques"><i class="fa fa-check"></i><b>2.3.1</b> 🔬 Apports Scientifiques</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction.html"><a href="introduction.html#éléments-différenciateurs"><i class="fa fa-check"></i><b>2.3.2</b> 🌟 Éléments Différenciateurs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#plan-du-document"><i class="fa fa-check"></i><b>2.4</b> Plan du Document</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introduction.html"><a href="introduction.html#architecture-du-livre"><i class="fa fa-check"></i><b>2.4.1</b> 📚 Architecture du Livre</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="contexte.html"><a href="contexte.html"><i class="fa fa-check"></i><b>3</b> Contexte géographique et socio-économique</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="contexte.html"><a href="contexte.html#présentation-des-régions"><i class="fa fa-check"></i><b>3.1</b> Présentation des régions</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="contexte.html"><a href="contexte.html#tambacounda"><i class="fa fa-check"></i><b>3.1.1</b> Tambacounda</a></li>
+<li class="chapter" data-level="3.1.2" data-path="contexte.html"><a href="contexte.html#kédougou"><i class="fa fa-check"></i><b>3.1.2</b> Kédougou</a></li>
+<li class="chapter" data-level="3.1.3" data-path="contexte.html"><a href="contexte.html#matam"><i class="fa fa-check"></i><b>3.1.3</b> Matam</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="contexte.html"><a href="contexte.html#analyse-socio-économique"><i class="fa fa-check"></i><b>3.2</b> Analyse socio-économique</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="contexte.html"><a href="contexte.html#données-démographiques"><i class="fa fa-check"></i><b>3.2.1</b> Données démographiques</a></li>
+<li class="chapter" data-level="3.2.2" data-path="contexte.html"><a href="contexte.html#besoins-en-connectivité"><i class="fa fa-check"></i><b>3.2.2</b> Besoins en connectivité</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="contexte.html"><a href="contexte.html#cartographie-des-zones-détude"><i class="fa fa-check"></i><b>3.3</b> Cartographie des zones d’étude</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="contexte.html"><a href="contexte.html#visualisation-des-données-spatiales"><i class="fa fa-check"></i><b>3.3.1</b> Visualisation des données spatiales</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cadre-theorique.html"><a href="cadre-theorique.html"><i class="fa fa-check"></i><b>4</b> Cadre théorique</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#concepts-de-base-en-optimisation"><i class="fa fa-check"></i><b>4.1</b> Concepts de base en optimisation</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#optimisation-convexe"><i class="fa fa-check"></i><b>4.1.1</b> Optimisation convexe</a></li>
+<li class="chapter" data-level="4.1.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#programmation-linéaire-et-quadratique"><i class="fa fa-check"></i><b>4.1.2</b> Programmation linéaire et quadratique</a></li>
+<li class="chapter" data-level="4.1.3" data-path="cadre-theorique.html"><a href="cadre-theorique.html#notions-fondamentales"><i class="fa fa-check"></i><b>4.1.3</b> Notions fondamentales</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#modélisation-de-la-couverture-réseau"><i class="fa fa-check"></i><b>4.2</b> Modélisation de la couverture réseau</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#caractéristiques-des-antennes"><i class="fa fa-check"></i><b>4.2.1</b> Caractéristiques des antennes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#contraintes-physiques-et-géographiques"><i class="fa fa-check"></i><b>4.2.2</b> Contraintes physiques et géographiques</a></li>
+<li class="chapter" data-level="4.2.3" data-path="cadre-theorique.html"><a href="cadre-theorique.html#modèles-de-propagation"><i class="fa fa-check"></i><b>4.2.3</b> Modèles de propagation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cadre-theorique.html"><a href="cadre-theorique.html#état-de-lart"><i class="fa fa-check"></i><b>4.3</b> État de l’art</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#approches-existantes"><i class="fa fa-check"></i><b>4.3.1</b> Approches existantes</a></li>
+<li class="chapter" data-level="4.3.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#applications-similaires"><i class="fa fa-check"></i><b>4.3.2</b> Applications similaires</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="modelisation.html"><a href="modelisation.html"><i class="fa fa-check"></i><b>5</b> Modélisation mathématique</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="modelisation.html"><a href="modelisation.html#définition-du-problème"><i class="fa fa-check"></i><b>5.1</b> Définition du problème</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="modelisation.html"><a href="modelisation.html#variables-de-décision"><i class="fa fa-check"></i><b>5.1.1</b> Variables de décision</a></li>
+<li class="chapter" data-level="5.1.2" data-path="modelisation.html"><a href="modelisation.html#fonction-objectif"><i class="fa fa-check"></i><b>5.1.2</b> Fonction objectif</a></li>
+<li class="chapter" data-level="5.1.3" data-path="modelisation.html"><a href="modelisation.html#contraintes"><i class="fa fa-check"></i><b>5.1.3</b> Contraintes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelisation.html"><a href="modelisation.html#formulation-mathématique"><i class="fa fa-check"></i><b>5.2</b> Formulation mathématique</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="modelisation.html"><a href="modelisation.html#structure-du-modèle"><i class="fa fa-check"></i><b>5.2.1</b> Structure du modèle</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelisation.html"><a href="modelisation.html#justification-de-la-convexité"><i class="fa fa-check"></i><b>5.2.2</b> Justification de la convexité</a></li>
+<li class="chapter" data-level="5.2.3" data-path="modelisation.html"><a href="modelisation.html#analyse-de-complexité"><i class="fa fa-check"></i><b>5.2.3</b> Analyse de complexité</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="modelisation.html"><a href="modelisation.html#implémentation"><i class="fa fa-check"></i><b>5.3</b> Implémentation</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="modelisation.html"><a href="modelisation.html#préparation-des-données"><i class="fa fa-check"></i><b>5.3.1</b> Préparation des données</a></li>
+<li class="chapter" data-level="5.3.2" data-path="modelisation.html"><a href="modelisation.html#résolution-numérique"><i class="fa fa-check"></i><b>5.3.2</b> Résolution numérique</a></li>
+<li class="chapter" data-level="5.3.3" data-path="modelisation.html"><a href="modelisation.html#validation-du-modèle"><i class="fa fa-check"></i><b>5.3.3</b> Validation du modèle</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="methodologie.html"><a href="methodologie.html"><i class="fa fa-check"></i><b>6</b> Données et méthodologie</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="methodologie.html"><a href="methodologie.html#sources-de-données"><i class="fa fa-check"></i><b>6.1</b> Sources de données</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="methodologie.html"><a href="methodologie.html#données-démographiques-1"><i class="fa fa-check"></i><b>6.1.1</b> Données démographiques</a></li>
+<li class="chapter" data-level="6.1.2" data-path="methodologie.html"><a href="methodologie.html#données-géographiques"><i class="fa fa-check"></i><b>6.1.2</b> Données géographiques</a></li>
+<li class="chapter" data-level="6.1.3" data-path="methodologie.html"><a href="methodologie.html#données-techniques"><i class="fa fa-check"></i><b>6.1.3</b> Données techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="methodologie.html"><a href="methodologie.html#préparation-des-données-1"><i class="fa fa-check"></i><b>6.2</b> Préparation des données</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="methodologie.html"><a href="methodologie.html#nettoyage"><i class="fa fa-check"></i><b>6.2.1</b> Nettoyage</a></li>
+<li class="chapter" data-level="6.2.2" data-path="methodologie.html"><a href="methodologie.html#transformation"><i class="fa fa-check"></i><b>6.2.2</b> Transformation</a></li>
+<li class="chapter" data-level="6.2.3" data-path="methodologie.html"><a href="methodologie.html#intégration"><i class="fa fa-check"></i><b>6.2.3</b> Intégration</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="methodologie.html"><a href="methodologie.html#méthodologie-de-résolution"><i class="fa fa-check"></i><b>6.3</b> Méthodologie de résolution</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="methodologie.html"><a href="methodologie.html#algorithmes-doptimisation"><i class="fa fa-check"></i><b>6.3.1</b> Algorithmes d’optimisation</a></li>
+<li class="chapter" data-level="6.3.2" data-path="methodologie.html"><a href="methodologie.html#outils-et-langages"><i class="fa fa-check"></i><b>6.3.2</b> Outils et langages</a></li>
+<li class="chapter" data-level="6.3.3" data-path="methodologie.html"><a href="methodologie.html#validation"><i class="fa fa-check"></i><b>6.3.3</b> Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="methodologie.html"><a href="methodologie.html#implémentation-1"><i class="fa fa-check"></i><b>6.4</b> Implémentation</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="methodologie.html"><a href="methodologie.html#architecture-du-système"><i class="fa fa-check"></i><b>6.4.1</b> Architecture du système</a></li>
+<li class="chapter" data-level="6.4.2" data-path="methodologie.html"><a href="methodologie.html#performance"><i class="fa fa-check"></i><b>6.4.2</b> Performance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="resultats.html"><a href="resultats.html"><i class="fa fa-check"></i><b>7</b> Résultats et visualisations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="resultats.html"><a href="resultats.html#résultats-numériques"><i class="fa fa-check"></i><b>7.1</b> Résultats numériques</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="resultats.html"><a href="resultats.html#configuration-optimale"><i class="fa fa-check"></i><b>7.1.1</b> Configuration optimale</a></li>
+<li class="chapter" data-level="7.1.2" data-path="resultats.html"><a href="resultats.html#coûts-estimés"><i class="fa fa-check"></i><b>7.1.2</b> Coûts estimés</a></li>
+<li class="chapter" data-level="7.1.3" data-path="resultats.html"><a href="resultats.html#couverture-réseau"><i class="fa fa-check"></i><b>7.1.3</b> Couverture réseau</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="resultats.html"><a href="resultats.html#visualisations"><i class="fa fa-check"></i><b>7.2</b> Visualisations</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="resultats.html"><a href="resultats.html#cartes-de-placement"><i class="fa fa-check"></i><b>7.2.1</b> Cartes de placement</a></li>
+<li class="chapter" data-level="7.2.2" data-path="resultats.html"><a href="resultats.html#analyse-comparative"><i class="fa fa-check"></i><b>7.2.2</b> Analyse comparative</a></li>
+<li class="chapter" data-level="7.2.3" data-path="resultats.html"><a href="resultats.html#indicateurs-de-performance"><i class="fa fa-check"></i><b>7.2.3</b> Indicateurs de performance</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="resultats.html"><a href="resultats.html#analyse-de-sensibilité"><i class="fa fa-check"></i><b>7.3</b> Analyse de sensibilité</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="resultats.html"><a href="resultats.html#variation-des-paramètres"><i class="fa fa-check"></i><b>7.3.1</b> Variation des paramètres</a></li>
+<li class="chapter" data-level="7.3.2" data-path="resultats.html"><a href="resultats.html#scénarios-alternatifs"><i class="fa fa-check"></i><b>7.3.2</b> Scénarios alternatifs</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="resultats.html"><a href="resultats.html#validation-des-résultats"><i class="fa fa-check"></i><b>7.4</b> Validation des résultats</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="resultats.html"><a href="resultats.html#comparaison-avec-lexistant"><i class="fa fa-check"></i><b>7.4.1</b> Comparaison avec l’existant</a></li>
+<li class="chapter" data-level="7.4.2" data-path="resultats.html"><a href="resultats.html#tests-de-robustesse"><i class="fa fa-check"></i><b>7.4.2</b> Tests de robustesse</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>8</b> Discussion</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="discussion.html"><a href="discussion.html#interprétation-des-résultats"><i class="fa fa-check"></i><b>8.1</b> Interprétation des résultats</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="discussion.html"><a href="discussion.html#points-forts"><i class="fa fa-check"></i><b>8.1.1</b> Points forts</a></li>
+<li class="chapter" data-level="8.1.2" data-path="discussion.html"><a href="discussion.html#limites-identifiées"><i class="fa fa-check"></i><b>8.1.2</b> Limites identifiées</a></li>
+<li class="chapter" data-level="8.1.3" data-path="discussion.html"><a href="discussion.html#comparaison-avec-la-littérature"><i class="fa fa-check"></i><b>8.1.3</b> Comparaison avec la littérature</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="discussion.html"><a href="discussion.html#implications-pratiques"><i class="fa fa-check"></i><b>8.2</b> Implications pratiques</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="discussion.html"><a href="discussion.html#pour-les-opérateurs"><i class="fa fa-check"></i><b>8.2.1</b> Pour les opérateurs</a></li>
+<li class="chapter" data-level="8.2.2" data-path="discussion.html"><a href="discussion.html#pour-les-décideurs"><i class="fa fa-check"></i><b>8.2.2</b> Pour les décideurs</a></li>
+<li class="chapter" data-level="8.2.3" data-path="discussion.html"><a href="discussion.html#pour-les-communautés"><i class="fa fa-check"></i><b>8.2.3</b> Pour les communautés</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="discussion.html"><a href="discussion.html#perspectives-damélioration"><i class="fa fa-check"></i><b>8.3</b> Perspectives d’amélioration</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="discussion.html"><a href="discussion.html#aspects-techniques"><i class="fa fa-check"></i><b>8.3.1</b> Aspects techniques</a></li>
+<li class="chapter" data-level="8.3.2" data-path="discussion.html"><a href="discussion.html#aspects-méthodologiques"><i class="fa fa-check"></i><b>8.3.2</b> Aspects méthodologiques</a></li>
+<li class="chapter" data-level="8.3.3" data-path="discussion.html"><a href="discussion.html#aspects-opérationnels"><i class="fa fa-check"></i><b>8.3.3</b> Aspects opérationnels</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> Conclusion et perspectives</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="conclusion.html"><a href="conclusion.html#synthèse-des-résultats"><i class="fa fa-check"></i><b>9.1</b> Synthèse des résultats</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="conclusion.html"><a href="conclusion.html#objectifs-atteints"><i class="fa fa-check"></i><b>9.1.1</b> Objectifs atteints</a></li>
+<li class="chapter" data-level="9.1.2" data-path="conclusion.html"><a href="conclusion.html#contributions-principales"><i class="fa fa-check"></i><b>9.1.2</b> Contributions principales</a></li>
+<li class="chapter" data-level="9.1.3" data-path="conclusion.html"><a href="conclusion.html#limites-et-contraintes"><i class="fa fa-check"></i><b>9.1.3</b> Limites et contraintes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="conclusion.html"><a href="conclusion.html#recommandations"><i class="fa fa-check"></i><b>9.2</b> Recommandations</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="conclusion.html"><a href="conclusion.html#pour-limplémentation"><i class="fa fa-check"></i><b>9.2.1</b> Pour l’implémentation</a></li>
+<li class="chapter" data-level="9.2.2" data-path="conclusion.html"><a href="conclusion.html#pour-le-suivi"><i class="fa fa-check"></i><b>9.2.2</b> Pour le suivi</a></li>
+<li class="chapter" data-level="9.2.3" data-path="conclusion.html"><a href="conclusion.html#pour-le-développement"><i class="fa fa-check"></i><b>9.2.3</b> Pour le développement</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="conclusion.html"><a href="conclusion.html#perspectives"><i class="fa fa-check"></i><b>9.3</b> Perspectives</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="conclusion.html"><a href="conclusion.html#évolutions-techniques"><i class="fa fa-check"></i><b>9.3.1</b> Évolutions techniques</a></li>
+<li class="chapter" data-level="9.3.2" data-path="conclusion.html"><a href="conclusion.html#développements-méthodologiques"><i class="fa fa-check"></i><b>9.3.2</b> Développements méthodologiques</a></li>
+<li class="chapter" data-level="9.3.3" data-path="conclusion.html"><a href="conclusion.html#impacts-à-long-terme"><i class="fa fa-check"></i><b>9.3.3</b> Impacts à long terme</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="annexes.html"><a href="annexes.html"><i class="fa fa-check"></i><b>10</b> Annexes</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="annexes.html"><a href="annexes.html#détails-techniques-des-modèles"><i class="fa fa-check"></i><b>10.1</b> Détails techniques des modèles</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="annexes.html"><a href="annexes.html#formules-mathématiques-complètes"><i class="fa fa-check"></i><b>10.1.1</b> Formules mathématiques complètes</a></li>
+<li class="chapter" data-level="10.1.2" data-path="annexes.html"><a href="annexes.html#paramètres-et-constantes"><i class="fa fa-check"></i><b>10.1.2</b> Paramètres et constantes</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="annexes.html"><a href="annexes.html#codes-r-utilisés"><i class="fa fa-check"></i><b>10.2</b> Codes R utilisés</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="annexes.html"><a href="annexes.html#préparation-des-données-2"><i class="fa fa-check"></i><b>10.2.1</b> Préparation des données</a></li>
+<li class="chapter" data-level="10.2.2" data-path="annexes.html"><a href="annexes.html#optimisation"><i class="fa fa-check"></i><b>10.2.2</b> Optimisation</a></li>
+<li class="chapter" data-level="10.2.3" data-path="annexes.html"><a href="annexes.html#visualisation"><i class="fa fa-check"></i><b>10.2.3</b> Visualisation</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="annexes.html"><a href="annexes.html#tableaux-et-figures-supplémentaires"><i class="fa fa-check"></i><b>10.3</b> Tableaux et figures supplémentaires</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="annexes.html"><a href="annexes.html#données-brutes"><i class="fa fa-check"></i><b>10.3.1</b> Données brutes</a></li>
+<li class="chapter" data-level="10.3.2" data-path="annexes.html"><a href="annexes.html#visualisations-additionnelles"><i class="fa fa-check"></i><b>10.3.2</b> Visualisations additionnelles</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="annexes.html"><a href="annexes.html#sources-de-données-1"><i class="fa fa-check"></i><b>10.4</b> Sources de données</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="annexes.html"><a href="annexes.html#données-démographiques-2"><i class="fa fa-check"></i><b>10.4.1</b> Données démographiques</a></li>
+<li class="chapter" data-level="10.4.2" data-path="annexes.html"><a href="annexes.html#données-géographiques-1"><i class="fa fa-check"></i><b>10.4.2</b> Données géographiques</a></li>
+<li class="chapter" data-level="10.4.3" data-path="annexes.html"><a href="annexes.html#données-techniques-1"><i class="fa fa-check"></i><b>10.4.3</b> Données techniques</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="bibliographie.html"><a href="bibliographie.html"><i class="fa fa-check"></i><b>11</b> Bibliographie</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="bibliographie.html"><a href="bibliographie.html#références-académiques"><i class="fa fa-check"></i><b>11.1</b> Références académiques</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="bibliographie.html"><a href="bibliographie.html#optimisation-et-recherche-opérationnelle"><i class="fa fa-check"></i><b>11.1.1</b> Optimisation et recherche opérationnelle</a></li>
+<li class="chapter" data-level="11.1.2" data-path="bibliographie.html"><a href="bibliographie.html#réseaux-et-télécommunications"><i class="fa fa-check"></i><b>11.1.2</b> Réseaux et télécommunications</a></li>
+<li class="chapter" data-level="11.1.3" data-path="bibliographie.html"><a href="bibliographie.html#analyse-spatiale"><i class="fa fa-check"></i><b>11.1.3</b> Analyse spatiale</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="bibliographie.html"><a href="bibliographie.html#documents-officiels"><i class="fa fa-check"></i><b>11.2</b> Documents officiels</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="bibliographie.html"><a href="bibliographie.html#rapports-et-études"><i class="fa fa-check"></i><b>11.2.1</b> Rapports et études</a></li>
+<li class="chapter" data-level="11.2.2" data-path="bibliographie.html"><a href="bibliographie.html#normes-et-réglementations"><i class="fa fa-check"></i><b>11.2.2</b> Normes et réglementations</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="bibliographie.html"><a href="bibliographie.html#ressources-en-ligne"><i class="fa fa-check"></i><b>11.3</b> Ressources en ligne</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="bibliographie.html"><a href="bibliographie.html#bases-de-données"><i class="fa fa-check"></i><b>11.3.1</b> Bases de données</a></li>
+<li class="chapter" data-level="11.3.2" data-path="bibliographie.html"><a href="bibliographie.html#documentation-technique"><i class="fa fa-check"></i><b>11.3.2</b> Documentation technique</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Optimisation du Placement des Antennes au Sénégal</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="annexes" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapitre 10</span> Annexes<a href="annexes.html#annexes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="détails-techniques-des-modèles" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Détails techniques des modèles<a href="annexes.html#détails-techniques-des-modèles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="formules-mathématiques-complètes" class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Formules mathématiques complètes<a href="annexes.html#formules-mathématiques-complètes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Dérivations</li>
+<li>Preuves</li>
+<li>Cas particuliers</li>
+</ul>
+</div>
+<div id="paramètres-et-constantes" class="section level3 hasAnchor" number="10.1.2">
+<h3><span class="header-section-number">10.1.2</span> Paramètres et constantes<a href="annexes.html#paramètres-et-constantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Valeurs numériques</li>
+<li>Sources</li>
+<li>Justifications</li>
+</ul>
+</div>
+</div>
+<div id="codes-r-utilisés" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Codes R utilisés<a href="annexes.html#codes-r-utilisés" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="préparation-des-données-2" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Préparation des données<a href="annexes.html#préparation-des-données-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="annexes.html#cb9-1" tabindex="-1"></a><span class="co"># Code complet pour la préparation des données</span></span></code></pre></div>
+</div>
+<div id="optimisation" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Optimisation<a href="annexes.html#optimisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="annexes.html#cb10-1" tabindex="-1"></a><span class="co"># Code complet pour l&#39;optimisation</span></span></code></pre></div>
+</div>
+<div id="visualisation" class="section level3 hasAnchor" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Visualisation<a href="annexes.html#visualisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="annexes.html#cb11-1" tabindex="-1"></a><span class="co"># Code complet pour les visualisations</span></span></code></pre></div>
+</div>
+</div>
+<div id="tableaux-et-figures-supplémentaires" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Tableaux et figures supplémentaires<a href="annexes.html#tableaux-et-figures-supplémentaires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="données-brutes" class="section level3 hasAnchor" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> Données brutes<a href="annexes.html#données-brutes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Tableaux de données</li>
+<li>Statistiques descriptives</li>
+<li>Analyses complémentaires</li>
+</ul>
+</div>
+<div id="visualisations-additionnelles" class="section level3 hasAnchor" number="10.3.2">
+<h3><span class="header-section-number">10.3.2</span> Visualisations additionnelles<a href="annexes.html#visualisations-additionnelles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Cartes détaillées</li>
+<li>Graphiques d’analyse</li>
+<li>Comparaisons</li>
+</ul>
+</div>
+</div>
+<div id="sources-de-données-1" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Sources de données<a href="annexes.html#sources-de-données-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="données-démographiques-2" class="section level3 hasAnchor" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> Données démographiques<a href="annexes.html#données-démographiques-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>ANSD</li>
+<li>Autres sources officielles</li>
+</ul>
+</div>
+<div id="données-géographiques-1" class="section level3 hasAnchor" number="10.4.2">
+<h3><span class="header-section-number">10.4.2</span> Données géographiques<a href="annexes.html#données-géographiques-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>OpenStreetMap</li>
+<li>Données satellitaires</li>
+<li>Cartes topographiques</li>
+</ul>
+</div>
+<div id="données-techniques-1" class="section level3 hasAnchor" number="10.4.3">
+<h3><span class="header-section-number">10.4.3</span> Données techniques<a href="annexes.html#données-techniques-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Spécifications des antennes</li>
+<li>Coûts d’installation</li>
+<li>Paramètres de propagation</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="conclusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliographie.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/main/09-annexes.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["optimisation_antennes_senegal.pdf", "optimisation_antennes_senegal.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

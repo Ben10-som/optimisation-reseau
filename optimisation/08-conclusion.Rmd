@@ -1,0 +1,52 @@
+# Conclusion et perspectives {#conclusion}
+
+## Synthèse des résultats
+
+### Objectifs atteints
+- Couverture réseau optimisée
+- Coûts minimisés
+- Solutions pratiques
+
+### Contributions principales
+- Méthodologie innovante
+- Outils développés
+- Résultats obtenus
+
+### Limites et contraintes
+- Hypothèses du modèle
+- Données disponibles
+- Aspects techniques
+
+## Recommandations
+
+### Pour l'implémentation
+- Phases de déploiement
+- Ressources nécessaires
+- Planning suggéré
+
+### Pour le suivi
+- Indicateurs de performance
+- Mécanismes de contrôle
+- Ajustements possibles
+
+### Pour le développement
+- Évolutions futures
+- Extensions possibles
+- Maintenance
+
+## Perspectives
+
+### Évolutions techniques
+- Nouvelles technologies
+- Intégration de données temps réel
+- Optimisation continue
+
+### Développements méthodologiques
+- Modèles plus sophistiqués
+- Approches multi-objectifs
+- Intégration de nouveaux critères
+
+### Impacts à long terme
+- Développement durable
+- Inclusion numérique
+- Croissance économique 
