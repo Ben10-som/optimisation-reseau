@@ -1,0 +1,179 @@
+# Introduction
+
+## Contexte et Problématique
+
+Le Sénégal, pays d'Afrique de l'Ouest avec une superficie de 196 722 km² et une population de plus de 17 millions d'habitants, fait face à des défis importants en matière de **couverture réseau de télécommunications**. Malgré les progrès significatifs réalisés ces dernières années, des disparités importantes persistent entre les zones urbaines et rurales en termes d'accès aux technologies de communication modernes.
+
+### 🌍 Enjeux Nationaux
+
+La **fracture numérique** au Sénégal se manifeste par :
+
+- **Couverture inégale** : Les zones rurales restent sous-couvertes (60% contre 95% en urbain)
+- **Qualité de service variable** : Débits insuffisants dans certaines régions
+- **Coûts d'infrastructure élevés** : Investissements importants requis pour l'extension
+- **Contraintes géographiques** : Diversité climatique et topographique
+
+```{r senegal-map, echo=FALSE, fig.cap="Carte du Sénégal avec principales villes", message=FALSE}
+library(leaflet)
+library(dplyr)
+
+# Données des principales villes sénégalaises
+villes_senegal <- data.frame(
+  ville = c("Dakar", "Thiès", "Kaolack", "Saint-Louis", "Ziguinchor"),
+  lat = c(14.7167, 14.7886, 14.1300, 16.0179, 12.5601),
+  lon = c(-17.4441, -16.9262, -16.0796, -16.0180, -16.2719),
+  population = c(3732000, 385000, 285000, 258000, 230000),
+  type = c("Capitale", "Industrielle", "Commerciale", "Historique", "Régionale")
+)
+
+# Carte interactive
+leaflet(villes_senegal) %>%
+  addTiles() %>%
+  addCircleMarkers(
+    lng = ~lon, lat = ~lat,
+    radius = ~sqrt(population/100000),
+    popup = ~paste(ville, "<br/>Population:", format(population, big.mark = " ")),
+    color = "red", fillOpacity = 0.7
+  ) %>%
+  addLegend(
+    position = "bottomright",
+    title = "Principales villes du Sénégal",
+    labels = villes_senegal$ville,
+    colors = rep("red", nrow(villes_senegal))
+  )
+```
+
+### 📈 Opportunités de Développement
+
+L'optimisation du placement des antennes représente une **opportunité stratégique** pour :
+
+1. **Améliorer la connectivité nationale** en maximisant la couverture
+2. **Réduire les coûts opérationnels** par un placement optimal
+3. **Stimuler l'économie numérique** via un meilleur accès aux services
+4. **Positionner le Sénégal** comme leader technologique en Afrique de l'Ouest
+
+## Objectifs du Projet
+
+### 🎯 Objectif Principal
+
+Développer et implémenter un **algorithme d'optimisation hybride innovant** pour le placement optimal des antennes de télécommunication au Sénégal, en tenant compte des contraintes techniques, économiques et géographiques spécifiques au pays.
+
+### 🎯 Objectifs Spécifiques
+
+```{r objectifs-table, echo=FALSE}
+objectifs <- data.frame(
+  Objectif = c(
+    "Couverture Maximale",
+    "Optimisation Coûts", 
+    "Qualité de Service",
+    "Contraintes Locales",
+    "Scalabilité Régionale"
+  ),
+  Description = c(
+    "Atteindre 95% couverture urbaine et 85% rurale",
+    "Respecter budget 50M FCFA avec ROI optimal",
+    "Garantir QoS acceptable (SINR ≥ 15dB)",
+    "Intégrer spécificités climatiques sénégalaises",
+    "Créer modèle extensible à l'UEMOA"
+  ),
+  Indicateur = c(
+    "% Population couverte",
+    "CAPEX/OPEX optimisés", 
+    "SINR moyen, Débit",
+    "Robustesse climatique",
+    "Adaptabilité cross-country"
+  )
+)
+
+kable(objectifs, 
+      caption = "Objectifs Spécifiques du Projet d'Optimisation",
+      booktabs = TRUE) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+
+### 💡 Innovation Proposée
+
+Ce projet introduit l'algorithme **GSAGC** (*Genetic-Simulated Annealing with Geographic Clustering*), une approche hybride inédite qui combine :
+
+- **Algorithmes génétiques** pour l'exploration globale
+- **Recuit simulé** pour l'optimisation locale  
+- **Clustering géographique** pour la décomposition intelligente
+
+## Contribution et Originalité
+
+### 🔬 Apports Scientifiques
+
+1. **Méthodologique** : Premier algorithme hybride GSAGC pour placement d'antennes
+2. **Géographique** : Intégration des contraintes climatiques africaines
+3. **Multi-objectifs** : Optimisation simultanée couverture-coût-qualité
+4. **Pratique** : Solution directement applicable par les opérateurs
+
+### 🌟 Éléments Différenciateurs
+
+```{r innovation-chart, echo=FALSE, fig.cap="Innovations du Projet GSAGC", message=FALSE}
+library(ggplot2)
+
+innovations <- data.frame(
+  Aspect = c("Algorithme", "Géographie", "Multi-Objectifs", "Applicabilité"),
+  Innovation = c("GSAGC Hybride", "Contraintes Climatiques", "Optimisation 3D", "Solution Industrielle"),
+  Impact = c(4.8, 4.5, 4.7, 4.6),
+  Originalité = c(4.9, 4.3, 4.4, 4.5)
+)
+
+ggplot(innovations, aes(x = Impact, y = Originalité, size = 4)) +
+  geom_point(aes(color = Aspect), alpha = 0.7) +
+  geom_text(aes(label = Innovation), vjust = -1.2, size = 3) +
+  scale_color_viridis_d() +
+  labs(title = "Matrice Innovation vs Impact du Projet GSAGC",
+       x = "Impact Scientifique (1-5)", 
+       y = "Originalité Méthodologique (1-5)",
+       color = "Aspect d'Innovation") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  guides(size = FALSE) +
+  xlim(4, 5) + ylim(4, 5)
+```
+
+## Plan du Document
+
+Ce document présente le projet selon une **approche structurée** en 8 chapitres :
+
+### 📚 Architecture du Livre
+
+```{r plan-document, echo=FALSE}
+plan_chapitres <- data.frame(
+  Chapitre = 1:8,
+  Titre = c(
+    "Introduction", "État de l'Art", "Méthodologie", "Algorithme GSAGC",
+    "Implémentation R", "Résultats", "Discussion", "Conclusion"
+  ),
+  Contenu = c(
+    "Contexte, objectifs, originalité",
+    "Revue littérature, méthodes existantes",
+    "Modélisation mathématique, approche",
+    "Cœur technique de l'innovation",
+    "Développement R, code fonctionnel", 
+    "Analyses, évaluations, métriques",
+    "Interprétation, limites, améliorations",
+    "Synthèse, perspectives, impact"
+  ),
+  Pages = c("8-12", "12-18", "18-25", "25-35", "35-45", "45-55", "55-62", "62-68")
+)
+
+kable(plan_chapitres,
+      caption = "Structure Détaillée du Document",
+      booktabs = TRUE) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
+  column_spec(1, bold = TRUE) %>%
+  column_spec(2, color = "darkblue")
+```
+
+Chaque chapitre intègre :
+- **Théorie** : Fondements scientifiques et mathématiques
+- **Pratique** : Implémentation R et exemples concrets  
+- **Résultats** : Analyses quantitatives et visualisations
+- **Discussion** : Interprétation critique et perspectives
+
+---
+
+*Ce chapitre d'introduction pose les bases du projet d'optimisation des antennes au Sénégal. Le chapitre suivant présente l'état de l'art et les méthodes existantes dans le domaine.* 

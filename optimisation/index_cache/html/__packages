@@ -1,0 +1,14 @@
+bookdown
+knitr
+rmarkdown
+kableExtra
+shiny
+shinydashboard
+DT
+ggplot2
+plotly
+leaflet
+dplyr
+foreach
+iterators
+GA

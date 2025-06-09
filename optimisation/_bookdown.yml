@@ -1,0 +1,18 @@
+book_filename: "optimisation_antennes_senegal"
+language:
+  ui:
+    chapter_name: "Chapitre "
+delete_merged_file: true
+output_dir: "docs"
+rmd_files: [
+  "index.Rmd",
+  "01-introduction.Rmd",
+  "02-etat-art.Rmd", 
+  "03-methodologie.Rmd",
+  "04-algorithme-gsagc.Rmd",
+  "05-implementation.Rmd",
+  "06-resultats.Rmd",
+  "07-discussion.Rmd",
+  "08-conclusion.Rmd",
+  "99-references.Rmd"
+] 
