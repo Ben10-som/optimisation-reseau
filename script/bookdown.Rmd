@@ -1,0 +1,131 @@
+---
+title: "Optimisation du placement des antennes au Sénégal"
+author: "SOMA Ben Idriss Diloma"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook:
+    toc: true
+    number_sections: true
+    toc_depth: 2
+    css: style.css
+  bookdown::pdf_book:
+    toc: true
+    number_sections: true
+    toc_depth: 2
+---
+
+# Préface
+
+Ce document présente une étude sur l’optimisation du placement des antennes au Sénégal, en mettant l'accent sur les aspects théoriques, techniques et pratiques du déploiement de réseaux en zones peu ou mal couvertes. Le contenu s’adresse aux étudiants, ingénieurs et chercheurs en télécommunications et en sciences des données.
+
+---
+
+# Introduction
+
+[Texte d’introduction comme fourni]
+
+---
+
+# Chapitre 1 : Généralités sur les Réseaux de télécommunication
+
+## Canaux de communication
+
+[Texte sur les canaux de communication]
+
+## Spectre de fréquence d’un signal
+
+[Texte et code sur le spectre + graphique R]
+
+## Bande passante d’un canal
+
+[Texte + image intégrée avec `include_graphics()`]
+
+## Modulation du signal
+
+[Explication + code R de modulation AM + graphique]
+
+## Capacité d’un canal de transmission – Théorie de Shannon
+
+[Texte avec équation de Shannon + explication SNR et bande passante]
+
+## Propagation des ondes dans un réseau de télécommunications
+
+[Texte d’introduction à la propagation des ondes dans les réseaux]
+
+---
+
+# Chapitre 2 : Modélisation de la propagation des ondes
+
+## Modèle de propagation dans le vide (Équation de Friis)
+
+[Équation + explication de la version avec f et lambda]
+
+## Modèles plus réalistes
+
+[Listes de modèles : à deux trajets, diffraction, etc.]
+
+## Loi de décroissance de la puissance
+
+[Formule et explication]
+
+---
+
+# Chapitre 3 : Multiplexage et répartition des fréquences
+
+## Multiplexage Fréquentiel (FDMA)
+
+## Multiplexage Temporel (TDMA)
+
+## Combiné TDMA/FDMA
+
+[Formules + explications claires]
+
+---
+
+# Chapitre 4 : Optimisation du placement des antennes
+
+## Objectif de couverture
+
+[Modèle mathématique + contraintes + objectifs]
+
+## Modèles d’interférences
+
+[Formule SNR + critères de couverture]
+
+---
+
+# Chapitre 5 : Optimisation de l’assignation de fréquences
+
+## Formulation mathématique
+
+## Méthodes de résolution
+
+[Glouton, génétique, recuit simulé, MILP...]
+
+---
+
+# Chapitre 6 : Optimisation conjointe (placement + fréquence)
+
+## Formulation du problème
+
+## Algorithmes multi-objectifs et hybrides
+
+[Définitions + approches possibles]
+
+---
+
+# Chapitre 7 : Implémentation sous R
+
+## Grille de simulation
+
+## Calculs de puissance et visualisation
+
+## Outils R utilisés : `optim`, `GA`, `GenSA`, `leaflet`, `ggplot2`, `shiny`
+
+---
+
+# Conclusion
+
+[Résumé, limites, perspectives : application Shiny, déploiement réel au Sénégal]

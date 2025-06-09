@@ -1,2 +1,5 @@
 ggplot2
 tidyr
+sf
+knitr
+dplyr
