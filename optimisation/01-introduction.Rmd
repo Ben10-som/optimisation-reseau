@@ -2,178 +2,106 @@
 
 ## Contexte et Problématique
 
-Le Sénégal, pays d'Afrique de l'Ouest avec une superficie de 196 722 km² et une population de plus de 17 millions d'habitants, fait face à des défis importants en matière de **couverture réseau de télécommunications**. Malgré les progrès significatifs réalisés ces dernières années, des disparités importantes persistent entre les zones urbaines et rurales en termes d'accès aux technologies de communication modernes.
+Le Sénégal, comme de nombreux pays en développement, fait face à un défi majeur : l'accès équitable à la connectivité mobile. Malgré les avancées technologiques significatives, de nombreuses zones rurales restent encore mal desservies, avec une qualité de service limitée. Cette situation creuse la fracture numérique et freine le développement socio-économique de territoires pourtant porteurs de potentiel.
 
-### 🌍 Enjeux Nationaux
+### 🌍 Enjeux de la Connectivité
 
-La **fracture numérique** au Sénégal se manifeste par :
+La problématique de la connectivité au Sénégal se manifeste par plusieurs aspects :
 
-- **Couverture inégale** : Les zones rurales restent sous-couvertes (60% contre 95% en urbain)
-- **Qualité de service variable** : Débits insuffisants dans certaines régions
-- **Coûts d'infrastructure élevés** : Investissements importants requis pour l'extension
-- **Contraintes géographiques** : Diversité climatique et topographique
+- **Couverture inégale** : Disparités importantes entre zones urbaines et rurales
+- **Qualité de service limitée** : Débits insuffisants dans les zones reculées
+- **Fracture numérique** : Impact sur le développement socio-économique
+- **Contraintes géographiques** : Difficultés d'accès aux zones reculées
 
-```{r senegal-map, echo=FALSE, fig.cap="Carte du Sénégal avec principales villes", message=FALSE}
+```{r senegal-map, echo=FALSE, fig.cap="Carte du Sénégal montrant les zones urbaines et rurales", message=FALSE}
+
 library(leaflet)
 library(dplyr)
 
-# Données des principales villes sénégalaises
-villes_senegal <- data.frame(
-  ville = c("Dakar", "Thiès", "Kaolack", "Saint-Louis", "Ziguinchor"),
-  lat = c(14.7167, 14.7886, 14.1300, 16.0179, 12.5601),
-  lon = c(-17.4441, -16.9262, -16.0796, -16.0180, -16.2719),
-  population = c(3732000, 385000, 285000, 258000, 230000),
-  type = c("Capitale", "Industrielle", "Commerciale", "Historique", "Régionale")
+regions_senegal <- data.frame(
+  region = c("Dakar", "Diourbel", "Fatick", "Kaffrine", "Kaolack", "Kédougou", "Kolda",
+             "Louga", "Matam", "Saint-Louis", "Sédhiou", "Tambacounda", "Thiès", "Ziguinchor"),
+  lat = c(14.7167, 14.6569, 14.3396, 14.1059, 14.1825, 12.5556, 12.8806,
+          15.6141, 15.6559, 16.0179, 12.7049, 13.7700, 14.7900, 12.5646),
+  lon = c(-17.4677, -16.2333, -16.4162, -15.5509, -16.2533, -12.1833, -14.9500,
+          -16.0889, -13.2556, -16.5000, -15.5560, -13.6800, -16.9262, -16.2652)
 )
 
-# Carte interactive
-leaflet(villes_senegal) %>%
+leaflet(regions_senegal) %>%
   addTiles() %>%
   addCircleMarkers(
     lng = ~lon, lat = ~lat,
-    radius = ~sqrt(population/100000),
-    popup = ~paste(ville, "<br/>Population:", format(population, big.mark = " ")),
-    color = "red", fillOpacity = 0.7
+    label = ~region,
+    popup = ~paste0("<b>", region, "</b>"),
+    color = "blue", fillOpacity = 0.6, radius = 6
   ) %>%
-  addLegend(
-    position = "bottomright",
-    title = "Principales villes du Sénégal",
-    labels = villes_senegal$ville,
-    colors = rep("red", nrow(villes_senegal))
-  )
+  addLegend(position = "bottomright", title = "Régions du Sénégal", 
+            colors = "blue", labels = "Centroïde de la région")
+
 ```
 
-### 📈 Opportunités de Développement
+## Problématique du Placement des Antennes
 
-L'optimisation du placement des antennes représente une **opportunité stratégique** pour :
+Le placement des antennes de télécommunication constitue une problématique stratégique majeure. Il ne s'agit pas seulement de couvrir les zones densément peuplées, mais également d'assurer une couverture efficace dans les zones reculées, souvent difficiles d'accès, où les contraintes géographiques, économiques et techniques rendent le déploiement complexe.
 
-1. **Améliorer la connectivité nationale** en maximisant la couverture
-2. **Réduire les coûts opérationnels** par un placement optimal
-3. **Stimuler l'économie numérique** via un meilleur accès aux services
-4. **Positionner le Sénégal** comme leader technologique en Afrique de l'Ouest
+### 📊 Défis Techniques
+
+Une mauvaise répartition des stations de base peut engendrer :
+- Des zones blanches (sans couverture)
+- Une qualité de service dégradée
+- Des interférences entre antennes
+- Des coûts d'exploitation élevés
+
+```{r challenges-chart, echo=FALSE, fig.cap="Principaux défis de la couverture réseau", message=FALSE,warning=FALSE}
+library(ggplot2)
+library(ggrepel)
+
+defis <- data.frame(
+  Defi = c("Zones Blanches", "Qualité de Service", "Interférences", "Coûts"),
+  Impact = c(4.5, 4.2, 3.8, 4.0),
+  Complexité = c(4.2, 3.8, 4.0, 4.1)
+)
+
+ggplot(defis, aes(x = Impact, y = Complexité)) +
+  geom_point(aes(color = Defi), size = 6, alpha = 0.75) +
+  geom_text_repel(aes(label = Defi), size = 4.5, max.overlaps = 20) +
+  scale_color_viridis_d() +
+  labs(
+    title = "Défis de la Couverture Réseau au Sénégal (ARTP, 2021‑2022)",
+    x = "Impact (0-5)",
+    y = "Complexité (0-5)",
+    color = "Type de Défi"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+
+```
 
 ## Objectifs du Projet
 
-### 🎯 Objectif Principal
+Ce projet vise à étudier l'optimisation du placement des antennes, avec pour objectif une meilleure couverture réseau tout en réduisant les interférences. L'approche prend en compte les réalités du terrain, notamment :
+- Les contraintes géographiques (relief, densité de population)
+- Les contraintes économiques (coûts d'installation et d'exploitation)
+- Les contraintes techniques (types d'antennes, puissance d'émission)
 
-Développer et implémenter un **algorithme d'optimisation hybride innovant** pour le placement optimal des antennes de télécommunication au Sénégal, en tenant compte des contraintes techniques, économiques et géographiques spécifiques au pays.
+### 🎯 Objectifs Principaux
 
-### 🎯 Objectifs Spécifiques
+1. **Optimisation de la couverture**
+   - Maximiser la couverture des zones rurales
+   - Réduire les zones blanches
+   - Améliorer la qualité de service
 
-```{r objectifs-table, echo=FALSE}
-objectifs <- data.frame(
-  Objectif = c(
-    "Couverture Maximale",
-    "Optimisation Coûts", 
-    "Qualité de Service",
-    "Contraintes Locales",
-    "Scalabilité Régionale"
-  ),
-  Description = c(
-    "Atteindre 95% couverture urbaine et 85% rurale",
-    "Respecter budget 50M FCFA avec ROI optimal",
-    "Garantir QoS acceptable (SINR ≥ 15dB)",
-    "Intégrer spécificités climatiques sénégalaises",
-    "Créer modèle extensible à l'UEMOA"
-  ),
-  Indicateur = c(
-    "% Population couverte",
-    "CAPEX/OPEX optimisés", 
-    "SINR moyen, Débit",
-    "Robustesse climatique",
-    "Adaptabilité cross-country"
-  )
-)
+2. **Réduction des interférences**
+   - Optimisation des fréquences
+   - Minimisation des chevauchements
+   - Amélioration de la qualité du signal
 
-kable(objectifs, 
-      caption = "Objectifs Spécifiques du Projet d'Optimisation",
-      booktabs = TRUE) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
-```
-
-### 💡 Innovation Proposée
-
-Ce projet introduit l'algorithme **GSAGC** (*Genetic-Simulated Annealing with Geographic Clustering*), une approche hybride inédite qui combine :
-
-- **Algorithmes génétiques** pour l'exploration globale
-- **Recuit simulé** pour l'optimisation locale  
-- **Clustering géographique** pour la décomposition intelligente
-
-## Contribution et Originalité
-
-### 🔬 Apports Scientifiques
-
-1. **Méthodologique** : Premier algorithme hybride GSAGC pour placement d'antennes
-2. **Géographique** : Intégration des contraintes climatiques africaines
-3. **Multi-objectifs** : Optimisation simultanée couverture-coût-qualité
-4. **Pratique** : Solution directement applicable par les opérateurs
-
-### 🌟 Éléments Différenciateurs
-
-```{r innovation-chart, echo=FALSE, fig.cap="Innovations du Projet GSAGC", message=FALSE}
-library(ggplot2)
-
-innovations <- data.frame(
-  Aspect = c("Algorithme", "Géographie", "Multi-Objectifs", "Applicabilité"),
-  Innovation = c("GSAGC Hybride", "Contraintes Climatiques", "Optimisation 3D", "Solution Industrielle"),
-  Impact = c(4.8, 4.5, 4.7, 4.6),
-  Originalité = c(4.9, 4.3, 4.4, 4.5)
-)
-
-ggplot(innovations, aes(x = Impact, y = Originalité, size = 4)) +
-  geom_point(aes(color = Aspect), alpha = 0.7) +
-  geom_text(aes(label = Innovation), vjust = -1.2, size = 3) +
-  scale_color_viridis_d() +
-  labs(title = "Matrice Innovation vs Impact du Projet GSAGC",
-       x = "Impact Scientifique (1-5)", 
-       y = "Originalité Méthodologique (1-5)",
-       color = "Aspect d'Innovation") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  guides(size = FALSE) +
-  xlim(4, 5) + ylim(4, 5)
-```
-
-## Plan du Document
-
-Ce document présente le projet selon une **approche structurée** en 8 chapitres :
-
-### 📚 Architecture du Livre
-
-```{r plan-document, echo=FALSE}
-plan_chapitres <- data.frame(
-  Chapitre = 1:8,
-  Titre = c(
-    "Introduction", "État de l'Art", "Méthodologie", "Algorithme GSAGC",
-    "Implémentation R", "Résultats", "Discussion", "Conclusion"
-  ),
-  Contenu = c(
-    "Contexte, objectifs, originalité",
-    "Revue littérature, méthodes existantes",
-    "Modélisation mathématique, approche",
-    "Cœur technique de l'innovation",
-    "Développement R, code fonctionnel", 
-    "Analyses, évaluations, métriques",
-    "Interprétation, limites, améliorations",
-    "Synthèse, perspectives, impact"
-  ),
-  Pages = c("8-12", "12-18", "18-25", "25-35", "35-45", "45-55", "55-62", "62-68")
-)
-
-kable(plan_chapitres,
-      caption = "Structure Détaillée du Document",
-      booktabs = TRUE) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
-  column_spec(1, bold = TRUE) %>%
-  column_spec(2, color = "darkblue")
-```
-
-Chaque chapitre intègre :
-- **Théorie** : Fondements scientifiques et mathématiques
-- **Pratique** : Implémentation R et exemples concrets  
-- **Résultats** : Analyses quantitatives et visualisations
-- **Discussion** : Interprétation critique et perspectives
+3. **Contraintes pratiques**
+   - Prise en compte de la propagation des ondes
+   - Gestion des contraintes budgétaires
+   - Optimisation des coûts d'installation et d'entretien
 
 ---
 
-*Ce chapitre d'introduction pose les bases du projet d'optimisation des antennes au Sénégal. Le chapitre suivant présente l'état de l'art et les méthodes existantes dans le domaine.* 
+*Ce chapitre d'introduction pose les bases du projet d'optimisation des antennes au Sénégal. Le chapitre suivant présentera le contexte géographique et socio-économique des zones d'étude.* 

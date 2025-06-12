@@ -1,8 +1,12 @@
 ---
-title: "Optimisation du Placement des Antennes au Sénégal"
-subtitle: "Algorithme Hybride GSAGC pour l'Optimisation Multi-Objectifs"
-author: "Étudiant ISE - Cours d'Optimisation et Convexité"
-date: "`r Sys.Date()`"
+title: "Projet d'Optimisation du Placement des Antennes de Télécommunication au Sénégal"
+subtitle: ""
+author: |
+  | SOMA Ben Idriss Diloma
+  | DJARAKÉI Yves
+  | École Nationale de la Statistique et d'Analyse Économique (ENSAE)
+  | Dakar, Sénégal
+date: "`r format(Sys.time(), '%d %B %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -10,6 +14,9 @@ bibliography:
   - packages.bib
 biblio-style: apalike
 link-citations: true
+colorlinks: yes
+lot: true
+lof: true
 description: "Projet innovant d'optimisation du placement des antennes de télécommunication au Sénégal utilisant un algorithme hybride GSAGC (Genetic-Simulated Annealing with Geographic Clustering)."
 output:
   bookdown::gitbook:
@@ -51,4 +58,50 @@ output:
     code_download_name: "code.R"
     css: styles.css
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+library(kableExtra)
+```
+
+
+
+```{r logo, echo=FALSE, fig.align='center', out.width='50%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/ensae.png")
+```
+
+\vspace{2cm}
+
+# Optimisation du Placement des Antennes de Télécommunication au Sénégal {.unnumbered}
+## Une approche innovante pour la réduction de la fracture numérique {.unnumbered}
+
+
+
+\vspace{2cm}
+
+**Résumé**
+
+Ce projet propose une approche innovante pour l'optimisation du placement des antennes de télécommunication au Sénégal. Face aux défis de la fracture numérique, particulièrement prononcée dans les zones rurales, notre méthode combine optimisation mathématique et contraintes géographiques pour maximiser la couverture réseau tout en minimisant les coûts d'infrastructure. L'approche prend en compte les spécificités du terrain sénégalais, les contraintes techniques et économiques, pour proposer des solutions concrètes et applicables.
+
+\vspace{1cm}
+
+**Mots-clés:** Optimisation, Antennes de télécommunication, Fracture numérique, Sénégal, Couverture réseau, Zones rurales
+
+\vspace{2cm}
+
+```{r disclaimer, echo=FALSE}
+cat("**Note:** Ce document est le résultat d'un projet de recherche sur l'optimisation des réseaux de télécommunication au Sénégal, réalisé dans le cadre de nos études à l'ENSAE. Tous les droits sont réservés.")
+```
+
+\newpage
+
+## Table des matières {.unnumbered}
+
+```{r toc, echo=FALSE}
+# La table des matières sera générée automatiquement par bookdown
+```
+
+\newpage
 

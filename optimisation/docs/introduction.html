@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 2 Introduction | Optimisation du Placement des Antennes au Sénégal</title>
+  <title>Optimisation du Placement des Antennes au Sénégal</title>
   <meta name="description" content="Projet innovant d’optimisation du placement des antennes de télécommunication au Sénégal utilisant un algorithme hybride GSAGC (Genetic-Simulated Annealing with Geographic Clustering)." />
   <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 2 Introduction | Optimisation du Placement des Antennes au Sénégal" />
+  <meta property="og:title" content="Optimisation du Placement des Antennes au Sénégal" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Projet innovant d’optimisation du placement des antennes de télécommunication au Sénégal utilisant un algorithme hybride GSAGC (Genetic-Simulated Annealing with Geographic Clustering)." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 2 Introduction | Optimisation du Placement des Antennes au Sénégal" />
+  <meta name="twitter:title" content="Optimisation du Placement des Antennes au Sénégal" />
   
   <meta name="twitter:description" content="Projet innovant d’optimisation du placement des antennes de télécommunication au Sénégal utilisant un algorithme hybride GSAGC (Genetic-Simulated Annealing with Geographic Clustering)." />
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
+
 <link rel="next" href="contexte.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -61,76 +61,8 @@
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -153,224 +85,215 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Optimisation Antennes Sénégal</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Résumé</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#contexte-et-problématique"><i class="fa fa-check"></i><b>2.1</b> Contexte et Problématique</a>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#contexte-et-problématique"><i class="fa fa-check"></i><b>1.1</b> Contexte et Problématique</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="introduction.html"><a href="introduction.html#enjeux-nationaux"><i class="fa fa-check"></i><b>2.1.1</b> 🌍 Enjeux Nationaux</a></li>
-<li class="chapter" data-level="2.1.2" data-path="introduction.html"><a href="introduction.html#opportunités-de-développement"><i class="fa fa-check"></i><b>2.1.2</b> 📈 Opportunités de Développement</a></li>
+<li class="chapter" data-level="1.1.1" data-path="introduction.html"><a href="introduction.html#enjeux-de-la-connectivité"><i class="fa fa-check"></i><b>1.1.1</b> 🌍 Enjeux de la Connectivité</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#objectifs-du-projet"><i class="fa fa-check"></i><b>2.2</b> Objectifs du Projet</a>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#problématique-du-placement-des-antennes"><i class="fa fa-check"></i><b>1.2</b> Problématique du Placement des Antennes</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#objectif-principal"><i class="fa fa-check"></i><b>2.2.1</b> 🎯 Objectif Principal</a></li>
-<li class="chapter" data-level="2.2.2" data-path="introduction.html"><a href="introduction.html#objectifs-spécifiques"><i class="fa fa-check"></i><b>2.2.2</b> 🎯 Objectifs Spécifiques</a></li>
-<li class="chapter" data-level="2.2.3" data-path="introduction.html"><a href="introduction.html#innovation-proposée"><i class="fa fa-check"></i><b>2.2.3</b> 💡 Innovation Proposée</a></li>
+<li class="chapter" data-level="1.2.1" data-path="introduction.html"><a href="introduction.html#défis-techniques"><i class="fa fa-check"></i><b>1.2.1</b> 📊 Défis Techniques</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#contribution-et-originalité"><i class="fa fa-check"></i><b>2.3</b> Contribution et Originalité</a>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#objectifs-du-projet"><i class="fa fa-check"></i><b>1.3</b> Objectifs du Projet</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="introduction.html"><a href="introduction.html#apports-scientifiques"><i class="fa fa-check"></i><b>2.3.1</b> 🔬 Apports Scientifiques</a></li>
-<li class="chapter" data-level="2.3.2" data-path="introduction.html"><a href="introduction.html#éléments-différenciateurs"><i class="fa fa-check"></i><b>2.3.2</b> 🌟 Éléments Différenciateurs</a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#plan-du-document"><i class="fa fa-check"></i><b>2.4</b> Plan du Document</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction.html"><a href="introduction.html#architecture-du-livre"><i class="fa fa-check"></i><b>2.4.1</b> 📚 Architecture du Livre</a></li>
+<li class="chapter" data-level="1.3.1" data-path="introduction.html"><a href="introduction.html#objectifs-principaux"><i class="fa fa-check"></i><b>1.3.1</b> 🎯 Objectifs Principaux</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="contexte.html"><a href="contexte.html"><i class="fa fa-check"></i><b>3</b> Contexte géographique et socio-économique</a>
+<li class="chapter" data-level="2" data-path="contexte.html"><a href="contexte.html"><i class="fa fa-check"></i><b>2</b> Contexte géographique et socio-économique</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="contexte.html"><a href="contexte.html#présentation-des-régions"><i class="fa fa-check"></i><b>3.1</b> Présentation des régions</a>
+<li class="chapter" data-level="2.1" data-path="contexte.html"><a href="contexte.html#présentation-des-régions"><i class="fa fa-check"></i><b>2.1</b> Présentation des régions</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="contexte.html"><a href="contexte.html#tambacounda"><i class="fa fa-check"></i><b>3.1.1</b> Tambacounda</a></li>
-<li class="chapter" data-level="3.1.2" data-path="contexte.html"><a href="contexte.html#kédougou"><i class="fa fa-check"></i><b>3.1.2</b> Kédougou</a></li>
-<li class="chapter" data-level="3.1.3" data-path="contexte.html"><a href="contexte.html#matam"><i class="fa fa-check"></i><b>3.1.3</b> Matam</a></li>
+<li class="chapter" data-level="2.1.1" data-path="contexte.html"><a href="contexte.html#tambacounda"><i class="fa fa-check"></i><b>2.1.1</b> Tambacounda</a></li>
+<li class="chapter" data-level="2.1.2" data-path="contexte.html"><a href="contexte.html#kédougou"><i class="fa fa-check"></i><b>2.1.2</b> Kédougou</a></li>
+<li class="chapter" data-level="2.1.3" data-path="contexte.html"><a href="contexte.html#matam"><i class="fa fa-check"></i><b>2.1.3</b> Matam</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="contexte.html"><a href="contexte.html#analyse-socio-économique"><i class="fa fa-check"></i><b>3.2</b> Analyse socio-économique</a>
+<li class="chapter" data-level="2.2" data-path="contexte.html"><a href="contexte.html#analyse-socio-économique"><i class="fa fa-check"></i><b>2.2</b> Analyse socio-économique</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="contexte.html"><a href="contexte.html#données-démographiques"><i class="fa fa-check"></i><b>3.2.1</b> Données démographiques</a></li>
-<li class="chapter" data-level="3.2.2" data-path="contexte.html"><a href="contexte.html#besoins-en-connectivité"><i class="fa fa-check"></i><b>3.2.2</b> Besoins en connectivité</a></li>
+<li class="chapter" data-level="2.2.1" data-path="contexte.html"><a href="contexte.html#données-démographiques"><i class="fa fa-check"></i><b>2.2.1</b> Données démographiques</a></li>
+<li class="chapter" data-level="2.2.2" data-path="contexte.html"><a href="contexte.html#besoins-en-connectivité"><i class="fa fa-check"></i><b>2.2.2</b> Besoins en connectivité</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="contexte.html"><a href="contexte.html#cartographie-des-zones-détude"><i class="fa fa-check"></i><b>3.3</b> Cartographie des zones d’étude</a>
+<li class="chapter" data-level="2.3" data-path="contexte.html"><a href="contexte.html#cartographie-des-zones-détude"><i class="fa fa-check"></i><b>2.3</b> Cartographie des zones d’étude</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="contexte.html"><a href="contexte.html#visualisation-des-données-spatiales"><i class="fa fa-check"></i><b>3.3.1</b> Visualisation des données spatiales</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="cadre-theorique.html"><a href="cadre-theorique.html"><i class="fa fa-check"></i><b>4</b> Cadre théorique</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#concepts-de-base-en-optimisation"><i class="fa fa-check"></i><b>4.1</b> Concepts de base en optimisation</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#optimisation-convexe"><i class="fa fa-check"></i><b>4.1.1</b> Optimisation convexe</a></li>
-<li class="chapter" data-level="4.1.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#programmation-linéaire-et-quadratique"><i class="fa fa-check"></i><b>4.1.2</b> Programmation linéaire et quadratique</a></li>
-<li class="chapter" data-level="4.1.3" data-path="cadre-theorique.html"><a href="cadre-theorique.html#notions-fondamentales"><i class="fa fa-check"></i><b>4.1.3</b> Notions fondamentales</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#modélisation-de-la-couverture-réseau"><i class="fa fa-check"></i><b>4.2</b> Modélisation de la couverture réseau</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#caractéristiques-des-antennes"><i class="fa fa-check"></i><b>4.2.1</b> Caractéristiques des antennes</a></li>
-<li class="chapter" data-level="4.2.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#contraintes-physiques-et-géographiques"><i class="fa fa-check"></i><b>4.2.2</b> Contraintes physiques et géographiques</a></li>
-<li class="chapter" data-level="4.2.3" data-path="cadre-theorique.html"><a href="cadre-theorique.html#modèles-de-propagation"><i class="fa fa-check"></i><b>4.2.3</b> Modèles de propagation</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="cadre-theorique.html"><a href="cadre-theorique.html#état-de-lart"><i class="fa fa-check"></i><b>4.3</b> État de l’art</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#approches-existantes"><i class="fa fa-check"></i><b>4.3.1</b> Approches existantes</a></li>
-<li class="chapter" data-level="4.3.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#applications-similaires"><i class="fa fa-check"></i><b>4.3.2</b> Applications similaires</a></li>
+<li class="chapter" data-level="2.3.1" data-path="contexte.html"><a href="contexte.html#visualisation-des-données-spatiales"><i class="fa fa-check"></i><b>2.3.1</b> Visualisation des données spatiales</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="modelisation.html"><a href="modelisation.html"><i class="fa fa-check"></i><b>5</b> Modélisation mathématique</a>
+<li class="chapter" data-level="3" data-path="cadre-theorique.html"><a href="cadre-theorique.html"><i class="fa fa-check"></i><b>3</b> Cadre théorique</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="modelisation.html"><a href="modelisation.html#définition-du-problème"><i class="fa fa-check"></i><b>5.1</b> Définition du problème</a>
+<li class="chapter" data-level="3.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#concepts-de-base-en-optimisation"><i class="fa fa-check"></i><b>3.1</b> Concepts de base en optimisation</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="modelisation.html"><a href="modelisation.html#variables-de-décision"><i class="fa fa-check"></i><b>5.1.1</b> Variables de décision</a></li>
-<li class="chapter" data-level="5.1.2" data-path="modelisation.html"><a href="modelisation.html#fonction-objectif"><i class="fa fa-check"></i><b>5.1.2</b> Fonction objectif</a></li>
-<li class="chapter" data-level="5.1.3" data-path="modelisation.html"><a href="modelisation.html#contraintes"><i class="fa fa-check"></i><b>5.1.3</b> Contraintes</a></li>
+<li class="chapter" data-level="3.1.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#optimisation-convexe"><i class="fa fa-check"></i><b>3.1.1</b> Optimisation convexe</a></li>
+<li class="chapter" data-level="3.1.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#programmation-linéaire-et-quadratique"><i class="fa fa-check"></i><b>3.1.2</b> Programmation linéaire et quadratique</a></li>
+<li class="chapter" data-level="3.1.3" data-path="cadre-theorique.html"><a href="cadre-theorique.html#notions-fondamentales"><i class="fa fa-check"></i><b>3.1.3</b> Notions fondamentales</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="modelisation.html"><a href="modelisation.html#formulation-mathématique"><i class="fa fa-check"></i><b>5.2</b> Formulation mathématique</a>
+<li class="chapter" data-level="3.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#modélisation-de-la-couverture-réseau"><i class="fa fa-check"></i><b>3.2</b> Modélisation de la couverture réseau</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="modelisation.html"><a href="modelisation.html#structure-du-modèle"><i class="fa fa-check"></i><b>5.2.1</b> Structure du modèle</a></li>
-<li class="chapter" data-level="5.2.2" data-path="modelisation.html"><a href="modelisation.html#justification-de-la-convexité"><i class="fa fa-check"></i><b>5.2.2</b> Justification de la convexité</a></li>
-<li class="chapter" data-level="5.2.3" data-path="modelisation.html"><a href="modelisation.html#analyse-de-complexité"><i class="fa fa-check"></i><b>5.2.3</b> Analyse de complexité</a></li>
+<li class="chapter" data-level="3.2.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#caractéristiques-des-antennes"><i class="fa fa-check"></i><b>3.2.1</b> Caractéristiques des antennes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#contraintes-physiques-et-géographiques"><i class="fa fa-check"></i><b>3.2.2</b> Contraintes physiques et géographiques</a></li>
+<li class="chapter" data-level="3.2.3" data-path="cadre-theorique.html"><a href="cadre-theorique.html#modèles-de-propagation"><i class="fa fa-check"></i><b>3.2.3</b> Modèles de propagation</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="modelisation.html"><a href="modelisation.html#implémentation"><i class="fa fa-check"></i><b>5.3</b> Implémentation</a>
+<li class="chapter" data-level="3.3" data-path="cadre-theorique.html"><a href="cadre-theorique.html#état-de-lart"><i class="fa fa-check"></i><b>3.3</b> État de l’art</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="modelisation.html"><a href="modelisation.html#préparation-des-données"><i class="fa fa-check"></i><b>5.3.1</b> Préparation des données</a></li>
-<li class="chapter" data-level="5.3.2" data-path="modelisation.html"><a href="modelisation.html#résolution-numérique"><i class="fa fa-check"></i><b>5.3.2</b> Résolution numérique</a></li>
-<li class="chapter" data-level="5.3.3" data-path="modelisation.html"><a href="modelisation.html#validation-du-modèle"><i class="fa fa-check"></i><b>5.3.3</b> Validation du modèle</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="methodologie.html"><a href="methodologie.html"><i class="fa fa-check"></i><b>6</b> Données et méthodologie</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="methodologie.html"><a href="methodologie.html#sources-de-données"><i class="fa fa-check"></i><b>6.1</b> Sources de données</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="methodologie.html"><a href="methodologie.html#données-démographiques-1"><i class="fa fa-check"></i><b>6.1.1</b> Données démographiques</a></li>
-<li class="chapter" data-level="6.1.2" data-path="methodologie.html"><a href="methodologie.html#données-géographiques"><i class="fa fa-check"></i><b>6.1.2</b> Données géographiques</a></li>
-<li class="chapter" data-level="6.1.3" data-path="methodologie.html"><a href="methodologie.html#données-techniques"><i class="fa fa-check"></i><b>6.1.3</b> Données techniques</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="methodologie.html"><a href="methodologie.html#préparation-des-données-1"><i class="fa fa-check"></i><b>6.2</b> Préparation des données</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="methodologie.html"><a href="methodologie.html#nettoyage"><i class="fa fa-check"></i><b>6.2.1</b> Nettoyage</a></li>
-<li class="chapter" data-level="6.2.2" data-path="methodologie.html"><a href="methodologie.html#transformation"><i class="fa fa-check"></i><b>6.2.2</b> Transformation</a></li>
-<li class="chapter" data-level="6.2.3" data-path="methodologie.html"><a href="methodologie.html#intégration"><i class="fa fa-check"></i><b>6.2.3</b> Intégration</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="methodologie.html"><a href="methodologie.html#méthodologie-de-résolution"><i class="fa fa-check"></i><b>6.3</b> Méthodologie de résolution</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="methodologie.html"><a href="methodologie.html#algorithmes-doptimisation"><i class="fa fa-check"></i><b>6.3.1</b> Algorithmes d’optimisation</a></li>
-<li class="chapter" data-level="6.3.2" data-path="methodologie.html"><a href="methodologie.html#outils-et-langages"><i class="fa fa-check"></i><b>6.3.2</b> Outils et langages</a></li>
-<li class="chapter" data-level="6.3.3" data-path="methodologie.html"><a href="methodologie.html#validation"><i class="fa fa-check"></i><b>6.3.3</b> Validation</a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="methodologie.html"><a href="methodologie.html#implémentation-1"><i class="fa fa-check"></i><b>6.4</b> Implémentation</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="methodologie.html"><a href="methodologie.html#architecture-du-système"><i class="fa fa-check"></i><b>6.4.1</b> Architecture du système</a></li>
-<li class="chapter" data-level="6.4.2" data-path="methodologie.html"><a href="methodologie.html#performance"><i class="fa fa-check"></i><b>6.4.2</b> Performance</a></li>
+<li class="chapter" data-level="3.3.1" data-path="cadre-theorique.html"><a href="cadre-theorique.html#approches-existantes"><i class="fa fa-check"></i><b>3.3.1</b> Approches existantes</a></li>
+<li class="chapter" data-level="3.3.2" data-path="cadre-theorique.html"><a href="cadre-theorique.html#applications-similaires"><i class="fa fa-check"></i><b>3.3.2</b> Applications similaires</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="resultats.html"><a href="resultats.html"><i class="fa fa-check"></i><b>7</b> Résultats et visualisations</a>
+<li class="chapter" data-level="4" data-path="modelisation.html"><a href="modelisation.html"><i class="fa fa-check"></i><b>4</b> Modélisation mathématique</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="resultats.html"><a href="resultats.html#résultats-numériques"><i class="fa fa-check"></i><b>7.1</b> Résultats numériques</a>
+<li class="chapter" data-level="4.1" data-path="modelisation.html"><a href="modelisation.html#définition-du-problème"><i class="fa fa-check"></i><b>4.1</b> Définition du problème</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="resultats.html"><a href="resultats.html#configuration-optimale"><i class="fa fa-check"></i><b>7.1.1</b> Configuration optimale</a></li>
-<li class="chapter" data-level="7.1.2" data-path="resultats.html"><a href="resultats.html#coûts-estimés"><i class="fa fa-check"></i><b>7.1.2</b> Coûts estimés</a></li>
-<li class="chapter" data-level="7.1.3" data-path="resultats.html"><a href="resultats.html#couverture-réseau"><i class="fa fa-check"></i><b>7.1.3</b> Couverture réseau</a></li>
+<li class="chapter" data-level="4.1.1" data-path="modelisation.html"><a href="modelisation.html#variables-de-décision"><i class="fa fa-check"></i><b>4.1.1</b> Variables de décision</a></li>
+<li class="chapter" data-level="4.1.2" data-path="modelisation.html"><a href="modelisation.html#fonction-objectif"><i class="fa fa-check"></i><b>4.1.2</b> Fonction objectif</a></li>
+<li class="chapter" data-level="4.1.3" data-path="modelisation.html"><a href="modelisation.html#contraintes"><i class="fa fa-check"></i><b>4.1.3</b> Contraintes</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="resultats.html"><a href="resultats.html#visualisations"><i class="fa fa-check"></i><b>7.2</b> Visualisations</a>
+<li class="chapter" data-level="4.2" data-path="modelisation.html"><a href="modelisation.html#formulation-mathématique"><i class="fa fa-check"></i><b>4.2</b> Formulation mathématique</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="resultats.html"><a href="resultats.html#cartes-de-placement"><i class="fa fa-check"></i><b>7.2.1</b> Cartes de placement</a></li>
-<li class="chapter" data-level="7.2.2" data-path="resultats.html"><a href="resultats.html#analyse-comparative"><i class="fa fa-check"></i><b>7.2.2</b> Analyse comparative</a></li>
-<li class="chapter" data-level="7.2.3" data-path="resultats.html"><a href="resultats.html#indicateurs-de-performance"><i class="fa fa-check"></i><b>7.2.3</b> Indicateurs de performance</a></li>
+<li class="chapter" data-level="4.2.1" data-path="modelisation.html"><a href="modelisation.html#structure-du-modèle"><i class="fa fa-check"></i><b>4.2.1</b> Structure du modèle</a></li>
+<li class="chapter" data-level="4.2.2" data-path="modelisation.html"><a href="modelisation.html#justification-de-la-convexité"><i class="fa fa-check"></i><b>4.2.2</b> Justification de la convexité</a></li>
+<li class="chapter" data-level="4.2.3" data-path="modelisation.html"><a href="modelisation.html#analyse-de-complexité"><i class="fa fa-check"></i><b>4.2.3</b> Analyse de complexité</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="resultats.html"><a href="resultats.html#analyse-de-sensibilité"><i class="fa fa-check"></i><b>7.3</b> Analyse de sensibilité</a>
+<li class="chapter" data-level="4.3" data-path="modelisation.html"><a href="modelisation.html#implémentation"><i class="fa fa-check"></i><b>4.3</b> Implémentation</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="resultats.html"><a href="resultats.html#variation-des-paramètres"><i class="fa fa-check"></i><b>7.3.1</b> Variation des paramètres</a></li>
-<li class="chapter" data-level="7.3.2" data-path="resultats.html"><a href="resultats.html#scénarios-alternatifs"><i class="fa fa-check"></i><b>7.3.2</b> Scénarios alternatifs</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="resultats.html"><a href="resultats.html#validation-des-résultats"><i class="fa fa-check"></i><b>7.4</b> Validation des résultats</a>
-<ul>
-<li class="chapter" data-level="7.4.1" data-path="resultats.html"><a href="resultats.html#comparaison-avec-lexistant"><i class="fa fa-check"></i><b>7.4.1</b> Comparaison avec l’existant</a></li>
-<li class="chapter" data-level="7.4.2" data-path="resultats.html"><a href="resultats.html#tests-de-robustesse"><i class="fa fa-check"></i><b>7.4.2</b> Tests de robustesse</a></li>
+<li class="chapter" data-level="4.3.1" data-path="modelisation.html"><a href="modelisation.html#préparation-des-données"><i class="fa fa-check"></i><b>4.3.1</b> Préparation des données</a></li>
+<li class="chapter" data-level="4.3.2" data-path="modelisation.html"><a href="modelisation.html#résolution-numérique"><i class="fa fa-check"></i><b>4.3.2</b> Résolution numérique</a></li>
+<li class="chapter" data-level="4.3.3" data-path="modelisation.html"><a href="modelisation.html#validation-du-modèle"><i class="fa fa-check"></i><b>4.3.3</b> Validation du modèle</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>8</b> Discussion</a>
+<li class="chapter" data-level="5" data-path="methodologie.html"><a href="methodologie.html"><i class="fa fa-check"></i><b>5</b> Données et méthodologie</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="discussion.html"><a href="discussion.html#interprétation-des-résultats"><i class="fa fa-check"></i><b>8.1</b> Interprétation des résultats</a>
+<li class="chapter" data-level="5.1" data-path="methodologie.html"><a href="methodologie.html#sources-de-données"><i class="fa fa-check"></i><b>5.1</b> Sources de données</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="discussion.html"><a href="discussion.html#points-forts"><i class="fa fa-check"></i><b>8.1.1</b> Points forts</a></li>
-<li class="chapter" data-level="8.1.2" data-path="discussion.html"><a href="discussion.html#limites-identifiées"><i class="fa fa-check"></i><b>8.1.2</b> Limites identifiées</a></li>
-<li class="chapter" data-level="8.1.3" data-path="discussion.html"><a href="discussion.html#comparaison-avec-la-littérature"><i class="fa fa-check"></i><b>8.1.3</b> Comparaison avec la littérature</a></li>
+<li class="chapter" data-level="5.1.1" data-path="methodologie.html"><a href="methodologie.html#données-démographiques-1"><i class="fa fa-check"></i><b>5.1.1</b> Données démographiques</a></li>
+<li class="chapter" data-level="5.1.2" data-path="methodologie.html"><a href="methodologie.html#données-géographiques"><i class="fa fa-check"></i><b>5.1.2</b> Données géographiques</a></li>
+<li class="chapter" data-level="5.1.3" data-path="methodologie.html"><a href="methodologie.html#données-techniques"><i class="fa fa-check"></i><b>5.1.3</b> Données techniques</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="discussion.html"><a href="discussion.html#implications-pratiques"><i class="fa fa-check"></i><b>8.2</b> Implications pratiques</a>
+<li class="chapter" data-level="5.2" data-path="methodologie.html"><a href="methodologie.html#préparation-des-données-1"><i class="fa fa-check"></i><b>5.2</b> Préparation des données</a>
 <ul>
-<li class="chapter" data-level="8.2.1" data-path="discussion.html"><a href="discussion.html#pour-les-opérateurs"><i class="fa fa-check"></i><b>8.2.1</b> Pour les opérateurs</a></li>
-<li class="chapter" data-level="8.2.2" data-path="discussion.html"><a href="discussion.html#pour-les-décideurs"><i class="fa fa-check"></i><b>8.2.2</b> Pour les décideurs</a></li>
-<li class="chapter" data-level="8.2.3" data-path="discussion.html"><a href="discussion.html#pour-les-communautés"><i class="fa fa-check"></i><b>8.2.3</b> Pour les communautés</a></li>
+<li class="chapter" data-level="5.2.1" data-path="methodologie.html"><a href="methodologie.html#nettoyage"><i class="fa fa-check"></i><b>5.2.1</b> Nettoyage</a></li>
+<li class="chapter" data-level="5.2.2" data-path="methodologie.html"><a href="methodologie.html#transformation"><i class="fa fa-check"></i><b>5.2.2</b> Transformation</a></li>
+<li class="chapter" data-level="5.2.3" data-path="methodologie.html"><a href="methodologie.html#intégration"><i class="fa fa-check"></i><b>5.2.3</b> Intégration</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="discussion.html"><a href="discussion.html#perspectives-damélioration"><i class="fa fa-check"></i><b>8.3</b> Perspectives d’amélioration</a>
+<li class="chapter" data-level="5.3" data-path="methodologie.html"><a href="methodologie.html#méthodologie-de-résolution"><i class="fa fa-check"></i><b>5.3</b> Méthodologie de résolution</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="discussion.html"><a href="discussion.html#aspects-techniques"><i class="fa fa-check"></i><b>8.3.1</b> Aspects techniques</a></li>
-<li class="chapter" data-level="8.3.2" data-path="discussion.html"><a href="discussion.html#aspects-méthodologiques"><i class="fa fa-check"></i><b>8.3.2</b> Aspects méthodologiques</a></li>
-<li class="chapter" data-level="8.3.3" data-path="discussion.html"><a href="discussion.html#aspects-opérationnels"><i class="fa fa-check"></i><b>8.3.3</b> Aspects opérationnels</a></li>
+<li class="chapter" data-level="5.3.1" data-path="methodologie.html"><a href="methodologie.html#algorithmes-doptimisation"><i class="fa fa-check"></i><b>5.3.1</b> Algorithmes d’optimisation</a></li>
+<li class="chapter" data-level="5.3.2" data-path="methodologie.html"><a href="methodologie.html#outils-et-langages"><i class="fa fa-check"></i><b>5.3.2</b> Outils et langages</a></li>
+<li class="chapter" data-level="5.3.3" data-path="methodologie.html"><a href="methodologie.html#validation"><i class="fa fa-check"></i><b>5.3.3</b> Validation</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> Conclusion et perspectives</a>
+<li class="chapter" data-level="5.4" data-path="methodologie.html"><a href="methodologie.html#implémentation-1"><i class="fa fa-check"></i><b>5.4</b> Implémentation</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="conclusion.html"><a href="conclusion.html#synthèse-des-résultats"><i class="fa fa-check"></i><b>9.1</b> Synthèse des résultats</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="conclusion.html"><a href="conclusion.html#objectifs-atteints"><i class="fa fa-check"></i><b>9.1.1</b> Objectifs atteints</a></li>
-<li class="chapter" data-level="9.1.2" data-path="conclusion.html"><a href="conclusion.html#contributions-principales"><i class="fa fa-check"></i><b>9.1.2</b> Contributions principales</a></li>
-<li class="chapter" data-level="9.1.3" data-path="conclusion.html"><a href="conclusion.html#limites-et-contraintes"><i class="fa fa-check"></i><b>9.1.3</b> Limites et contraintes</a></li>
-</ul></li>
-<li class="chapter" data-level="9.2" data-path="conclusion.html"><a href="conclusion.html#recommandations"><i class="fa fa-check"></i><b>9.2</b> Recommandations</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="conclusion.html"><a href="conclusion.html#pour-limplémentation"><i class="fa fa-check"></i><b>9.2.1</b> Pour l’implémentation</a></li>
-<li class="chapter" data-level="9.2.2" data-path="conclusion.html"><a href="conclusion.html#pour-le-suivi"><i class="fa fa-check"></i><b>9.2.2</b> Pour le suivi</a></li>
-<li class="chapter" data-level="9.2.3" data-path="conclusion.html"><a href="conclusion.html#pour-le-développement"><i class="fa fa-check"></i><b>9.2.3</b> Pour le développement</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="conclusion.html"><a href="conclusion.html#perspectives"><i class="fa fa-check"></i><b>9.3</b> Perspectives</a>
-<ul>
-<li class="chapter" data-level="9.3.1" data-path="conclusion.html"><a href="conclusion.html#évolutions-techniques"><i class="fa fa-check"></i><b>9.3.1</b> Évolutions techniques</a></li>
-<li class="chapter" data-level="9.3.2" data-path="conclusion.html"><a href="conclusion.html#développements-méthodologiques"><i class="fa fa-check"></i><b>9.3.2</b> Développements méthodologiques</a></li>
-<li class="chapter" data-level="9.3.3" data-path="conclusion.html"><a href="conclusion.html#impacts-à-long-terme"><i class="fa fa-check"></i><b>9.3.3</b> Impacts à long terme</a></li>
+<li class="chapter" data-level="5.4.1" data-path="methodologie.html"><a href="methodologie.html#architecture-du-système"><i class="fa fa-check"></i><b>5.4.1</b> Architecture du système</a></li>
+<li class="chapter" data-level="5.4.2" data-path="methodologie.html"><a href="methodologie.html#performance"><i class="fa fa-check"></i><b>5.4.2</b> Performance</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="annexes.html"><a href="annexes.html"><i class="fa fa-check"></i><b>10</b> Annexes</a>
+<li class="chapter" data-level="6" data-path="resultats.html"><a href="resultats.html"><i class="fa fa-check"></i><b>6</b> Résultats et visualisations</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="annexes.html"><a href="annexes.html#détails-techniques-des-modèles"><i class="fa fa-check"></i><b>10.1</b> Détails techniques des modèles</a>
+<li class="chapter" data-level="6.1" data-path="resultats.html"><a href="resultats.html#résultats-numériques"><i class="fa fa-check"></i><b>6.1</b> Résultats numériques</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="annexes.html"><a href="annexes.html#formules-mathématiques-complètes"><i class="fa fa-check"></i><b>10.1.1</b> Formules mathématiques complètes</a></li>
-<li class="chapter" data-level="10.1.2" data-path="annexes.html"><a href="annexes.html#paramètres-et-constantes"><i class="fa fa-check"></i><b>10.1.2</b> Paramètres et constantes</a></li>
+<li class="chapter" data-level="6.1.1" data-path="resultats.html"><a href="resultats.html#configuration-optimale"><i class="fa fa-check"></i><b>6.1.1</b> Configuration optimale</a></li>
+<li class="chapter" data-level="6.1.2" data-path="resultats.html"><a href="resultats.html#coûts-estimés"><i class="fa fa-check"></i><b>6.1.2</b> Coûts estimés</a></li>
+<li class="chapter" data-level="6.1.3" data-path="resultats.html"><a href="resultats.html#couverture-réseau"><i class="fa fa-check"></i><b>6.1.3</b> Couverture réseau</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="annexes.html"><a href="annexes.html#codes-r-utilisés"><i class="fa fa-check"></i><b>10.2</b> Codes R utilisés</a>
+<li class="chapter" data-level="6.2" data-path="resultats.html"><a href="resultats.html#visualisations"><i class="fa fa-check"></i><b>6.2</b> Visualisations</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="annexes.html"><a href="annexes.html#préparation-des-données-2"><i class="fa fa-check"></i><b>10.2.1</b> Préparation des données</a></li>
-<li class="chapter" data-level="10.2.2" data-path="annexes.html"><a href="annexes.html#optimisation"><i class="fa fa-check"></i><b>10.2.2</b> Optimisation</a></li>
-<li class="chapter" data-level="10.2.3" data-path="annexes.html"><a href="annexes.html#visualisation"><i class="fa fa-check"></i><b>10.2.3</b> Visualisation</a></li>
+<li class="chapter" data-level="6.2.1" data-path="resultats.html"><a href="resultats.html#cartes-de-placement"><i class="fa fa-check"></i><b>6.2.1</b> Cartes de placement</a></li>
+<li class="chapter" data-level="6.2.2" data-path="resultats.html"><a href="resultats.html#analyse-comparative"><i class="fa fa-check"></i><b>6.2.2</b> Analyse comparative</a></li>
+<li class="chapter" data-level="6.2.3" data-path="resultats.html"><a href="resultats.html#indicateurs-de-performance"><i class="fa fa-check"></i><b>6.2.3</b> Indicateurs de performance</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="annexes.html"><a href="annexes.html#tableaux-et-figures-supplémentaires"><i class="fa fa-check"></i><b>10.3</b> Tableaux et figures supplémentaires</a>
+<li class="chapter" data-level="6.3" data-path="resultats.html"><a href="resultats.html#analyse-de-sensibilité"><i class="fa fa-check"></i><b>6.3</b> Analyse de sensibilité</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="annexes.html"><a href="annexes.html#données-brutes"><i class="fa fa-check"></i><b>10.3.1</b> Données brutes</a></li>
-<li class="chapter" data-level="10.3.2" data-path="annexes.html"><a href="annexes.html#visualisations-additionnelles"><i class="fa fa-check"></i><b>10.3.2</b> Visualisations additionnelles</a></li>
+<li class="chapter" data-level="6.3.1" data-path="resultats.html"><a href="resultats.html#variation-des-paramètres"><i class="fa fa-check"></i><b>6.3.1</b> Variation des paramètres</a></li>
+<li class="chapter" data-level="6.3.2" data-path="resultats.html"><a href="resultats.html#scénarios-alternatifs"><i class="fa fa-check"></i><b>6.3.2</b> Scénarios alternatifs</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="annexes.html"><a href="annexes.html#sources-de-données-1"><i class="fa fa-check"></i><b>10.4</b> Sources de données</a>
+<li class="chapter" data-level="6.4" data-path="resultats.html"><a href="resultats.html#validation-des-résultats"><i class="fa fa-check"></i><b>6.4</b> Validation des résultats</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="annexes.html"><a href="annexes.html#données-démographiques-2"><i class="fa fa-check"></i><b>10.4.1</b> Données démographiques</a></li>
-<li class="chapter" data-level="10.4.2" data-path="annexes.html"><a href="annexes.html#données-géographiques-1"><i class="fa fa-check"></i><b>10.4.2</b> Données géographiques</a></li>
-<li class="chapter" data-level="10.4.3" data-path="annexes.html"><a href="annexes.html#données-techniques-1"><i class="fa fa-check"></i><b>10.4.3</b> Données techniques</a></li>
+<li class="chapter" data-level="6.4.1" data-path="resultats.html"><a href="resultats.html#comparaison-avec-lexistant"><i class="fa fa-check"></i><b>6.4.1</b> Comparaison avec l’existant</a></li>
+<li class="chapter" data-level="6.4.2" data-path="resultats.html"><a href="resultats.html#tests-de-robustesse"><i class="fa fa-check"></i><b>6.4.2</b> Tests de robustesse</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="bibliographie.html"><a href="bibliographie.html"><i class="fa fa-check"></i><b>11</b> Bibliographie</a>
+<li class="chapter" data-level="7" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>7</b> Discussion</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="bibliographie.html"><a href="bibliographie.html#références-académiques"><i class="fa fa-check"></i><b>11.1</b> Références académiques</a>
+<li class="chapter" data-level="7.1" data-path="discussion.html"><a href="discussion.html#interprétation-des-résultats"><i class="fa fa-check"></i><b>7.1</b> Interprétation des résultats</a>
 <ul>
-<li class="chapter" data-level="11.1.1" data-path="bibliographie.html"><a href="bibliographie.html#optimisation-et-recherche-opérationnelle"><i class="fa fa-check"></i><b>11.1.1</b> Optimisation et recherche opérationnelle</a></li>
-<li class="chapter" data-level="11.1.2" data-path="bibliographie.html"><a href="bibliographie.html#réseaux-et-télécommunications"><i class="fa fa-check"></i><b>11.1.2</b> Réseaux et télécommunications</a></li>
-<li class="chapter" data-level="11.1.3" data-path="bibliographie.html"><a href="bibliographie.html#analyse-spatiale"><i class="fa fa-check"></i><b>11.1.3</b> Analyse spatiale</a></li>
+<li class="chapter" data-level="7.1.1" data-path="discussion.html"><a href="discussion.html#points-forts"><i class="fa fa-check"></i><b>7.1.1</b> Points forts</a></li>
+<li class="chapter" data-level="7.1.2" data-path="discussion.html"><a href="discussion.html#limites-identifiées"><i class="fa fa-check"></i><b>7.1.2</b> Limites identifiées</a></li>
+<li class="chapter" data-level="7.1.3" data-path="discussion.html"><a href="discussion.html#comparaison-avec-la-littérature"><i class="fa fa-check"></i><b>7.1.3</b> Comparaison avec la littérature</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="bibliographie.html"><a href="bibliographie.html#documents-officiels"><i class="fa fa-check"></i><b>11.2</b> Documents officiels</a>
+<li class="chapter" data-level="7.2" data-path="discussion.html"><a href="discussion.html#implications-pratiques"><i class="fa fa-check"></i><b>7.2</b> Implications pratiques</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="bibliographie.html"><a href="bibliographie.html#rapports-et-études"><i class="fa fa-check"></i><b>11.2.1</b> Rapports et études</a></li>
-<li class="chapter" data-level="11.2.2" data-path="bibliographie.html"><a href="bibliographie.html#normes-et-réglementations"><i class="fa fa-check"></i><b>11.2.2</b> Normes et réglementations</a></li>
+<li class="chapter" data-level="7.2.1" data-path="discussion.html"><a href="discussion.html#pour-les-opérateurs"><i class="fa fa-check"></i><b>7.2.1</b> Pour les opérateurs</a></li>
+<li class="chapter" data-level="7.2.2" data-path="discussion.html"><a href="discussion.html#pour-les-décideurs"><i class="fa fa-check"></i><b>7.2.2</b> Pour les décideurs</a></li>
+<li class="chapter" data-level="7.2.3" data-path="discussion.html"><a href="discussion.html#pour-les-communautés"><i class="fa fa-check"></i><b>7.2.3</b> Pour les communautés</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="bibliographie.html"><a href="bibliographie.html#ressources-en-ligne"><i class="fa fa-check"></i><b>11.3</b> Ressources en ligne</a>
+<li class="chapter" data-level="7.3" data-path="discussion.html"><a href="discussion.html#perspectives-damélioration"><i class="fa fa-check"></i><b>7.3</b> Perspectives d’amélioration</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="bibliographie.html"><a href="bibliographie.html#bases-de-données"><i class="fa fa-check"></i><b>11.3.1</b> Bases de données</a></li>
-<li class="chapter" data-level="11.3.2" data-path="bibliographie.html"><a href="bibliographie.html#documentation-technique"><i class="fa fa-check"></i><b>11.3.2</b> Documentation technique</a></li>
+<li class="chapter" data-level="7.3.1" data-path="discussion.html"><a href="discussion.html#aspects-techniques"><i class="fa fa-check"></i><b>7.3.1</b> Aspects techniques</a></li>
+<li class="chapter" data-level="7.3.2" data-path="discussion.html"><a href="discussion.html#aspects-méthodologiques"><i class="fa fa-check"></i><b>7.3.2</b> Aspects méthodologiques</a></li>
+<li class="chapter" data-level="7.3.3" data-path="discussion.html"><a href="discussion.html#aspects-opérationnels"><i class="fa fa-check"></i><b>7.3.3</b> Aspects opérationnels</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>8</b> Conclusion et perspectives</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="conclusion.html"><a href="conclusion.html#synthèse-des-résultats"><i class="fa fa-check"></i><b>8.1</b> Synthèse des résultats</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="conclusion.html"><a href="conclusion.html#objectifs-atteints"><i class="fa fa-check"></i><b>8.1.1</b> Objectifs atteints</a></li>
+<li class="chapter" data-level="8.1.2" data-path="conclusion.html"><a href="conclusion.html#contributions-principales"><i class="fa fa-check"></i><b>8.1.2</b> Contributions principales</a></li>
+<li class="chapter" data-level="8.1.3" data-path="conclusion.html"><a href="conclusion.html#limites-et-contraintes"><i class="fa fa-check"></i><b>8.1.3</b> Limites et contraintes</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="conclusion.html"><a href="conclusion.html#recommandations"><i class="fa fa-check"></i><b>8.2</b> Recommandations</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="conclusion.html"><a href="conclusion.html#pour-limplémentation"><i class="fa fa-check"></i><b>8.2.1</b> Pour l’implémentation</a></li>
+<li class="chapter" data-level="8.2.2" data-path="conclusion.html"><a href="conclusion.html#pour-le-suivi"><i class="fa fa-check"></i><b>8.2.2</b> Pour le suivi</a></li>
+<li class="chapter" data-level="8.2.3" data-path="conclusion.html"><a href="conclusion.html#pour-le-développement"><i class="fa fa-check"></i><b>8.2.3</b> Pour le développement</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="conclusion.html"><a href="conclusion.html#perspectives"><i class="fa fa-check"></i><b>8.3</b> Perspectives</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="conclusion.html"><a href="conclusion.html#évolutions-techniques"><i class="fa fa-check"></i><b>8.3.1</b> Évolutions techniques</a></li>
+<li class="chapter" data-level="8.3.2" data-path="conclusion.html"><a href="conclusion.html#développements-méthodologiques"><i class="fa fa-check"></i><b>8.3.2</b> Développements méthodologiques</a></li>
+<li class="chapter" data-level="8.3.3" data-path="conclusion.html"><a href="conclusion.html#impacts-à-long-terme"><i class="fa fa-check"></i><b>8.3.3</b> Impacts à long terme</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="annexes.html"><a href="annexes.html"><i class="fa fa-check"></i><b>9</b> Annexes</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="annexes.html"><a href="annexes.html#détails-techniques-des-modèles"><i class="fa fa-check"></i><b>9.1</b> Détails techniques des modèles</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="annexes.html"><a href="annexes.html#formules-mathématiques-complètes"><i class="fa fa-check"></i><b>9.1.1</b> Formules mathématiques complètes</a></li>
+<li class="chapter" data-level="9.1.2" data-path="annexes.html"><a href="annexes.html#paramètres-et-constantes"><i class="fa fa-check"></i><b>9.1.2</b> Paramètres et constantes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="annexes.html"><a href="annexes.html#codes-r-utilisés"><i class="fa fa-check"></i><b>9.2</b> Codes R utilisés</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="annexes.html"><a href="annexes.html#préparation-des-données-2"><i class="fa fa-check"></i><b>9.2.1</b> Préparation des données</a></li>
+<li class="chapter" data-level="9.2.2" data-path="annexes.html"><a href="annexes.html#optimisation"><i class="fa fa-check"></i><b>9.2.2</b> Optimisation</a></li>
+<li class="chapter" data-level="9.2.3" data-path="annexes.html"><a href="annexes.html#visualisation"><i class="fa fa-check"></i><b>9.2.3</b> Visualisation</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="annexes.html"><a href="annexes.html#tableaux-et-figures-supplémentaires"><i class="fa fa-check"></i><b>9.3</b> Tableaux et figures supplémentaires</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="annexes.html"><a href="annexes.html#données-brutes"><i class="fa fa-check"></i><b>9.3.1</b> Données brutes</a></li>
+<li class="chapter" data-level="9.3.2" data-path="annexes.html"><a href="annexes.html#visualisations-additionnelles"><i class="fa fa-check"></i><b>9.3.2</b> Visualisations additionnelles</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="annexes.html"><a href="annexes.html#sources-de-données-1"><i class="fa fa-check"></i><b>9.4</b> Sources de données</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="annexes.html"><a href="annexes.html#données-démographiques-2"><i class="fa fa-check"></i><b>9.4.1</b> Données démographiques</a></li>
+<li class="chapter" data-level="9.4.2" data-path="annexes.html"><a href="annexes.html#données-géographiques-1"><i class="fa fa-check"></i><b>9.4.2</b> Données géographiques</a></li>
+<li class="chapter" data-level="9.4.3" data-path="annexes.html"><a href="annexes.html#données-techniques-1"><i class="fa fa-check"></i><b>9.4.3</b> Données techniques</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="bibliographie.html"><a href="bibliographie.html"><i class="fa fa-check"></i><b>10</b> Bibliographie</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="bibliographie.html"><a href="bibliographie.html#références-académiques"><i class="fa fa-check"></i><b>10.1</b> Références académiques</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="bibliographie.html"><a href="bibliographie.html#optimisation-et-recherche-opérationnelle"><i class="fa fa-check"></i><b>10.1.1</b> Optimisation et recherche opérationnelle</a></li>
+<li class="chapter" data-level="10.1.2" data-path="bibliographie.html"><a href="bibliographie.html#réseaux-et-télécommunications"><i class="fa fa-check"></i><b>10.1.2</b> Réseaux et télécommunications</a></li>
+<li class="chapter" data-level="10.1.3" data-path="bibliographie.html"><a href="bibliographie.html#analyse-spatiale"><i class="fa fa-check"></i><b>10.1.3</b> Analyse spatiale</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="bibliographie.html"><a href="bibliographie.html#documents-officiels"><i class="fa fa-check"></i><b>10.2</b> Documents officiels</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="bibliographie.html"><a href="bibliographie.html#rapports-et-études"><i class="fa fa-check"></i><b>10.2.1</b> Rapports et études</a></li>
+<li class="chapter" data-level="10.2.2" data-path="bibliographie.html"><a href="bibliographie.html#normes-et-réglementations"><i class="fa fa-check"></i><b>10.2.2</b> Normes et réglementations</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="bibliographie.html"><a href="bibliographie.html#ressources-en-ligne"><i class="fa fa-check"></i><b>10.3</b> Ressources en ligne</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="bibliographie.html"><a href="bibliographie.html#bases-de-données"><i class="fa fa-check"></i><b>10.3.1</b> Bases de données</a></li>
+<li class="chapter" data-level="10.3.2" data-path="bibliographie.html"><a href="bibliographie.html#documentation-technique"><i class="fa fa-check"></i><b>10.3.2</b> Documentation technique</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -393,302 +316,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduction" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Chapitre 2</span> Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="contexte-et-problématique" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Contexte et Problématique<a href="introduction.html#contexte-et-problématique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Le Sénégal, pays d’Afrique de l’Ouest avec une superficie de 196 722 km² et une population de plus de 17 millions d’habitants, fait face à des défis importants en matière de <strong>couverture réseau de télécommunications</strong>. Malgré les progrès significatifs réalisés ces dernières années, des disparités importantes persistent entre les zones urbaines et rurales en termes d’accès aux technologies de communication modernes.</p>
-<div id="enjeux-nationaux" class="section level3 hasAnchor" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> 🌍 Enjeux Nationaux<a href="#enjeux-nationaux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La <strong>fracture numérique</strong> au Sénégal se manifeste par :</p>
+<div id="header">
+<h1 class="title">Optimisation du Placement des Antennes au Sénégal</h1>
+<h2 class="subtitle"><em>Algorithme Hybride GSAGC pour l’Optimisation Multi-Objectifs</em></h2>
+<p class="author"><em>Étudiant ISE - Cours d’Optimisation et Convexité</em></p>
+<p class="date"><em>2025-06-09</em></p>
+</div>
+<div id="introduction" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapitre 1</span> Introduction<a href="introduction.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="contexte-et-problématique" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Contexte et Problématique<a href="introduction.html#contexte-et-problématique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le Sénégal, comme de nombreux pays en développement, fait face à un défi majeur : l’accès équitable à la connectivité mobile. Malgré les avancées technologiques significatives, de nombreuses zones rurales restent encore mal desservies, avec une qualité de service limitée. Cette situation creuse la fracture numérique et freine le développement socio-économique de territoires pourtant porteurs de potentiel.</p>
+<div id="enjeux-de-la-connectivité" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> 🌍 Enjeux de la Connectivité<a href="#enjeux-de-la-connectivité" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La problématique de la connectivité au Sénégal se manifeste par plusieurs aspects :</p>
 <ul>
-<li><strong>Couverture inégale</strong> : Les zones rurales restent sous-couvertes (60% contre 95% en urbain)</li>
-<li><strong>Qualité de service variable</strong> : Débits insuffisants dans certaines régions</li>
-<li><strong>Coûts d’infrastructure élevés</strong> : Investissements importants requis pour l’extension</li>
-<li><strong>Contraintes géographiques</strong> : Diversité climatique et topographique</li>
+<li><strong>Couverture inégale</strong> : Disparités importantes entre zones urbaines et rurales</li>
+<li><strong>Qualité de service limitée</strong> : Débits insuffisants dans les zones reculées</li>
+<li><strong>Fracture numérique</strong> : Impact sur le développement socio-économique</li>
+<li><strong>Contraintes géographiques</strong> : Difficultés d’accès aux zones reculées</li>
 </ul>
+<pre><code>## Warning: le package &#39;leaflet&#39; a été compilé avec la version R 4.4.3</code></pre>
 <div class="figure"><span style="display:block;" id="fig:senegal-map"></span>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-9761185b6a3cbd0da17b" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-9761185b6a3cbd0da17b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addCircleMarkers","args":[[14.7167,14.7886,14.13,16.0179,12.5601],[-17.4441,-16.9262,-16.0796,-16.018,-16.2719],[6.109009739720506,1.962141687034858,1.688194301613413,1.606237840420901,1.51657508881031],null,null,{"interactive":true,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.7},null,null,["Dakar <br/>Population: 3 732 000","Thiès <br/>Population:   385 000","Kaolack <br/>Population:   285 000","Saint-Louis <br/>Population:   258 000","Ziguinchor <br/>Population:   230 000"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLegend","args":[{"colors":["red","red","red","red","red"],"labels":["Dakar","Thiès","Kaolack","Saint-Louis","Ziguinchor"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"unknown","title":"Principales villes du Sénégal","extra":null,"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[12.5601,16.0179],"lng":[-17.4441,-16.018]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-3eb972b0e299a6ba0cd5" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-3eb972b0e299a6ba0cd5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addCircleMarkers","args":[[14.7167,14.7886,14.13,16.0179,12.5601],[-17.4441,-16.9262,-16.0796,-16.018,-16.2719],[6.109009739720506,1.962141687034858,1.688194301613413,1.606237840420901,1.51657508881031],null,null,{"interactive":true,"className":"","stroke":true,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.7},null,null,["Dakar <br/>Population: 3 732 000","Thiès <br/>Population:   385 000","Kaolack <br/>Population:   285 000","Saint-Louis <br/>Population:   258 000","Ziguinchor <br/>Population:   230 000"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLegend","args":[{"colors":["red","red","red","red","red"],"labels":["Dakar","Thiès","Kaolack","Saint-Louis","Ziguinchor"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"unknown","title":"Principales villes du Sénégal","extra":null,"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[12.5601,16.0179],"lng":[-17.4441,-16.018]}},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
-Figure 2.1: Carte du Sénégal avec principales villes
+Figure 1.1: Carte du Sénégal montrant les zones urbaines et rurales
 </p>
 </div>
 </div>
-<div id="opportunités-de-développement" class="section level3 hasAnchor" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> 📈 Opportunités de Développement<a href="#opportunités-de-développement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>L’optimisation du placement des antennes représente une <strong>opportunité stratégique</strong> pour :</p>
+</div>
+<div id="problématique-du-placement-des-antennes" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Problématique du Placement des Antennes<a href="introduction.html#problématique-du-placement-des-antennes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le placement des antennes de télécommunication constitue une problématique stratégique majeure. Il ne s’agit pas seulement de couvrir les zones densément peuplées, mais également d’assurer une couverture efficace dans les zones reculées, souvent difficiles d’accès, où les contraintes géographiques, économiques et techniques rendent le déploiement complexe.</p>
+<div id="défis-techniques" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> 📊 Défis Techniques<a href="#défis-techniques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Une mauvaise répartition des stations de base peut engendrer :
+- Des zones blanches (sans couverture)
+- Une qualité de service dégradée
+- Des interférences entre antennes
+- Des coûts d’exploitation élevés</p>
+<pre><code>## Warning: le package &#39;ggplot2&#39; a été compilé avec la version R 4.4.3</code></pre>
+<pre><code>## Warning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use &quot;none&quot; instead as
+## of ggplot2 3.3.4.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<div class="figure"><span style="display:block;" id="fig:challenges-chart"></span>
+<img src="optimisation_antennes_senegal_files/figure-html/challenges-chart-1.png" alt="Principaux défis de la couverture réseau" width="672" />
+<p class="caption">
+Figure 1.2: Principaux défis de la couverture réseau
+</p>
+</div>
+</div>
+</div>
+<div id="objectifs-du-projet" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Objectifs du Projet<a href="introduction.html#objectifs-du-projet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ce projet vise à étudier l’optimisation du placement des antennes, avec pour objectif une meilleure couverture réseau tout en réduisant les interférences. L’approche prend en compte les réalités du terrain, notamment :</p>
+<div id="objectifs-principaux" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> 🎯 Objectifs Principaux<a href="#objectifs-principaux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li><strong>Améliorer la connectivité nationale</strong> en maximisant la couverture</li>
-<li><strong>Réduire les coûts opérationnels</strong> par un placement optimal</li>
-<li><strong>Stimuler l’économie numérique</strong> via un meilleur accès aux services</li>
-<li><strong>Positionner le Sénégal</strong> comme leader technologique en Afrique de l’Ouest</li>
-</ol>
-</div>
-</div>
-<div id="objectifs-du-projet" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Objectifs du Projet<a href="introduction.html#objectifs-du-projet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="objectif-principal" class="section level3 hasAnchor" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> 🎯 Objectif Principal<a href="#objectif-principal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Développer et implémenter un <strong>algorithme d’optimisation hybride innovant</strong> pour le placement optimal des antennes de télécommunication au Sénégal, en tenant compte des contraintes techniques, économiques et géographiques spécifiques au pays.</p>
-</div>
-<div id="objectifs-spécifiques" class="section level3 hasAnchor" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> 🎯 Objectifs Spécifiques<a href="#objectifs-spécifiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:objectifs-table">Table 2.1: </span><span id="tab:objectifs-table">Table 2.2: </span>Objectifs Spécifiques du Projet d’Optimisation
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-Objectif
-</th>
-<th style="text-align:left;">
-Description
-</th>
-<th style="text-align:left;">
-Indicateur
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Couverture Maximale
-</td>
-<td style="text-align:left;">
-Atteindre 95% couverture urbaine et 85% rurale
-</td>
-<td style="text-align:left;">
-% Population couverte
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Optimisation Coûts
-</td>
-<td style="text-align:left;">
-Respecter budget 50M FCFA avec ROI optimal
-</td>
-<td style="text-align:left;">
-CAPEX/OPEX optimisés
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Qualité de Service
-</td>
-<td style="text-align:left;">
-Garantir QoS acceptable (SINR ≥ 15dB)
-</td>
-<td style="text-align:left;">
-SINR moyen, Débit
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Contraintes Locales
-</td>
-<td style="text-align:left;">
-Intégrer spécificités climatiques sénégalaises
-</td>
-<td style="text-align:left;">
-Robustesse climatique
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Scalabilité Régionale
-</td>
-<td style="text-align:left;">
-Créer modèle extensible à l’UEMOA
-</td>
-<td style="text-align:left;">
-Adaptabilité cross-country
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="innovation-proposée" class="section level3 hasAnchor" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> 💡 Innovation Proposée<a href="#innovation-proposée" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Ce projet introduit l’algorithme <strong>GSAGC</strong> (<em>Genetic-Simulated Annealing with Geographic Clustering</em>), une approche hybride inédite qui combine :</p>
+<li><strong>Optimisation de la couverture</strong>
 <ul>
-<li><strong>Algorithmes génétiques</strong> pour l’exploration globale</li>
-<li><strong>Recuit simulé</strong> pour l’optimisation locale<br />
-</li>
-<li><strong>Clustering géographique</strong> pour la décomposition intelligente</li>
-</ul>
-</div>
-</div>
-<div id="contribution-et-originalité" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Contribution et Originalité<a href="introduction.html#contribution-et-originalité" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="apports-scientifiques" class="section level3 hasAnchor" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> 🔬 Apports Scientifiques<a href="#apports-scientifiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li><strong>Méthodologique</strong> : Premier algorithme hybride GSAGC pour placement d’antennes</li>
-<li><strong>Géographique</strong> : Intégration des contraintes climatiques africaines</li>
-<li><strong>Multi-objectifs</strong> : Optimisation simultanée couverture-coût-qualité</li>
-<li><strong>Pratique</strong> : Solution directement applicable par les opérateurs</li>
+<li>Maximiser la couverture des zones rurales</li>
+<li>Réduire les zones blanches</li>
+<li>Améliorer la qualité de service</li>
+</ul></li>
+<li><strong>Réduction des interférences</strong>
+<ul>
+<li>Optimisation des fréquences</li>
+<li>Minimisation des chevauchements</li>
+<li>Amélioration de la qualité du signal</li>
+</ul></li>
+<li><strong>Contraintes pratiques</strong>
+<ul>
+<li>Prise en compte de la propagation des ondes</li>
+<li>Gestion des contraintes budgétaires</li>
+<li>Optimisation des coûts d’installation et d’entretien</li>
+</ul></li>
 </ol>
-</div>
-<div id="éléments-différenciateurs" class="section level3 hasAnchor" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> 🌟 Éléments Différenciateurs<a href="#éléments-différenciateurs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="figure"><span style="display:block;" id="fig:innovation-chart"></span>
-<img src="optimisation_antennes_senegal_files/figure-html/innovation-chart-1.png" alt="Innovations du Projet GSAGC" width="672" />
-<p class="caption">
-Figure 2.2: Innovations du Projet GSAGC
-</p>
-</div>
-</div>
-</div>
-<div id="plan-du-document" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Plan du Document<a href="introduction.html#plan-du-document" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Ce document présente le projet selon une <strong>approche structurée</strong> en 8 chapitres :</p>
-<div id="architecture-du-livre" class="section level3 hasAnchor" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> 📚 Architecture du Livre<a href="#architecture-du-livre" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:plan-document">Table 2.3: </span><span id="tab:plan-document">Table 2.4: </span>Structure Détaillée du Document
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-Chapitre
-</th>
-<th style="text-align:left;">
-Titre
-</th>
-<th style="text-align:left;">
-Contenu
-</th>
-<th style="text-align:left;">
-Pages
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;font-weight: bold;">
-1
-</td>
-<td style="text-align:left;color: darkblue !important;">
-Introduction
-</td>
-<td style="text-align:left;">
-Contexte, objectifs, originalité
-</td>
-<td style="text-align:left;">
-8-12
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;">
-2
-</td>
-<td style="text-align:left;color: darkblue !important;">
-État de l’Art
-</td>
-<td style="text-align:left;">
-Revue littérature, méthodes existantes
-</td>
-<td style="text-align:left;">
-12-18
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;">
-3
-</td>
-<td style="text-align:left;color: darkblue !important;">
-Méthodologie
-</td>
-<td style="text-align:left;">
-Modélisation mathématique, approche
-</td>
-<td style="text-align:left;">
-18-25
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;">
-4
-</td>
-<td style="text-align:left;color: darkblue !important;">
-Algorithme GSAGC
-</td>
-<td style="text-align:left;">
-Cœur technique de l’innovation
-</td>
-<td style="text-align:left;">
-25-35
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;">
-5
-</td>
-<td style="text-align:left;color: darkblue !important;">
-Implémentation R
-</td>
-<td style="text-align:left;">
-Développement R, code fonctionnel
-</td>
-<td style="text-align:left;">
-35-45
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;">
-6
-</td>
-<td style="text-align:left;color: darkblue !important;">
-Résultats
-</td>
-<td style="text-align:left;">
-Analyses, évaluations, métriques
-</td>
-<td style="text-align:left;">
-45-55
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;">
-7
-</td>
-<td style="text-align:left;color: darkblue !important;">
-Discussion
-</td>
-<td style="text-align:left;">
-Interprétation, limites, améliorations
-</td>
-<td style="text-align:left;">
-55-62
-</td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;">
-8
-</td>
-<td style="text-align:left;color: darkblue !important;">
-Conclusion
-</td>
-<td style="text-align:left;">
-Synthèse, perspectives, impact
-</td>
-<td style="text-align:left;">
-62-68
-</td>
-</tr>
-</tbody>
-</table>
-<p>Chaque chapitre intègre :
-- <strong>Théorie</strong> : Fondements scientifiques et mathématiques
-- <strong>Pratique</strong> : Implémentation R et exemples concrets<br />
-- <strong>Résultats</strong> : Analyses quantitatives et visualisations
-- <strong>Discussion</strong> : Interprétation critique et perspectives</p>
 <hr />
-<p><em>Ce chapitre d’introduction pose les bases du projet d’optimisation des antennes au Sénégal. Le chapitre suivant présente l’état de l’art et les méthodes existantes dans le domaine.</em></p>
+<p><em>Ce chapitre d’introduction pose les bases du projet d’optimisation des antennes au Sénégal. Le chapitre suivant présentera le contexte géographique et socio-économique des zones d’étude.</em></p>
 
 </div>
 </div>
@@ -698,8 +406,8 @@ Synthèse, perspectives, impact
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="contexte.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="contexte.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
