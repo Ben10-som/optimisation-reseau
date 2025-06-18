@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = FALSE,
 ```
 
 
-# Introduction
+# Introduction Générale
 
 
 
@@ -42,6 +42,29 @@ Face à la complexité des réseaux actuels, il devient essentiel de recourir à
 Les résultats obtenus permettront d’évaluer la performance de la méthode proposée et d’ouvrir la voie à une application à grande échelle dans le contexte sénégalais, en vue de réduire les inégalités d’accès au numérique et d’optimiser l’usage des ressources technologiques disponibles.
 
 
+# Contexte et Problématique
+
+### Enjeux de la Connectivité
+
+La problématique de la connectivité au Sénégal se manifeste par plusieurs aspects :
+
+- **Couverture inégale** : Disparités importantes entre zones urbaines et rurales
+- **Qualité de service limitée** : Débits insuffisants dans les zones reculées
+- **Fracture numérique** : Impact sur le développement socio-économique
+- **Contraintes géographiques** : Difficultés d'accès aux zones reculées
+
+### Problématique du Placement des Antennes
+
+Le placement des antennes de télécommunication constitue une problématique stratégique majeure. Il ne s'agit pas seulement de couvrir les zones densément peuplées, mais également d'assurer une couverture efficace dans les zones reculées, souvent difficiles d'accès, où les contraintes géographiques, économiques et techniques rendent le déploiement complexe.
+
+###  Défis Techniques
+
+Une mauvaise répartition des stations de base peut engendrer :
+- Des zones blanches (sans couverture)
+- Une qualité de service dégradée
+- Des interférences entre antennes
+- Des coûts d'exploitation élevés
+
 ---
 
 # Présentation de la zone d’étude :Kédougou, Tambacounda et Matam
@@ -52,42 +75,129 @@ Ces régions sont caractérisées par une diversité géographique et culturelle
 le taux de couverture réseau dans les régions de Kédougou, Tambacounda et Matam est relativement faible, avec des disparités importantes entre les zones urbaines et rurales.
 Les zones rurales, en particulier, souffrent d'un manque d'infrastructures de télécommunication, ce qui limite l'accès à Internet et aux services mobiles pour les populations locales.
 
-```{r}
 
-library(sf)
+# Contexte
+
+Le Sénégal, situé en Afrique de l'Ouest, compte une population estimée à plus de 18 millions d'habitants en 2023 (source : ANSD). Le pays présente une grande diversité géographique, allant des zones sahéliennes du nord-est aux forêts tropicales du sud-est. Les infrastructures numériques sont principalement concentrées dans les grandes agglomérations de l'ouest (Dakar, Thiès, Mbour).
+
+###  Indicateurs clés
+
+Le pays couvre une superficie de 196 722 km² et est administrativement divisé en 14 régions. Le taux d'urbanisation est estimé à environ 47 %, ce qui indique que plus de la moitié de la population vit encore en milieu rural. En 2022, environ 58 % de la population avait accès à Internet, bien que ce chiffre masque d'importantes disparités régionales.
+
+## Couverture réseau : un paysage inégal
+
+Malgré un développement significatif des réseaux 3G/4G en milieu urbain, de nombreuses zones rurales restent sous-connectées. Cette situation limite :
+
+- L'accès aux services publics (santé, éducation)
+- Les opportunités économiques locales
+- Le développement de l'e-administration et des innovations numériques
+
+
+###  État de la couverture réseau mobile
+La couverture réseau au Sénégal est marquée par des disparités importantes :
+
+
+- La couverture 2G/3G/4G/5G
+- La qualité du signal par opérateur
+- Les débits moyens
+- La latence
+
+
+### Analyse par opérateur
+
+Les trois principaux opérateurs du Sénégal (Orange, Free, Expresso) présentent des couvertures différentes :
+
+
+```{r operator-coverage, echo=FALSE, fig.cap="Comparaison de la couverture par opérateur", message=FALSE}
 library(ggplot2)
-# Charger le shapefile (met le chemin vers ton fichier .shp)
-senegal <- st_read("donnee/shp/gadm41_SEN_1.shp")
-View(senegal$NAME_1)
+library(tidyr)
+
+# Données de couverture par opérateur (exemple)
+operator_data <- data.frame(
+  Region = c("Dakar", "Thiès", "Saint-Louis", "Tambacounda", "Kédougou", "Matam"),
+  Orange = c(95, 85, 80, 45, 35, 50),
+  Free = c(90, 80, 75, 40, 30, 45),
+  Expresso = c(85, 75, 70, 35, 25, 40)
+)
+
+operator_long <- pivot_longer(operator_data, 
+                            cols = c(Orange, Free, Expresso),
+                            names_to = "Operateur",
+                            values_to = "Couverture")
+
+ggplot(operator_long, aes(x = Region, y = Couverture, fill = Operateur)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_manual(values = c("Orange" = "orange", "Free" = "red", "Expresso" = "green")) +
+  labs(title = "Couverture réseau par opérateur et par région",
+       x = "Région",
+       y = "Pourcentage de couverture",
+       fill = "Opérateurs") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
 
-```{r}
-# Tracer la carte avec ggplot2
-ggplot(data = senegal) +
-  geom_sf(fill = "lightblue", color = "black") +
-  geom_sf_text(aes(label = NAME_1), size = 3, color = "darkblue") + # adapte NOM_REGION au nom de ta colonne
-  ggtitle("Carte des régions du Sénégal") +
-  theme_minimal()
+###  Cartes  de couverture réseau
 
+
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/carte_couverture_2G.png")
+```
+
+la région de Dakar, la couverture 2G est presque totale, tandis que les zones rurales comme Tambacounda et Kédougou souffrent d'une couverture très limitée.
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/carte_couverture_3G.png")
+```
+
+
+Dans la carte de couverture 3G, on observe une amélioration significative dans les zones urbaines, mais des lacunes persistent dans les régions rurales.
+
+
+
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/carte_couverture_4G.png")
 ```
 
 
 
+La carte de couverture 4G montre une concentration de la couverture dans les grandes villes notamment à Dakar , tandis que les zones rurales restent largement sous-couvertes, avec des débits souvent insuffisants pour les usages modernes. 
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/nperfcouverture_orange.png")
+```
+
+
+le réseau Orange est le plus étendu, avec une couverture de 95% dans la région de Dakar, mais il reste des zones blanches dans les régions rurales.
+le réseau 4G de Free est beaucoup plus concentré dans les zones urbaines, , mais il est très limité dans les zones rurales.
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/nperfcouverture_free.png")
+```
+ 
+ la couverture de Free est légèrement inférieure, avec 90% dans la région de Dakar, mais elle souffre également de lacunes dans les zones rurales.
 
 
 
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/nperfcouverture_express.png")
+```
 
-
-
-
-
+le reseau d'Expresso est le moins étendu, avec une couverture de 85% dans la région de Dakar, et il souffre de lacunes importantes dans les zones rurales. Il présente de nombreuses zones blanches, notamment dans les régions de Kédougou et Tambacounda, où la couverture est inférieure à 50%.
 
 # Généralités sur les Réseaux de télécommunicatin 
 
 ##  canaux de communication
 
- En télécommunications ou dans les réseaux informatiques, un canal de commu
+En télécommunications ou dans les réseaux informatiques, un canal de commu
 nication est un médium de transmission d’information, permettant l’acheminement
  d’un message d’une ou plusieurs sources à un ou plusieurs destinataires. Cette trans
 mission d’information peut se faire au travers d’un support physique, comme un câble,
@@ -401,321 +511,120 @@ L'optimisation du placement des antennes dans les régions de **Kédougou, Tamba
 - **Contraintes géographiques** : Relief accidenté et végétation dense
 - **Ressources limitées** : Nécessité de minimiser le nombre d'antennes
 
-```{r}
-library(ggplot2)
-library(dplyr)
 
-# Les régions à mettre en couleur spéciale
-regions_of_interest <- c("Kédougou", "Tambacounda", "Matam")
 
-# Ajouter une colonne pour distinguer les régions d'intérêt
-senegal <- senegal %>%
-  mutate(color_fill = ifelse(NAME_1 %in% regions_of_interest, "highlight", "other"))
-
-# Tracer la carte sans légende
-ggplot(data = senegal) +
-  geom_sf(aes(fill = color_fill), color = "black", show.legend = FALSE) +  # désactiver légende ici
-  geom_sf_text(aes(label = NAME_1), size = 3, color = "darkblue") +
-  scale_fill_manual(values = c("highlight" = "lightgreen", "other" = "gray90")) +
-  ggtitle("Carte du Sénégal avec régions de Kédougou, Tambacounda et Matam en couleur") +
-  theme_minimal()
-
-```
-
-```{r}
-senegal$NAME_1 %>% unique()
-```
 # Modélisation mathématique du problème
-L’optimisation du placement des antennes peut être formulée comme un problème d’**optimisation combinatoire**. 
-On peut formuler ce problème comme un problème d’optimisation combinatoire avec contraintes.
-
-1. Variables de décision
-
-Soit un ensemble discret de points candidats pour l’implantation d’antennes, P={p1,p2,...,pN}
-On définit une variable binaire $x_i$ pour chaque point $p_i$ :
-$$
-x_i = \begin{cases} 
-1 & \text{si une antenne est placée en } p_i \\
-0 & \text{sinon}
-\end{cases}
-$$
 
 
-2. Fonction objectif
 
-On cherche à minimiser le nombre total d’antennes installées :
-$$
-\min \sum_{i=1}^{N} x_i
-$$
-3. Contraintes
-
-On souhaite que chaque point qj dans la zone étudiée (ensemble Q={q1,...,qM}) soit couvert par au moins une antenne avec un signal suffisant.
-
-On définit une fonction de couverture binaire $C_{ij}$​ :
-$$
-C_{ij} = \begin{cases}
-1 & \text{si le point } q_j \text{ est couvert par l'antenne } p_i \\
-0 & \text{sinon}
-\end{cases}
-$$
-La contrainte de couverture est alors :
-$$
-\sum_{i=1}^{N} C_{ij} x_i \geq 1 \quad \forall j \in Q
-$$
-
-Formulation du problème :
-
-```math
-\text{min } \sum_{i=1}^{N} x_i
+```{r , echo=FALSE, fig.align='center', out.width='50%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/antenne-reseaux-mobiles-4G-3G.png")
 ```
 
-Sous contraintes :
+## Définition du problème
 
-```math
-\sum_{i=1}^{N} C_{ij} x_i \geq 1 \quad \forall j \in Q \\
-x_i \in \{0, 1\} \quad \forall i \in P
-```
+Dans le contexte du développement des infrastructures de télécommunication au Sénégal, l’objectif est d’optimiser le déploiement d’antennes afin de maximiser la couverture réseau et de minimiser les coûts et les interférences. Ce problème s’inscrit dans une problématique d’optimisation multi-objectif avec des contraintes géographiques, techniques et économiques fortes.
 
+### Variables de décision
+- **Localisation des antennes** : positions géographiques discrètes ou continues dans une zone d’étude donnée.
+- **Types d'antennes** : plusieurs modèles d’antennes peuvent exister avec des caractéristiques différentes (portée, coût, consommation).
+- **Puissance d’émission** : niveau de puissance assigné à chaque antenne, influençant la couverture et les interférences.
+- **Fréquences utilisées** : choix des fréquences pour chaque antenne, en tenant compte des interférences potentielles.
+- **Budget alloué** : montant total disponible pour le déploiement des antennes.
 
 
+### Fonctions objectifs
+- **Minimisation des coûts** : coûts d'installation, de maintenance et d'exploitation des antennes.
+- **Maximisation de la couverture** : couverture efficace des zones peu ou mal desservies.
+- **Réduction des interférences** : minimisation des conflits de fréquence entre antennes voisines.
 
-## Méthodes d’optimisation
 
-Plusieurs techniques peuvent être employées pour résoudre ce problème
+### Contraintes
+- **Budgétaires** : budget total alloué au déploiement des infrastructures.
+- **Géographiques** : contraintes d’implantation liées à la topographie, aux infrastructures existantes et à la réglementation.
+- **Techniques** : compatibilité des fréquences, limites de puissance, capacités des antennes.
 
-### 1. Méthodes exactes (programmation linéaire en nombres entiers - PLNE)
+## Formulation mathématique
 
-Ces méthodes résolvent le problème de manière exacte, mais deviennent **coûteuses en temps de calcul** lorsque \( N \) et \( M \) sont grands.
-### 2. Méthodes heuristiques
-Les méthodes heuristiques fournissent des solutions approximatives en un temps raisonnable. Parmi les plus courantes, on trouve :
-- **Algorithmes gloutons** : Sélectionnent les points les plus prometteurs à chaque étape.
-- **Recherche locale** : Améliorent une solution initiale en effectuant des modifications locales.
-- **Algorithmes génétiques** : Inspirés de la sélection naturelle, ils utilisent des populations de solutions et des opérateurs génétiques (croisement, mutation) pour explorer l’espace des solutions.
+e de programmation mathématique pour l'optimisation du placement des antennes
 
+#### Variables de Décision
 
-## Étapes de Résolution
+- \( A = \{1, \dots, n\} \) : ensemble des antennes
+- \( F = \{f_1, \dots, f_m\} \) : fréquences disponibles
+- \( P = \{p_1, \dots, p_k\} \) : points du territoire à couvrir
+- \( x_i, y_i \) : coordonnées de l’antenne \( i \)
+- \( f_i \in F \) : fréquence de l’antenne \( i \)
+- \( c_i \) : coût d’installation de l’antenne \( i \)
+- \( p_i \) : puissance d’émission de l’antenne \( i \)
 
-### 1. Simplification et Analyse
+#### Fonction Objectif (à minimiser)
 
-Le problème est une instance du **Set Covering Problem**, connu pour être **NP-difficile**. Nous utilisons des techniques classiques pour les problèmes combinatoires.
+\[
+\min_{x_i, y_i, f_i, p_i} \quad w_1 \cdot U(x, y, p) + w_2 \cdot I(f, p) + w_3 \cdot C(x, y, p)
+\]
 
-### 2. Méthode Exacte : Programmation Linéaire en Nombres Entiers (PLNE)
+Avec :
+- \( U(x, y, p) \) : fonction représentant la proportion d’usagers non couverts,
+- \( I(f, p) \) : mesure du niveau global d’interférences dans le réseau,
+- \( C(x, y, p) \) : coût total d’installation et de fonctionnement,
+- \( w_1, w_2, w_3 \) : coefficients pondérant chaque objectif selon leur importance relative.
 
-**Approche :** Utilisation d’un solveur PLNE pour trouver la solution optimale.
+#### Contraintes
 
-#### Exemple avec des données synthétiques :
+1. **Couverture minimale** :
+\[
+\forall p_j \in P, \quad \exists i \in A : SIR(p_j) \geq SIR^*
+\]
 
+2. **Budget total** :
+\[
+\sum_{i \in A} c_i + c'(p_i) \leq B
+\]
+(où \( c'(p_i) \) est le coût lié à la puissance d’émission)
 
-**Données :**
+3. **Interférences limitées** :
+\[
+\forall i \neq j, \ f_i = f_j \Rightarrow SIR_{ij} \geq \theta
+\]
 
-- $N = 5$ points candidats
-- $M = 8$ points à couvrir
+4. **Fréquences valides** :
+\[
+f_i \in F
+\]
 
-**Matrice de couverture $C_{ij}$ (exemple fictif)** :
+5. **Emplacements autorisés** :
+\[
+(x_i, y_i) \in \text{Zone d’implantation possible}
+\]
 
+6. **Bornes sur la puissance** :
+\[
+p_i^{\min} \leq p_i \leq p_i^{\max}
+\]
 
-```text
-C = 
-1 0 1 0 0  
-0 1 0 1 0  
-1 0 0 1 0  
-0 1 0 0 1  
-0 0 1 0 1  
-1 0 0 0 0  
-0 1 0 1 0  
-0 0 1 0 1
-```
 
-**Explication :** $C_{1,1} = 1$ signifie que l’antenne $p_1$ couvre le point $q_1$.
+### Analyse de complexité
 
-#### Résolution :
+Ce problème est **NP-difficile**, en raison :
+- du nombre combinatoire de positions et d'affectations de fréquences possibles,
+- de la nécessité de calculer des métriques complexes comme le **SIR** pour chaque point et chaque combinaison d'antennes.
 
-- **Fonction objectif :** $min(x_1 + x_2 + x_3 + x_4 + x_5)$
-- **Contraintes :** Pour chaque $q_j$, au moins une antenne couvrante est sélectionnée.
+Des stratégies de simplification incluent :
+- la réduction de l’espace de recherche par une discrétisation fine,
+- l’usage de métaheuristiques comme la **recherche tabou**, **MADS**, **algorithmes génétiques**, etc.
 
-Par exemple :  
-$q_1$: $x_1 + x_3 \geq 1$
 
-**Solution optimale (avec GLPK ou autre solveur) :**  
-$x_1 = 1$, $x_2 = 1$, $x_4 = 1$, autres $x_i = 0$  
-→ **3 antennes utilisées.**
 
-### 3. Méthode Approchée : Algorithme Glouton
 
-Quand $N$ est grand, les méthodes exactes deviennent impraticables.  
-Un **algorithme glouton** fournit une solution **rapide mais sous-optimale**.
 
-**Algorithme :**
 
-1. Initialiser $x_i = 0$, `couverts = ∅`.
-2. Tant que `couverts ≠ Q` :
-    - Choisir $p_i$ non sélectionné couvrant **le plus de points non couverts**.
-    - Fixer $x_i = 1$.
-    - Ajouter les points couverts par $p_i$ à `couverts`.
-**Application sur l’exemple :**
 
-- Itération 1 : $p_1$ couvre $\{q_1, q_3, q_6\}$.
-- Itération 2 : $p_2$ couvre $\{q_2, q_4, q_7\}$.
-- Itération 3 : $p_5$ couvre $\{q_5, q_8\}$.
 
-**Solution finale :** $x_1 = x_2 = x_5 = 1$ → **3 antennes.**
 
-### 4. Extension avec Interférences (Modèle Avancé)
 
-Si on ajoute des contraintes de rapport signal/bruit (SNR), le problème devient :
 
-```math
-\frac{P_{ij}}{\sum_{k \neq i} P_{kj} x_k + N_0} \geq \theta \quad \text{pour tout } q_j \text{ couvert par } p_i
-```
 
-**Réformulation :**
 
-- Introduire des variables supplémentaires pour modéliser les interférences.
-- Utiliser des techniques de **linéarisation** ou **branch-and-bound**.
 
-## Résumé des Solutions
-
-
-| Méthode         | Avantages                       | Inconvénients                  | Complexité     |
-|-----------------|----------------------------------|--------------------------------|----------------|
-| PLNE            | Solution exacte                 | Inefficace pour $N$ grand      | Exponentielle  |
-| Glouton         | Rapide, scalable                | Solution sous-optimale         | $\mathcal{O}(N^2)$ |
-| Métaheuristiques| Adapté aux problèmes complexes  | Nécessite réglage des paramètres| Variable        |
-
-
-## Optimisation du 
-
-# Modèles de propagation des ondes
-## Loi de décroissance de la puissance (modèle simplifié)
-$$
-P_r(d) = P_0 \left(\frac{d_0}{d}\right)^2
-$$
-
-
-## Loi de décroissance de la puissance (modèle général)
-
-$$
-P_r(d) = P_0 \left(\frac{d_0}{d}\right)^n
-$$
-
-- $P_0$ : puissance à distance référence $d_0$
-- $n$ : coefficient d’affaiblissement (entre 2 et 5)
-
----
-
-# Multiplexage et répartition des fréquences
-
-## Multiplexage Fréquentiel (FDMA)
-
-On divise le spectre en $N$ canaux :
-
-$$
-B_{total} = N \cdot B_{canal}
-$$
-
-Chaque utilisateur utilise un canal fixe.
-
-## Multiplexage Temporel (TDMA)
-
-Le temps est divisé en $C$ créneaux de durée $T$ :
-
-$$
-T_{total} = C \cdot T
-$$
-
-Chaque utilisateur communique à tour de rôle.
-
-## Combiné TDMA/FDMA
-
-Chaque canal fréquentiel est subdivisé en créneaux temporels, pour une meilleure utilisation du spectre.
-
----
-
-# Optimisation du placement des antennes
-
-## Objectif de couverture
-
-Donnons un modèle mathématique :
-
-Soit $x_i$ les coordonnées des antennes à placer, $y_j$ les points à couvrir.
-
-- $P_{ij}$ : puissance reçue à $y_j$ depuis l’antenne $i$.
-- $\gamma$ : seuil minimum de puissance.
-
-**Contraintes :**
-
-$$
-P_{ij} \geq \gamma \quad \text{pour tous } j \,\Rightarrow \, y_j \,\text{est couvert}
-$$
-
-**Fonction objectif (par exemple) :**
-
-- Max. nombre de points couverts
-- Min. nombre d'antennes placées
-- Max. somme de puissances reçues (pondérées)
-
-## Modèles d'interférences
-
-Le rapport signal-bruit (SNR) :
-
-$$
-\text{SNR} = \frac{P_{signal}}{P_{bruit} + P_{interférences}}
-$$
-
-Une zone est jugée couverte si $\text{SNR} \geq \theta$ (seuil).
-
----
-
-# Optimisation de l'assignation de fréquences
-
-On affecte à chaque antenne $i$ une fréquence $f_i \in \mathcal{F}$.
-
-Objectif : 
-
-$$
-\min \sum_{(i,j) \in \text{Paires}} I_{ij}(f_i, f_j)
-$$
-
-- $I_{ij}$ : fonction modélisant les interferences entre antennes $i$ et $j$.
-
-C’est un **problème combinatoire**, souvent traité par :
-
-- Algorithmes gloutons
-- Algorithmes génétiques
-- Recuit simulé (simulated annealing)
-- Programmation linéaire en nombres entiers (MILP)
-
----
-
-# Optimisation conjointe (placement + fréquence)
-
-Fonction objectif conjointe :
-
-$$
-\min \Big[ \text{coût}_{placement} + \text{interférences} \Big]
-$$
-
-On doit déterminer simultanément :
-
-- Coordonnées $x_i$ des antennes
-- Fréquences $f_i$ associées
-
-Algorithmes utilisables :
-
-- Algorithmes évolutionnaires multi-objectifs
-- Algorithmes hybrides
-
----
-
-# Implémentation R (idées)
-
-- Simuler une grille 10x10 avec `expand.grid()`
-- Calculer les distances et puissances avec `dist()` et la formule de Friis
-- Optimisation via `optim()`, `GA`, `GenSA`
-- Visualisation avec `ggplot2`, `leaflet`, `shiny`
-
----
-
-# Conclusion
-
-Ce projet propose une modélisation rigoureuse du placement optimal des antennes, intégrant les principes physiques de propagation, les contraintes réseaux, et l’optimisation combinatoire. Il peut servir de base à une application Shiny interactive pour l’analyse territoriale au Sénégal.

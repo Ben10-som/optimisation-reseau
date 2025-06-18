@@ -13,7 +13,7 @@ La problématique de la connectivité au Sénégal se manifeste par plusieurs as
 - **Fracture numérique** : Impact sur le développement socio-économique
 - **Contraintes géographiques** : Difficultés d'accès aux zones reculées
 
-```{r senegal-map, echo=FALSE, fig.cap="Carte du Sénégal montrant les zones urbaines et rurales", message=FALSE}
+```{r senegal-map, echo=FALSE, fig.cap="Carte du Sénégal montrant les zones urbaines et rurales", message=FALSE, warning=FALSE}}
 
 library(leaflet)
 library(dplyr)
@@ -44,7 +44,7 @@ leaflet(regions_senegal) %>%
 
 Le placement des antennes de télécommunication constitue une problématique stratégique majeure. Il ne s'agit pas seulement de couvrir les zones densément peuplées, mais également d'assurer une couverture efficace dans les zones reculées, souvent difficiles d'accès, où les contraintes géographiques, économiques et techniques rendent le déploiement complexe.
 
-### 📊 Défis Techniques
+###  Défis Techniques
 
 Une mauvaise répartition des stations de base peut engendrer :
 - Des zones blanches (sans couverture)
@@ -52,31 +52,7 @@ Une mauvaise répartition des stations de base peut engendrer :
 - Des interférences entre antennes
 - Des coûts d'exploitation élevés
 
-```{r challenges-chart, echo=FALSE, fig.cap="Principaux défis de la couverture réseau", message=FALSE,warning=FALSE}
-library(ggplot2)
-library(ggrepel)
 
-defis <- data.frame(
-  Defi = c("Zones Blanches", "Qualité de Service", "Interférences", "Coûts"),
-  Impact = c(4.5, 4.2, 3.8, 4.0),
-  Complexité = c(4.2, 3.8, 4.0, 4.1)
-)
-
-ggplot(defis, aes(x = Impact, y = Complexité)) +
-  geom_point(aes(color = Defi), size = 6, alpha = 0.75) +
-  geom_text_repel(aes(label = Defi), size = 4.5, max.overlaps = 20) +
-  scale_color_viridis_d() +
-  labs(
-    title = "Défis de la Couverture Réseau au Sénégal (ARTP, 2021‑2022)",
-    x = "Impact (0-5)",
-    y = "Complexité (0-5)",
-    color = "Type de Défi"
-  ) +
-  theme_minimal() +
-  theme(legend.position = "bottom")
-
-
-```
 
 ## Objectifs du Projet
 

@@ -1,64 +1,73 @@
 # Données et méthodologie {#methodologie}
 
+```{r , echo=FALSE, fig.align='center', out.width='50%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/antenne-reseaux-mobiles-4G-3G.png")
+```
+
 ## Sources de données
 
 ### Données démographiques
-- ANSD (Agence Nationale de la Statistique et de la Démographie)
-- Recensements
-- Projections démographiques
+Les données démographiques permettent d'identifier les zones à forte densité de population et de mieux comprendre la distribution spatiale des besoins en connectivité. Elles proviennent de :
+ - **ANSD (Agence Nationale de la Statistique et de la Démographie)** : fournit des données issues des recensements généraux de la population, des enquêtes ménages et des projections démographiques par région, département ou commune.
+
+Ces données sont essentielles pour pondérer les zones en fonction de leur population et orienter l’implantation des antennes vers les zones à fort impact potentiel.
 
 ### Données géographiques
-- OpenStreetMap
-- Données topographiques
-- Images satellitaires
+  Les données géographiques servent à modéliser le territoire, intégrer les contraintes naturelles (relief, végétation) et calculer les distances entre les antennes et les zones à couvrir. Elles incluent :
+  - **nPerf** : données de couverture réelle fournies par les utilisateurs via une application mobile. Elles permettent de visualiser la qualité effective du signal (4G/3G/2G) dans différentes localités.
+  - **OpenStreetMap (OSM)** : données cartographiques libres, utiles pour extraire les routes, les bâtiments, les zones habitées et les infrastructures existantes (écoles, hôpitaux).
+  - **Modèles numériques de terrain (MNT)** : pour tenir compte de l'altitude, du relief et des obstacles topographiques dans la propagation des ondes.
 
 ### Données techniques
-- Spécifications des antennes
-- Coûts d'installation
-- Paramètres de propagation
+Elles concernent les caractéristiques des antennes et les paramètres réseau :
+ - **Spécifications des antennes** : type (directionnelle ou omnidirectionnelle), portée, fréquence supportée, bande passante.
+ - **Paramètres de propagation** : atténuation liée à la distance, pertes dues aux bâtiments et à la végétation.
+ - **Coûts d'installation** : coût unitaire des antennes, coûts liés à l'énergie, à l'entretien, et à l'accessibilité des zones.
+ - **Données des opérateurs télécoms (Orange, Free, Expresso)** : position actuelle des antennes, niveaux de couverture, plages de fréquences utilisées.
 
-## Préparation des données
-
-### Nettoyage
-```{r data-cleaning, echo=TRUE}
-# Code pour le nettoyage des données
-```
-
-### Transformation
-```{r data-transformation, echo=TRUE}
-# Code pour la transformation des données
-```
-
-### Intégration
-```{r data-integration, echo=TRUE}
-# Code pour l'intégration des données
-```
+Une grande partie de ces données est accessible en **open data**, notamment via les portails de l’**ARTP (Autorité de Régulation des Télécommunications et des Postes)**, ce qui facilite leur collecte et leur réutilisation dans des projets d’innovation numérique.
 
 ## Méthodologie de résolution
 
 ### Algorithmes d'optimisation
-- Méthode du Simplex
-- Algorithmes de gradient
-- Heuristiques
+Pour résoudre le problème de placement optimal des antennes, plusieurs familles d’algorithmes sont envisagées :
+- **Méthode du Simplex** : utilisée pour résoudre des problèmes linéaires simples, notamment dans le cas de formulations détendues du problème initial.
+- **Algorithmes de gradient** : pertinents pour des problèmes continus et différentiables, mais peu adaptés aux variables discrètes (ex. positions binaires des antennes).
+- **Méthodes heuristiques et métaheuristiques** :
+  - **Recherche tabou** : amélioration locale guidée, avec mémoire des solutions récentes pour éviter les cycles.
+  - **MADS (Mesh Adaptive Direct Search)** : recherche directe adaptée aux problèmes sans dérivées.
+  - **Algorithmes génétiques** : algorithmes évolutifs qui permettent d'explorer efficacement de grands espaces de recherche.
 
 ### Outils et langages
-- R pour l'analyse et la visualisation
-- Python pour l'optimisation
-- Logiciels spécialisés
+- **R** : utilisé pour le traitement, la visualisation cartographique, l’analyse statistique et les simulations simples.
+- **Python** : utilisé pour l’optimisation combinatoire, l’implémentation des heuristiques et l’intégration des solveurs.
+- **Logiciels spécialisés** :
+  - **GLPK, CBC** : solveurs open source pour la programmation linéaire.
+  - **CPLEX, Gurobi** : solveurs industriels performants, utiles pour les problèmes de grande taille avec des contraintes complexes.
 
 ### Validation
-- Tests de performance
-- Comparaison avec des solutions existantes
-- Analyse de robustesse
+- **Tests de performance** : en évaluant le temps de calcul, le taux de couverture obtenu, le nombre d’antennes installées.
+- **Comparaison avec les configurations réelles** : pour estimer le gain apporté par l’optimisation.
+- **Analyse de robustesse** : simulation de différents scénarios (variation du budget, des fréquences, de la demande) pour évaluer la stabilité des solutions proposées.
 
 ## Implémentation
 
 ### Architecture du système
-- Structure des données
-- Flux de traitement
-- Interfaces
+Le système repose sur une architecture modulaire, permettant de séparer les différentes étapes du processus :
+- **Structure des données** : organisation des données en matrices de couverture, vecteurs de population, et caractéristiques des antennes.
+- **Flux de traitement** :
+  1. Préparation et nettoyage des données (R)
+  2. Construction des matrices de couverture (Python)
+  3. Exécution des algorithmes d’optimisation
+  4. Analyse des résultats et visualisation
+- **Interfaces** :
+  - Scripts automatisés et reproductibles en R
+  - Modules Python pour les fonctions d’optimisation
+  - Possibilité d’intégration dans un tableau de bord interactif (Shiny, Dash)
 
 ### Performance
-- Temps de calcul
-- Utilisation des ressources
-- Scalabilité 
+L'évaluation des performances est faite selon plusieurs critères :
+- **Temps de calcul** : mesuré en fonction de la taille du problème (nombre de points à couvrir, nombre de sites candidats).
+- **Utilisation des ressources** : consommation mémoire, nombre d’itérations, efficacité des algorithmes.
+- **Scalabilité** : capacité à étendre le système à d'autres régions ou à des données plus fines, sans perte significative de performance.

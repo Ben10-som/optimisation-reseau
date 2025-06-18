@@ -155,3 +155,7 @@ fig:connectivity-needs
 cartes-de-couverture-réseau
 fait-un-commentaire-pour-expliquer-la-carte
 zones-prioritaires-pour-loptimisation
+variables-de-décision-1
+fonction-objectif-à-minimiser
+contraintes-1
+fonctions-objectifs
