@@ -197,12 +197,19 @@ le reseau d'Expresso est le moins étendu, avec une couverture de 85% dans la r�
 
 ##  canaux de communication
 
+
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/canaux-communication-parcours-clients.jpg")
+```
+
+
 En télécommunications ou dans les réseaux informatiques, un canal de commu
 nication est un médium de transmission d’information, permettant l’acheminement
  d’un message d’une ou plusieurs sources à un ou plusieurs destinataires. Cette trans
 mission d’information peut se faire au travers d’un support physique, comme un câble,
  ou d’un support logique, comme un canal radio.
- 
 
 
 ## Spectre de fréquence d’un signal
@@ -211,7 +218,7 @@ Lors de la transmission d’un signal dans un câble ou dans l’air, celui-ci e
 
 Cette analyse permet d'obtenir le **spectre de fréquences** du signal, c’est-à-dire la répartition de sa puissance selon les différentes fréquences. Pour les signaux réels, l’énergie est souvent concentrée dans une **bande passante limitée**. En dessous d’un certain seuil, la puissance est négligeable, ce qui permet de **délimiter la bande utile** du signal.
 
-### Illustration en R
+
 
 ```{r}
 library(ggplot2)
@@ -547,7 +554,7 @@ Dans le contexte du développement des infrastructures de télécommunication au
 
 ## Formulation mathématique
 
-e de programmation mathématique pour l'optimisation du placement des antennes
+
 
 #### Variables de Décision
 
@@ -614,6 +621,96 @@ Ce problème est **NP-difficile**, en raison :
 Des stratégies de simplification incluent :
 - la réduction de l’espace de recherche par une discrétisation fine,
 - l’usage de métaheuristiques comme la **recherche tabou**, **MADS**, **algorithmes génétiques**, etc.
+
+
+# Résolution du problème
+
+
+Pour résoudre ce problème complexe d’optimisation du déploiement des antennes au Sénégal, nous nous inspirons des approches décrites dans la littérature scientifique (notamment Marty, 2011), tout en les adaptant aux réalités locales : zones rurales mal couvertes, contraintes budgétaires importantes, topographies hétérogènes.
+
+## 1. Modélisation et Simulation
+
+Avant toute optimisation, il est indispensable de disposer d’un **modèle réaliste du réseau** permettant d’évaluer la qualité d’une configuration donnée. Ce modèle doit tenir compte de plusieurs paramètres :
+
+- **Positions des antennes** : coordonnées géographiques sur le territoire.
+- **Puissances d’émission** : influencent la portée et la qualité du signal.
+- **Fréquences radio utilisées** : impliquées dans les interférences.
+- **Caractéristiques géographiques** : altitude, obstacles, zones interdites (lac, montagne, etc.).
+
+Le cœur du modèle repose sur le **calcul de la couverture radio** à l’aide d’un modèle de propagation. Le **modèle de Friis** ou une variante log-distance peut être utilisé pour estimer la **puissance reçue** en chaque point :
+
+\[ P_{r_{ij}} = \frac{p_i}{d_{ij}^\alpha} \]
+
+où \( d_{ij} \) est la distance entre l’antenne \( i \) et le point \( j \), et \( \alpha \) est l’exposant d’atténuation (souvent entre 2.5 et 4).
+
+Le **SIR (Signal-to-Interference Ratio)** est ensuite calculé pour chaque point, afin de savoir s’il est convenablement couvert ou non.
+
+---
+
+## 2. Stratégie d’optimisation
+
+### a) Approche boîte noire
+
+On adopte une **formulation boîte noire** car la fonction objectif est trop complexe pour être exprimée analytiquement : elle dépend de simulations et de métriques non différentiables (SIR, couverture discrète, coût par seuil). Les seules informations disponibles sont les valeurs retournées pour une configuration donnée. Ce type de problème se traite efficacement avec des **méthodes sans dérivées**, robustes aux irrégularités et aux discontinuités.
+
+### b) Optimisation en deux étapes (décomposition)
+
+Inspirée par Marty (2011), l’optimisation se fait en deux temps :
+
+1. **Optimisation des emplacements** \( (x_i, y_i) \) des antennes. Objectif : maximiser la couverture tout en respectant les contraintes budgétaires et géographiques. L’espace de recherche est continu.
+2. **Optimisation de l’assignation fréquence/puissance** : une fois les positions fixées, on choisit les fréquences \( f_i \) et puissances \( p_i \) pour réduire les interférences. L’espace est combinatoire et contraint.
+
+---
+
+## 3. Algorithmes proposés
+
+### a) MADS (Mesh Adaptive Direct Search)
+- **Principe** : méthode directe sans dérivée, qui explore l’espace des variables en construisant un maillage local autour de la meilleure solution courante.
+- **Fonctionnement** : à chaque itération, MADS évalue la fonction objectif en plusieurs points autour de la solution actuelle, selon une grille qui s’affine progressivement.
+- **Avantages** :
+  - Gère les contraintes facilement (via barrières ou pénalités)
+  - Ne nécessite pas de gradient (adaptée aux fonctions boîte noire)
+  - Convient aux variables continues (coordonnées des antennes)
+
+### b) Recherche tabou
+- **Principe** : métaheuristique utilisant une mémoire pour éviter de revisiter les mêmes solutions.
+- **Fonctionnement** : part d’une solution initiale, explore le voisinage (par ex. changement de fréquence d’une antenne), mais interdit temporairement certains mouvements.
+- **Avantages** :
+  - Très adapté aux espaces discrets (fréquences, puissances)
+  - Évite les cycles et minima locaux
+  - Permet d’introduire des critères supplémentaires (coût, interférence)
+
+### c) Approche hybride
+- **Stratégie combinée** :
+  - Utiliser **MADS** pour trouver les meilleures positions d’antennes (variables continues)
+  - Fixer ces positions, puis appliquer **la recherche tabou** pour optimiser les puissances et les fréquences (variables discrètes)
+- **Résultats attendus** : bonne couverture, interférences minimales, respect du budget. L’approche tire parti des points forts de chaque méthode.
+
+---
+
+## 4. Implémentation concrète
+
+Pour appliquer ce modèle à un territoire réel (ex. : zone rurale au Sénégal), on suit les étapes suivantes :
+
+1. **Discrétisation du territoire** : découpage en grille régulière ou tesselation de Voronoï selon la densité de population ou de besoin.
+
+2. **Initialisation d’une solution** : placement de départ des antennes (aléatoire ou basé sur la densité), puissances initiales, fréquences aléatoires.
+
+3. **Évaluation via simulation** :
+   - Couverture : proportion de points satisfaits (SIR ≥ seuil)
+   - Coût : somme des coûts d’installation et de puissance
+   - Interférences : SIR dégradé entre antennes proches sur même fréquence
+
+4. **Optimisation itérative** :
+   - Application de MADS pour améliorer les positions
+   - Application de recherche tabou pour les fréquences/pouvoirs
+   - Respect des contraintes : budget, zone autorisée, limites techniques
+
+5. **Analyse des résultats** :
+   - Visualisation des antennes et des zones couvertes
+   - Statistiques : pourcentage de population couverte, interférences restantes, coût total
+
+Cette approche permet d’obtenir des **solutions robustes, adaptées au terrain réel**, tout en tenant compte des ressources limitées et de la qualité de service.
 
 
 
