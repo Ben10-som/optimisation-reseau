@@ -11,7 +11,10 @@ output:
     toc: true
     fig_caption: true
     keep_tex: true
+header-includes:
+  - \titlegraphic{\includegraphics[width=0.25\textwidth]{images/ensae.png}}  
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
@@ -26,7 +29,7 @@ library(tidyr)
 library(knitr)
 ```
 
-# Introduction
+# Introduction Générale
 
 - La connectivité mobile reste inégale au Sénégal, surtout dans les zones rurales.
 - Le placement des antennes est un levier stratégique pour :
@@ -60,44 +63,74 @@ library(knitr)
 
 **Objectif principal :** Optimiser le placement des antennes pour une meilleure couverture réseau tout en réduisant les interférences
 
+**Objectifs spécifiques :**
 
-# Zone d'étude
+- Analyser la couverture réseau actuelle au Sénégal
+- Identifier les zones prioritaires pour l'installation d'antennes
+- Proposer un modèle de simulation pour le placement optimal des antennes
+
+## Méthodologie
+
+**Étapes clés :**
+
+- Analyse des données de couverture réseau
+- Modélisation de la propagation des ondes
+- Simulation du placement des antennes
+- Évaluation des performances du modèle
+
+**Résultats attendus :**
+
+- Amélioration de la couverture réseau dans les zones rurales
+- Réduction des interférences entre antennes
+- Optimisation des coûts d'installation et de maintenance
+
+
+---
+
+##  Présentation du Sénégal et de la zone d'étude
+
+\begin{columns}
+  
+  \column{0.5\textwidth}
+  
+  \textbf{Données démographiques et géographiques :}
+  
+  \begin{itemize}
+    \item Population : 18 593 258 d'habitants en 2024
+    \item Superficie : 196 722 km²
+    \item Taux d'urbanisation : ~54,7\% d'après l'ANSD
+    \item Accès à Internet : ~58\% (2022)
+  \end{itemize}
+  
+  \textbf{Répartition administrative :}
+  
+  \begin{itemize}
+    \item 14 régions administratives
+    \item Concentration des infrastructures dans l'ouest
+    \item Zones rurales sous-connectées
+  \end{itemize}
+  
+  \column{0.5\textwidth}
+  
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{images/carte sen.png}
+  \end{center}
+  
+\end{columns}
+
+
+## Zone d'étude
 
 Nous nous concentrons sur trois régions du Sénégal : Kédougou, Tambacounda et Matam. Ces régions présentent des défis uniques en matière de connectivité mobile, notamment en raison de leur géographie et de leur densité de population. Ces régions présente,nt des taux de couverture réseau  de .
-
-
-# Vue d'ensemble du Sénégal de la couverture reseau 
-
-## Carte de la couverture réseau
-
-
-```{r , echo=FALSE, fig.align='center', out.width='100%'}
-# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
-knitr::include_graphics("images/carte_couverture_2G.png")
-```
-
-
-```{r , echo=FALSE, fig.align='center', out.width='100%'}
-# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
-knitr::include_graphics("images/carte_couverture_3G.png")
-```
-
-
-
-
-```{r , echo=FALSE, fig.align='center', out.width='100%'}
-# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
-knitr::include_graphics("images/carte_couverture_4G.png")
-```
-
-
-
 
 
 ## Présentation des régions cibles
 
 **Régions étudiées :** Kédougou, Tambacounda et Matam
-
+**Caractéristiques géographiques :**
+- **Kédougou :** Région montagneuse, densité de population faible, accès limité aux infrastructures.
+- **Tambacounda :** Grande région avec des zones rurales étendues, accès limité à Internet.
+- **Matam :** Région frontalière avec des défis d'accès aux services de télécommunication, population majoritairement rurale.
 
 **Caractéristiques communes :**
 
@@ -113,21 +146,43 @@ knitr::include_graphics("images/carte_couverture_4G.png")
 - Population principalement rurale
 - Contraintes géographiques importantes
 
+## Vue d'ensemble du Sénégal de la couverture reseau 
 
-## Indicateurs clés du Sénégal
+## Carte de la couverture réseau
 
-**Données démographiques et géographiques :**
+# Etat de la couverture réseau au Sénégal
 
-- Population : > 18 millions d'habitants (2023)
-- Superficie : 196 722 km²
-- Taux d'urbanisation : ~47%
-- Accès à Internet : ~58% (2022)
 
-**Répartition administrative :**
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/carte_couverture_2G.png")
+```
 
-- 14 régions administratives
-- Concentration des infrastructures dans l'ouest
-- Zones rurales sous-connectées
+
+
+#nouvelle page 
+---
+
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/carte_couverture_3G.png")
+```
+
+
+---
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/carte_couverture_4G.png")
+```
+
+---
+
+
+
+
+
 
 # État de la couverture réseau
 

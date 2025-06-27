@@ -95,6 +95,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\titlegraphic{\includegraphics[width=0.25\textwidth]{images/ensae.png}}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -110,7 +111,7 @@
 \title{Optimisation du placement des antennes au Sénégal: cas Kédougou,
 Tambacounda et Matam}
 \author{SOMA Ben Idriss Diloma}
-\date{2025-06-25}
+\date{2025-06-26}
 
 \begin{document}
 \frame{\titlepage}
@@ -118,9 +119,9 @@ Tambacounda et Matam}
 \begin{frame}[allowframebreaks]
   \tableofcontents[hideallsubsections]
 \end{frame}
-\section{Introduction}\label{introduction}
+\section{Introduction Générale}\label{introduction-guxe9nuxe9rale}
 
-\begin{frame}{Introduction}
+\begin{frame}{Introduction Générale}
 \begin{itemize}
 \tightlist
 \item
@@ -193,11 +194,84 @@ les régions rurales du Sénégal.
 \phantomsection\label{objectifs-du-projet}
 \textbf{Objectif principal :} Optimiser le placement des antennes pour
 une meilleure couverture réseau tout en réduisant les interférences
+
+\textbf{Objectifs spécifiques :}
+
+\begin{itemize}
+\tightlist
+\item
+  Analyser la couverture réseau actuelle au Sénégal
+\item
+  Identifier les zones prioritaires pour l'installation d'antennes
+\item
+  Proposer un modèle de simulation pour le placement optimal des
+  antennes
+\end{itemize}
 \end{frame}
 
-\section{Zone d'étude}\label{zone-duxe9tude}
+\begin{frame}{Méthodologie}
+\phantomsection\label{muxe9thodologie}
+\textbf{Étapes clés :}
+
+\begin{itemize}
+\tightlist
+\item
+  Analyse des données de couverture réseau
+\item
+  Modélisation de la propagation des ondes
+\item
+  Simulation du placement des antennes
+\item
+  Évaluation des performances du modèle
+\end{itemize}
+
+\textbf{Résultats attendus :}
+
+\begin{itemize}
+\tightlist
+\item
+  Amélioration de la couverture réseau dans les zones rurales
+\item
+  Réduction des interférences entre antennes
+\item
+  Optimisation des coûts d'installation et de maintenance
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Présentation du Sénégal et de la zone d'étude}
+\phantomsection\label{pruxe9sentation-du-suxe9nuxe9gal-et-de-la-zone-duxe9tude}
+\begin{columns}
+  
+  \column{0.5\textwidth}
+  
+  \textbf{Données démographiques et géographiques :}
+  
+  \begin{itemize}
+    \item Population : > 18 millions d'habitants (2023)
+    \item Superficie : 196 722 km²
+    \item Taux d'urbanisation : ~47\%
+    \item Accès à Internet : ~58\% (2022)
+  \end{itemize}
+  
+  \textbf{Répartition administrative :}
+  
+  \begin{itemize}
+    \item 14 régions administratives
+    \item Concentration des infrastructures dans l'ouest
+    \item Zones rurales sous-connectées
+  \end{itemize}
+  
+  \column{0.5\textwidth}
+  
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{images/carte sen.png}
+  \end{center}
+  
+\end{columns}
+\end{frame}
 
 \begin{frame}{Zone d'étude}
+\phantomsection\label{zone-duxe9tude}
 Nous nous concentrons sur trois régions du Sénégal : Kédougou,
 Tambacounda et Matam. Ces régions présentent des défis uniques en
 matière de connectivité mobile, notamment en raison de leur géographie
@@ -205,21 +279,15 @@ et de leur densité de population. Ces régions présente,nt des taux de
 couverture réseau de .
 \end{frame}
 
-\section{Vue d'ensemble du Sénégal de la couverture
-reseau}\label{vue-densemble-du-suxe9nuxe9gal-de-la-couverture-reseau}
-
-\begin{frame}{Carte de la couverture réseau}
-\phantomsection\label{carte-de-la-couverture-ruxe9seau}
-\begin{center}\includegraphics[width=1\linewidth]{images/carte_couverture_2G} \end{center}
-
-\begin{center}\includegraphics[width=1\linewidth]{images/carte_couverture_3G} \end{center}
-
-\begin{center}\includegraphics[width=1\linewidth]{images/carte_couverture_4G} \end{center}
-\end{frame}
-
 \begin{frame}{Présentation des régions cibles}
 \phantomsection\label{pruxe9sentation-des-ruxe9gions-cibles}
 \textbf{Régions étudiées :} Kédougou, Tambacounda et Matam
+\textbf{Caractéristiques géographiques :} - \textbf{Kédougou :} Région
+montagneuse, densité de population faible, accès limité aux
+infrastructures. - \textbf{Tambacounda :} Grande région avec des zones
+rurales étendues, accès limité à Internet. - \textbf{Matam :} Région
+frontalière avec des défis d'accès aux services de télécommunication,
+population majoritairement rurale.
 
 \textbf{Caractéristiques communes :}
 
@@ -250,33 +318,31 @@ reseau}\label{vue-densemble-du-suxe9nuxe9gal-de-la-couverture-reseau}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Indicateurs clés du Sénégal}
-\phantomsection\label{indicateurs-cluxe9s-du-suxe9nuxe9gal}
-\textbf{Données démographiques et géographiques :}
+\begin{frame}{Vue d'ensemble du Sénégal de la couverture reseau}
+\phantomsection\label{vue-densemble-du-suxe9nuxe9gal-de-la-couverture-reseau}
+\end{frame}
 
-\begin{itemize}
-\tightlist
-\item
-  Population : \textgreater{} 18 millions d'habitants (2023)
-\item
-  Superficie : 196 722 km²
-\item
-  Taux d'urbanisation : \textasciitilde47\%
-\item
-  Accès à Internet : \textasciitilde58\% (2022)
-\end{itemize}
+\begin{frame}{Carte de la couverture réseau}
+\phantomsection\label{carte-de-la-couverture-ruxe9seau}
+\end{frame}
 
-\textbf{Répartition administrative :}
+\section{Etat de la couverture réseau au
+Sénégal}\label{etat-de-la-couverture-ruxe9seau-au-suxe9nuxe9gal}
 
-\begin{itemize}
-\tightlist
-\item
-  14 régions administratives
-\item
-  Concentration des infrastructures dans l'ouest
-\item
-  Zones rurales sous-connectées
-\end{itemize}
+\begin{frame}{Etat de la couverture réseau au Sénégal}
+\begin{center}\includegraphics[width=1\linewidth]{images/carte_couverture_2G} \end{center}
+\end{frame}
+
+\begin{frame}{\#nouvelle page}
+\phantomsection\label{nouvelle-page}
+\begin{center}\includegraphics[width=1\linewidth]{images/carte_couverture_3G} \end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}\includegraphics[width=1\linewidth]{images/carte_couverture_4G} \end{center}
+\end{frame}
+
+\begin{frame}
 \end{frame}
 
 \section{État de la couverture
