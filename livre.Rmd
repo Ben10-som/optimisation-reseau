@@ -108,11 +108,12 @@ La couverture réseau au Sénégal est marquée par des disparités importantes 
 Les trois principaux opérateurs du Sénégal (Orange, Free, Expresso) présentent des couvertures différentes :
 
 
-```{r operator-coverage, echo=FALSE, fig.cap="Comparaison de la couverture par opérateur", message=FALSE}
+
+```{r operator-coverage, echo=FALSE, fig.cap="Comparaison de la couverture réseau par opérateur", message=FALSE, fig.width=8, fig.height=4.5}
 library(ggplot2)
 library(tidyr)
 
-# Données de couverture par opérateur (exemple)
+# Données de couverture par opérateur
 operator_data <- data.frame(
   Region = c("Dakar", "Thiès", "Saint-Louis", "Tambacounda", "Kédougou", "Matam"),
   Orange = c(95, 85, 80, 45, 35, 50),
@@ -121,19 +122,35 @@ operator_data <- data.frame(
 )
 
 operator_long <- pivot_longer(operator_data, 
-                            cols = c(Orange, Free, Expresso),
-                            names_to = "Operateur",
-                            values_to = "Couverture")
+                              cols = c(Orange, Free, Expresso),
+                              names_to = "Operateur",
+                              values_to = "Couverture")
 
 ggplot(operator_long, aes(x = Region, y = Couverture, fill = Operateur)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  scale_fill_manual(values = c("Orange" = "orange", "Free" = "red", "Expresso" = "green")) +
-  labs(title = "Couverture réseau par opérateur et par région",
+  geom_bar(stat = "identity", position = position_dodge(width = 0.3), width = 0.4) +
+  geom_text(aes(label = paste0(Couverture, "%")), 
+            position = position_dodge(width = 0.3), 
+            vjust = -0.5, size = 3, fontface = "bold") +
+  scale_fill_manual(values = c("Orange" = "#FF6200", "Free" = "#D81E05", "Expresso" = "#006633"),
+                    labels = c("Orange", "Free", "Expresso")) +
+  scale_y_continuous(labels = function(x) paste0(x, "%"), limits = c(0, 100)) +
+  labs(title = "Couverture Réseau par Opérateur et Région",
        x = "Région",
-       y = "Pourcentage de couverture",
-       fill = "Opérateurs") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+       y = "Couverture (%)",
+       fill = "Opérateur",
+       caption = "Source : Données simulées, 2024") +
+  theme_classic() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    axis.title = element_text(size = 12, face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.title = element_text(size = 11, face = "bold"),
+    legend.text = element_text(size = 10),
+    legend.position = "top",
+    plot.caption = element_text(size = 8, hjust = 1),
+    panel.grid.major.y = element_line(color = "grey80", linewidth = 0.2)
+  )
 ```
 
 
@@ -199,10 +216,6 @@ le reseau d'Expresso est le moins étendu, avec une couverture de 85% dans la r�
 
 
 
-```{r , echo=FALSE, fig.align='center', out.width='100%'}
-# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
-knitr::include_graphics("images/canaux-communication-parcours-clients.jpg")
-```
 
 
 En télécommunications ou dans les réseaux informatiques, un canal de commu
@@ -218,9 +231,7 @@ Lors de la transmission d’un signal dans un câble ou dans l’air, celui-ci e
 
 Cette analyse permet d'obtenir le **spectre de fréquences** du signal, c’est-à-dire la répartition de sa puissance selon les différentes fréquences. Pour les signaux réels, l’énergie est souvent concentrée dans une **bande passante limitée**. En dessous d’un certain seuil, la puissance est négligeable, ce qui permet de **délimiter la bande utile** du signal.
 
-
-
-```{r}
+```{r frequency-spectrum, echo=FALSE, fig.cap="Spectre de fréquence d'un signal composé", message=FALSE, fig.width=8, fig.height=5}
 library(ggplot2)
 
 # Simulation d’un signal : somme de sinusoïdes
@@ -229,7 +240,7 @@ f2 <- 120  # Hz
 sampling_rate <- 1000  # Hz
 duration <- 1          # seconde
 t <- seq(0, duration, by = 1/sampling_rate)
-signal <- sin(2*pi*f1*t) + 0.5*sin(2*pi*f2*t)
+signal <- sin(2 * pi * f1 * t) + 0.5 * sin(2 * pi * f2 * t)
 
 # Transformée de Fourier
 fft_vals <- abs(fft(signal))^2
@@ -241,20 +252,47 @@ df_spectrum <- data.frame(
   Power = fft_vals[1:(length(freq)/2)]
 )
 
-# Affichage
+# Graphique
 ggplot(df_spectrum, aes(x = Frequency, y = Power)) +
-  geom_line(color = "#0072B2", size = 1) +
-  labs(title = "Spectre de fréquence du signal",
-       x = "Fréquence (Hz)",
-       y = "Puissance") +
-  theme_minimal()
+  geom_line(color = "#1F77B4", size = 1.2) +
+  geom_vline(xintercept = c(f1, f2), linetype = "dashed", color = "grey50", size = 0.8) +
+  geom_text(aes(x = f1, y = max(Power) * 0.9, label = "50 Hz"), 
+            hjust = -0.1, vjust = 0, color = "black", size = 3.5, fontface = "bold") +
+  geom_text(aes(x = f2, y = max(Power) * 0.9, label = "120 Hz"), 
+            hjust = -0.1, vjust = 0, color = "black", size = 3.5, fontface = "bold") +
+  scale_x_continuous(breaks = seq(0, 500, by = 50), limits = c(0, 200)) +
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +
+  labs(
+    title = "Spectre de Fréquence d'un Signal Composé",
+    subtitle = "Somme de sinusoïdes à 50 Hz et 120 Hz",
+    x = "Fréquence (Hz)",
+    y = "Puissance (unité arbitraire)",
+    caption = "Source : Simulation, 2024"
+  ) +
+  theme_classic(base_size = 12) +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.caption = element_text(size = 8, hjust = 1),
+    axis.title = element_text(size = 11, face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    panel.grid.major.y = element_line(color = "grey80", linewidth = 0.2),
+    panel.grid.minor.y = element_line(color = "grey90", linewidth = 0.1)
+  )
+
+# Enregistrer le graphique
+ggsave("spectre_frequence.png", width = 8, height = 5, dpi = 300)
+
 ```
+
 
 ## Bande passante d’un canal
 
 Il est très important de connaître les caractéristiques fréquentielles du canal sur
  lequel on veut transmettre de l’information. En effet, un canal ne peut transporter des
  signaux que dans une certaine bande de fréquences, appelée bande passante du canal.
+ 
+ 
  
 ```{r echo=FALSE, out.width="85%", fig.align='center'}
 knitr::include_graphics("donnee/frequence.png")
@@ -267,13 +305,18 @@ La modulation consiste à combiner le signal à transmettre, initialement en ban
 $$
 s_P(t) = a_P \cos(2\pi f_P t)
 $$
-```{r}
+
+```{r modulation, echo=FALSE, fig.cap="Modulation d'amplitude : modulant, porteuse et signal modulé", message=FALSE, fig.width=8, fig.height=6}
+library(ggplot2)
+library(tidyr)
+library(viridis)
+
 # Paramètres
 f_port <- 50      # Fréquence porteuse (Hz)
 f_mod <- 5        # Fréquence du signal modulant (Hz)
 a_p <- 1          # Amplitude de la porteuse
 m <- 0.5          # Indice de modulation
-Fs <- 1000        # Fréquence d'échantillonnage
+Fs <- 1000        # Fréquence d'échantillonnage (Hz)
 t <- seq(0, 1, by = 1/Fs)
 
 # Signal modulant (bande de base)
@@ -285,9 +328,7 @@ porteuse <- a_p * cos(2 * pi * f_port * t)
 # Signal modulé en amplitude (AM)
 module <- (1 + m * modulant) * porteuse
 
-# Visualisation
-library(ggplot2)
-library(tidyr)
+# Création du dataframe
 df <- data.frame(
   t = t,
   Porteuse = porteuse,
@@ -295,13 +336,46 @@ df <- data.frame(
   Signal_Modulé = module
 )
 
-df_long <- pivot_longer(df, -t, names_to = "Signal", values_to = "Amplitude")
+# Format long pour ggplot
+df_long <- pivot_longer(df, -t, names_to = "Signal", values_to = "Amplitude") %>%
+  mutate(
+    Signal = factor(Signal, levels = c("Modulant", "Porteuse", "Signal_Modulé"),
+                    labels = c("Modulant (5 Hz)", "Porteuse (50 Hz)", "Signal Modulé (AM)"))
+  )
 
+# Graphique avec facettes
 ggplot(df_long, aes(x = t, y = Amplitude, color = Signal)) +
-  geom_line() +
-  labs(title = "Modulation d'un signal : onde modulante, porteuse et signal modulé (AM)",
-       x = "Temps (s)", y = "Amplitude") +
-  theme_minimal()
+  geom_line(size = 1.2) +
+  facet_wrap(~ Signal, ncol = 1, scales = "free_y") +
+  scale_color_viridis_d(option = "D", begin = 0.2, end = 0.8, 
+                        name = "Type de signal") +
+  scale_x_continuous(breaks = seq(0, 1, by = 0.2), labels = function(x) sprintf("%.1f s", x)) +
+  scale_y_continuous(labels = function(x) sprintf("%.1f", x)) +
+  labs(
+    title = "Modulation d'Amplitude (AM)",
+    subtitle = "Illustration du signal modulant, de la porteuse et du signal modulé",
+    x = "Temps (s)",
+    y = "Amplitude (unité arbitraire)",
+    caption = "Source : Simulation, 2024"
+  ) +
+  theme_classic(base_size = 12) +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.caption = element_text(size = 8, hjust = 1),
+    axis.title = element_text(size = 11, face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    legend.position = "top",
+    legend.title = element_text(size = 11, face = "bold"),
+    legend.text = element_text(size = 10),
+    strip.text = element_text(size = 10, face = "bold", color = "#3A3A3A"),
+    strip.background = element_rect(fill = "grey95", color = "grey80"),
+    panel.grid.major.y = element_line(color = "grey80", linewidth = 0.2),
+    panel.grid.minor.y = element_line(color = "grey90", linewidth = 0.1)
+  )
+
+# Enregistrer le graphique
+ggsave("modulation_am.png", width = 8, height = 6, dpi = 300)
 
 ```
 
@@ -330,6 +404,67 @@ $$
 
 Cette formule montre que plus **la bande passante** est large, plus le canal est capable de transporter de l’information, à condition que le **rapport signal/bruit (SNR)** soit favorable. C’est pourquoi la **gestion efficace du spectre** et la **réduction des interférences** sont cruciales dans la conception des réseaux de télécommunications.
 
+```{r , echo=FALSE, fig.cap="Spectre de fréquence d'un signal composé", message=FALSE, fig.width=8, fig.height=5}
+library(ggplot2)
+
+library(dplyr)
+library(viridis)
+
+# Paramètres
+bandwidth <- seq(1e6, 100e6, by = 1e6)  # Bande passante de 1 MHz à 100 MHz
+snr_db <- c(10, 20, 30)  # Niveaux de SNR en dB
+snr_linear <- 10^(snr_db / 10)  # Conversion en échelle linéaire
+
+# Création des données
+data_capacity <- expand.grid(Bandwidth = bandwidth, SNR_dB = snr_db) %>%
+  mutate(
+    SNR_Linear = 10^(SNR_dB / 10),
+    Capacity = Bandwidth * log2(1 + SNR_Linear) / 1e6,  # Capacité en Mbps
+    SNR_Label = factor(paste(SNR_dB, "dB"), levels = paste(snr_db, "dB"))
+  )
+
+# Graphique
+ggplot(data_capacity, aes(x = Bandwidth / 1e6, y = Capacity, color = SNR_Label)) +
+  geom_line(size = 1.2) +
+  geom_vline(xintercept = c(5, 20), linetype = "dashed", color = "grey50", size = 0.8) +
+  geom_text(aes(x = 5, y = max(Capacity) * 0.9, label = "5 MHz"), 
+            hjust = -0.1, vjust = 0, color = "black", size = 3.5, fontface = "bold") +
+  geom_text(aes(x = 20, y = max(Capacity) * 0.9, label = "20 MHz"), 
+            hjust = -0.1, vjust = 0, color = "black", size = 3.5, fontface = "bold") +
+  scale_x_continuous(breaks = seq(0, 100, by = 10), labels = function(x) paste0(x, " MHz")) +
+  scale_y_continuous(breaks = seq(0, max(data_capacity$Capacity), by = 50), 
+                     labels = function(x) paste0(x, " Mbps")) +
+  scale_color_viridis_d(option = "D", begin = 0.2, end = 0.8, 
+                        name = "Rapport Signal/Bruit (SNR)") +
+  labs(
+    title = "Capacité du Canal en Fonction de la Bande Passante",
+    subtitle = "Basé sur la formule de Shannon : C = Δf · log₂(1 + SNR)",
+    x = "Bande Passante (MHz)",
+    y = "Capacité (Mbps)"
+  ) +
+  theme_classic(base_size = 12) +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.caption = element_text(size = 8, hjust = 1),
+    axis.title = element_text(size = 11, face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    legend.position = "top",
+    legend.title = element_text(size = 11, face = "bold"),
+    legend.text = element_text(size = 10),
+    panel.grid.major.y = element_line(color = "grey80", linewidth = 0.2),
+    panel.grid.minor.y = element_line(color = "grey90", linewidth = 0.1)
+  )
+
+# Enregistrer le graphique
+ggsave("bandwidth_capacity.png", width = 8, height = 5, dpi = 300)
+
+
+
+
+
+```
+
 
 ## Propagation des ondes dans un réseau de télécommunications
 
@@ -341,6 +476,37 @@ La première étape de la modélisation d’un réseau de télécommunications c
 
 Dans cette section, nous commencerons par étudier le **modèle le plus simple**, celui de la **propagation en espace libre (dans le vide)**, avant d’aborder des modèles plus réalistes prenant en compte les **principaux phénomènes physiques** qui altèrent la propagation des ondes.
 
+
+# Rapport signal-bruit
+
+## Définition du rapport signal-bruit (SNR)
+
+ Le rapport signal-bruit, souvent noté SIR (pour Signal to Interference Ratio), est
+ défini comme le rapport entre la puissance reçue d’une source PS et la puissance des
+ interférences perturbant la réception PI :
+$$
+\text{SNR} = \frac{P_{signal}}{P_{bruit}}
+$$
+**Où :**
+- \( P_{signal} \) : puissance du signal utile
+- \( P_{bruit} \) : puissance du bruit de fond
+
+ou encore en décibels
+
+$$
+\text{SIR}_{dB} = 10 \log_{10} \left( \frac{P_{signal}}{P_{bruit}} \right)
+$$
+
+
+
+## Zone de couverture
+
+La **zone de couverture** d’une antenne est définie comme l’ensemble des points où la puissance reçue dépasse un seuil minimal, généralement fixé par l’opérateur.La zone de couverture d’une antenne est l’ensemble des points du plan où la qualité
+ du signal reçu de cette antenne est suffisante pour pouvoir effectuer une communica
+tion. Elle est définie à partir du rapport signal-bruit, de la façon suivante :
+$$
+\text{Zone de couverture} = \{ x \in \mathbb{R}^2 \mid \text{SIR}(x) \geq \theta \}
+$$
 
 
 
@@ -382,29 +548,73 @@ Cette forme met en évidence deux points essentiels :
 -  **Dépendance à la distance** : la puissance reçue décroît rapidement avec la **distance** entre l’émetteur et le récepteur, suivant un facteur \( d^{-2} \). Cela reflète l’atténuation naturelle des ondes dans l’espace libre, même en l’absence d’obstacles.
 
  
-### Modèle de propagation en espace libre (Friis) en R
-```{r}
-# Paramètres
+### Modèle de propagation en espace libre (Friis) 
+
+L'équation des télécommunications, (appelée aussi Friis transmission formula [équation de transmission de Friis] par les Anglo-Saxons), permet d'obtenir un ordre de grandeur de la puissance radio collectée par un récepteur situé à une certaine distance d'un émetteur en espace libre. Il ne faut pas la confondre avec la formule de Friis, utilisée pour calculer le facteur de bruit d'un système.
+
+Forme simple de l'équation:
+
+$$
+\frac{P_r}{P_t} = \frac{G_t G_r \lambda^2}{(4 \pi d)^2 L}
+$$
+
+
+
+```{r friis-model, echo=FALSE, fig.cap="Puissance reçue en fonction de la distance (modèle de Friis)", message=FALSE, fig.width=8, fig.height=5}
+
 library(ggplot2)
+
+# Paramètres
 P_t <- 1e3  # Puissance transmise en watts
-G_t <- 10  # Gain de l'antenne émettrice (en dB)
-G_r <- 10  # Gain de l'antenne réceptrice (en dB)
-c <- 3e8  # Vitesse de la lumière en m/s
-f <- 2.4e9  # Fréquence en Hz (ex: 2.4 GHz)
-L <- 1  # Pertes système (en dB)
+G_t <- 10   # Gain de l'antenne émettrice (en dB)
+G_r <- 10   # Gain de l'antenne réceptrice (en dB)
+c <- 3e8    # Vitesse de la lumière en m/s
+f <- 2.4e9  # Fréquence en Hz (2.4 GHz)
+L <- 1      # Pertes système (en dB)
+
 # Distance
 d <- seq(1, 10000, by = 100)  # Distance de 1 à 10 km
-# Calcul de la puissance reçue en dB
-P_r <- P_t + G_t + G_r - 20 * log10(4 * pi * d * f / c) - L
+
+# Calcul de la puissance reçue en dBm
+# Conversion de P_t (watts) en dBm : P_t_dBm = 10 * log10(P_t * 1000)
+P_t_dBm <- 10 * log10(P_t * 1000)
+P_r <- P_t_dBm + G_t + G_r - 20 * log10(4 * pi * d * f / c) - L
+
 # Création du data frame
-df <- data.frame(Distance = d, Puissance_Reçue = P_r)
-# Visualisation
+df <- data.frame(Distance = d / 1000, Puissance_Reçue = P_r)  # Distance en km
+
+# Graphique
 ggplot(df, aes(x = Distance, y = Puissance_Reçue)) +
-  geom_line(color = "#0072B2", size = 1) +
-  scale_x_log10() +  # Échelle logarithmique pour la distance
-  labs(title = "Propagation des ondes en espace libre (modèle de Friis)",
-       x = "Distance (m)", y = "Puissance reçue (dB)") +
-  theme_minimal()
+  geom_line(color = "#1F77B4", size = 1.2) +
+  geom_vline(xintercept = c(1, 5), linetype = "dashed", color = "grey50", size = 0.8) +
+  geom_text(aes(x = 1, y = max(Puissance_Reçue) * 0.9, label = "1 km"), 
+            hjust = -0.1, vjust = 0, color = "black", size = 3.5, fontface = "bold") +
+  geom_text(aes(x = 5, y = max(Puissance_Reçue) * 0.9, label = "5 km"), 
+            hjust = -0.1, vjust = 0, color = "black", size = 3.5, fontface = "bold") +
+  scale_x_continuous(breaks = seq(0, 10, by = 1), labels = function(x) paste0(x, " km")) +
+  scale_y_continuous(breaks = seq(floor(min(P_r)), ceiling(max(P_r)), by = 10), 
+                     labels = function(x) paste0(x, " dBm")) +
+  labs(
+    title = "Propagation des Ondes en Espace Libre (Modèle de Friis)",
+    subtitle = "Puissance reçue à 2.4 GHz avec Pt = 1 kW, Gt = Gr = 10 dB",
+    x = "Distance (km)",
+    y = "Puissance Reçue (dBm)",
+    caption = "Source : Simulation basée sur le modèle de Friis, 2024"
+  ) +
+  theme_classic(base_size = 12) +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.caption = element_text(size = 8, hjust = 1),
+    axis.title = element_text(size = 11, face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    panel.grid.major.y = element_line(color = "grey80", linewidth = 0.2),
+    panel.grid.minor.y = element_line(color = "grey90", linewidth = 0.1)
+  )
+
+# Enregistrer le graphique
+ggsave("friis_propagation.png", width = 8, height = 5, dpi = 300)
+
 ```
 
 
@@ -416,11 +626,22 @@ Deux types d’approches sont couramment utilisés pour modéliser la propagatio
 ondes lorsque les obstacles sont pris en compte : une approche théorique ou une
 approche empirique.
 
+ 
+```{r echo=FALSE, out.width="85%", fig.align='center',fig.width=8, fig.height=5}
+knitr::include_graphics("images/diffraction.png")
+```
+
 ### Approche théorique
 
 L’approche théorique repose sur des modèles mathématiques basés sur les principes de la physique des ondes. Ces modèles prennent en compte les phénomènes de diffraction, de réflexion et d’absorption. Parmi les modèles théoriques les plus connus, on trouve :
 
-Le modèle de réflexion sur le sol, présenté dans [Rappaport (2002b)], prend en compte deux trajets : un en ligne directe et un autre obtenu par réflexion sur le sol.
+Le modèle de réflexion sur le sol, prend en compte deux trajets : un en ligne directe et un autre obtenu par réflexion sur le sol.
+
+ 
+```{r echo=FALSE, out.width="85%", fig.align='center',fig.width=8, fig.height=5}
+knitr::include_graphics("reflexion_sol.webp")
+```
+
 
 Les modèles de Walfisch-Bertoni et d’Ikegami, décrits dans [Granatstein (2008)], intègrent les effets de diffraction des ondes au niveau des toits d’immeubles. 
 Ces modèles sont particulièrement pertinents lorsque l’antenne est placée au-dessus des bâtiments et que le récepteur se trouve en contrebas, dans une rue.
@@ -428,6 +649,7 @@ Ces modèles sont particulièrement pertinents lorsque l’antenne est placée a
 ## Approche empirique
 
 L’approche empirique peut être illustrée par le modèle de **Delisle-Egli**, présenté dans \cite{Granatstein2008}, qui est un modèle de propagation en milieu urbain.  
+
 Il se base sur un grand nombre de mesures effectuées dans des villes des États-Unis,  
 qui ont permis d’établir la formule suivante pour l’atténuation de la puissance d’un signal :
 
@@ -460,34 +682,6 @@ où :
 Ce modèle permet une modélisation souple et adaptée à différents contextes de propagation.
 
 
-# Rapport signal-bruit
-
-## Définition du rapport signal-bruit (SNR)
- Le rapport signal-bruit, souvent noté SIR (pour Signal to Interference Ratio), est
- défini comme le rapport entre la puissance reçue d’une source PS et la puissance des
- interférences perturbant la réception PI :
-$$
-\text{SNR} = \frac{P_{signal}}{P_{bruit}}
-$$
-**Où :**
-- \( P_{signal} \) : puissance du signal utile
-- \( P_{bruit} \) : puissance du bruit de fond
-
-ou encore en décibels
-
-$$
-\text{SIR}_{dB} = 10 \log_{10} \left( \frac{P_{signal}}{P_{bruit}} \right)
-$$
-
-
-## Zone de couverture
-
-La **zone de couverture** d’une antenne est définie comme l’ensemble des points où la puissance reçue dépasse un seuil minimal, généralement fixé par l’opérateur.La zone de couverture d’une antenne est l’ensemble des points du plan où la qualité
- du signal reçu de cette antenne est suffisante pour pouvoir effectuer une communica
-tion. Elle est définie à partir du rapport signal-bruit, de la façon suivante :
-$$
-\text{Zone de couverture} = \{ x \in \mathbb{R}^2 \mid \text{SIR}(x) \geq \theta \}
-$$
 
 ## Tableau : Répartition des bandes de fréquences
 
@@ -511,27 +705,29 @@ freq_table <- data.frame(
 kable(freq_table, format = "markdown", align = "c")
 ```
 
+
+
 ## Optimisation du placement des antennes
-L’optimisation du placement des antennes est un enjeu crucial pour garantir une couverture réseau efficace et minimiser les interférences. 
-L'optimisation du placement des antennes dans les régions de **Kédougou, Tambacounda et Matam** doit répondre à des défis spécifiques :
-- **Couverture hétérogène** : Zones urbaines vs. zones rurales étendues
-- **Contraintes géographiques** : Relief accidenté et végétation dense
-- **Ressources limitées** : Nécessité de minimiser le nombre d'antennes
 
+L’optimisation du placement des antennes est un enjeu stratégique pour garantir une couverture réseau efficace et minimiser les interférences, tout en respectant les contraintes économiques et géographiques. Dans les régions de **Kédougou, Tambacounda, et Matam**, cet objectif est particulièrement complexe en raison des défis suivants :
 
+- **Couverture hétérogène** : Les zones urbaines, comme les centres de Tambacounda, nécessitent une couverture dense avec des antennes rapprochées, tandis que les zones rurales étendues, comme les villages isolés de Kédougou, exigent des antennes à longue portée pour couvrir de vastes territoires peu peuplés.
+
+- **Contraintes géographiques** : Le relief accidenté (par exemple, les collines de Kédougou) et la végétation dense (forêts tropicales dans le sud-est) provoquent des phénomènes de diffraction, réflexion, et absorption, réduisant la portée des ondes radio.
+
+- **Ressources limitées** : Le budget alloué aux opérateurs (Orange, Free, Expresso) est contraint, nécessitant un nombre minimal d’antennes tout en maximisant la couverture. Par exemple, installer une antenne à Kédougou peut coûter jusqu’à 30 % de plus qu’à Dakar en raison des difficultés d’accès.
+
+- **Interférences** : Dans les zones semi-urbaines, comme Matam, l’utilisation de fréquences proches par des antennes voisines peut dégrader la qualité du signal, nécessitant une gestion fine des fréquences.
+
+L’objectif est donc de trouver un compromis optimal entre couverture, coûts, et interférences, en s’appuyant sur des techniques d’optimisation convexe et non convexe adaptées aux réalités du Sénégal.
 
 # Modélisation mathématique du problème
 
 
-
-```{r , echo=FALSE, fig.align='center', out.width='50%'}
-# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
-knitr::include_graphics("images/antenne-reseaux-mobiles-4G-3G.png")
-```
-
 ## Définition du problème
 
-Dans le contexte du développement des infrastructures de télécommunication au Sénégal, l’objectif est d’optimiser le déploiement d’antennes afin de maximiser la couverture réseau et de minimiser les coûts et les interférences. Ce problème s’inscrit dans une problématique d’optimisation multi-objectif avec des contraintes géographiques, techniques et économiques fortes.
+L’optimisation du placement des antennes dans les régions cibles vise à maximiser la couverture réseau, minimiser les coûts d’installation et d’exploitation, et réduire les interférences entre antennes. Ce problème est multi-objectif et soumis à des contraintes géographiques (topographie, zones interdites), techniques (puissance, fréquences), et économiques (budget limité). Il s’inscrit dans le cadre des problèmes d’optimisation NP-difficiles, mais certaines sous-parties peuvent être reformulées comme convexes pour faciliter la résolution.
+
 
 ### Variables de décision
 - **Localisation des antennes** : positions géographiques discrètes ou continues dans une zone d’étude donnée.
@@ -653,6 +849,13 @@ Le **SIR (Signal-to-Interference Ratio)** est ensuite calculé pour chaque point
 
 On adopte une **formulation boîte noire** car la fonction objectif est trop complexe pour être exprimée analytiquement : elle dépend de simulations et de métriques non différentiables (SIR, couverture discrète, coût par seuil). Les seules informations disponibles sont les valeurs retournées pour une configuration donnée. Ce type de problème se traite efficacement avec des **méthodes sans dérivées**, robustes aux irrégularités et aux discontinuités.
 
+```{r echo=FALSE, out.width="85%", fig.align='center',fig.width=8, fig.height=5}
+knitr::include_graphics("boite_noire.png")
+```
+
+
+
+
 ### b) Optimisation en deux étapes (décomposition)
 
 Inspirée par Marty (2011), l’optimisation se fait en deux temps :
@@ -711,17 +914,3 @@ Pour appliquer ce modèle à un territoire réel (ex. : zone rurale au Sénégal
    - Statistiques : pourcentage de population couverte, interférences restantes, coût total
 
 Cette approche permet d’obtenir des **solutions robustes, adaptées au terrain réel**, tout en tenant compte des ressources limitées et de la qualité de service.
-
-
-
-
-
-
-
-
-
-
-
-
-
-

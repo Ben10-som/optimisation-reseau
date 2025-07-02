@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.26)  26 JUN 2025 13:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.26)  28 JUN 2025 09:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -623,7 +623,8 @@ File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-04-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count370
-) (./beamer.aux)
+)
+No file beamer.aux.
 \openout1 = `beamer.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
@@ -769,7 +770,8 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-(./beamer.nav)
+No file beamer.nav.
+
 Overfull \hbox (137.8884pt too wide) in paragraph at lines 116--116
  [][][][]  
  []
@@ -798,7 +800,8 @@ Overfull \hbox (137.8884pt too wide) in paragraph at lines 121--121
  [][][][]  
  []
 
-(./beamer.toc)
+No file beamer.toc.
+
 
 
 Overfull \hbox (137.8884pt too wide) has occurred while \output is active
@@ -930,7 +933,7 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 271.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 271.
-<images/carte sen.png, id=116, 1204.5pt x 903.375pt>
+<images/carte sen.png, id=104, 1204.5pt x 903.375pt>
 File: images/carte sen.png Graphic file (type png)
 <use images/carte sen.png>
 Package pdftex.def Info: images/carte sen.png  used on input line 271.
@@ -959,367 +962,28 @@ Overfull \hbox (137.8884pt too wide) has occurred while \output is active
 [9
 
 ]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 319--319
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 321--321
  [][][][]  
  []
 
-
-Overfull \vbox (11.52942pt too high) detected at line 319
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[10
-
-]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 323--323
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[11
-
-]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 327--327
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[12
-
-]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 330--330
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[13
-
-]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 334--334
- [][][][]  
- []
-
-<images/carte_couverture_2G.png, id=180, 722.7pt x 578.16pt>
-File: images/carte_couverture_2G.png Graphic file (type png)
-<use images/carte_couverture_2G.png>
-Package pdftex.def Info: images/carte_couverture_2G.png  used on input line 334.
-(pdftex.def)             Requested size: 325.2561pt x 260.20488pt.
-
-Overfull \vbox (39.00507pt too high) detected at line 334
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[14
-
- <./images/carte_couverture_2G.png>]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 339--339
- [][][][]  
- []
-
-<images/carte_couverture_3G.png, id=190, 722.7pt x 578.16pt>
-File: images/carte_couverture_3G.png Graphic file (type png)
-<use images/carte_couverture_3G.png>
-Package pdftex.def Info: images/carte_couverture_3G.png  used on input line 339.
-(pdftex.def)             Requested size: 325.2561pt x 260.20488pt.
-
-Overfull \vbox (39.00507pt too high) detected at line 339
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[15
-
- <./images/carte_couverture_3G.png>]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 343--343
- [][][][]  
- []
-
-<images/carte_couverture_4G.png, id=200, 722.7pt x 578.16pt>
-File: images/carte_couverture_4G.png Graphic file (type png)
-<use images/carte_couverture_4G.png>
-Package pdftex.def Info: images/carte_couverture_4G.png  used on input line 343.
-(pdftex.def)             Requested size: 325.2561pt x 260.20488pt.
-
-Overfull \vbox (8.9957pt too high) detected at line 343
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[16
-
- <./images/carte_couverture_4G.png>]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 346--346
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[17
-
-]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 349--349
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[18
-
-]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 358--358
- [][][][]  
- []
-
-<beamer_files/figure-beamer/operator-coverage-1.pdf, id=236, 578.16pt x 361.35pt>
-File: beamer_files/figure-beamer/operator-coverage-1.pdf Graphic file (type pdf)
-<use beamer_files/figure-beamer/operator-coverage-1.pdf>
-Package pdftex.def Info: beamer_files/figure-beamer/operator-coverage-1.pdf  used on input line 358.
-(pdftex.def)             Requested size: 342.43474pt x 214.02171pt.
-
-Overfull \vbox (22.36633pt too high) detected at line 358
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[19
-
- <./beamer_files/figure-beamer/operator-coverage-1.pdf>]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 387--387
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[20
-
-]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 390--390
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[21
-
-]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 418--418
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[22
-
-]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 427--427
- [][][][]  
- []
-
-<beamer_files/figure-beamer/frequency-spectrum-1.pdf, id=284, 578.16pt x 361.35pt>
-File: beamer_files/figure-beamer/frequency-spectrum-1.pdf Graphic file (type pdf)
-<use beamer_files/figure-beamer/frequency-spectrum-1.pdf>
-Package pdftex.def Info: beamer_files/figure-beamer/frequency-spectrum-1.pdf  used on input line 427.
-(pdftex.def)             Requested size: 342.43474pt x 214.02171pt.
-
-Overfull \vbox (22.36633pt too high) detected at line 427
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[23
-
- <./beamer_files/figure-beamer/frequency-spectrum-1.pdf>]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 436--436
- [][][][]  
- []
-
-<beamer_files/figure-beamer/modulation-1.pdf, id=298, 578.16pt x 361.35pt>
-File: beamer_files/figure-beamer/modulation-1.pdf Graphic file (type pdf)
-<use beamer_files/figure-beamer/modulation-1.pdf>
-Package pdftex.def Info: beamer_files/figure-beamer/modulation-1.pdf  used on input line 436.
-(pdftex.def)             Requested size: 342.43474pt x 214.02171pt.
-
-Overfull \vbox (22.36633pt too high) detected at line 436
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[24
-
- <./beamer_files/figure-beamer/modulation-1.pdf>]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 469--469
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[25
-
-{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 471--471
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[26
-
-]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 494--494
- [][][][]  
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[27
-
-{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 503--503
- [][][][]  
- []
-
-<beamer_files/figure-beamer/friis-model-1.pdf, id=355, 578.16pt x 361.35pt>
-File: beamer_files/figure-beamer/friis-model-1.pdf Graphic file (type pdf)
-<use beamer_files/figure-beamer/friis-model-1.pdf>
-Package pdftex.def Info: beamer_files/figure-beamer/friis-model-1.pdf  used on input line 503.
-(pdftex.def)             Requested size: 342.43474pt x 214.02171pt.
-
-Overfull \vbox (22.36633pt too high) detected at line 503
- []
-
-
-
-
-Overfull \hbox (137.8884pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[28
-
- <./beamer_files/figure-beamer/friis-model-1.pdf>]
-\tf@nav=\write5
-\openout5 = `beamer.nav'.
-
-\tf@toc=\write6
-\openout6 = `beamer.toc'.
-
-\tf@snm=\write7
-\openout7 = `beamer.snm'.
-
-(./beamer.aux)
- ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-05-26>
- ***********
- ) 
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.321 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+ 
 Here is how much of TeX's memory you used:
- 24461 strings out of 469867
- 479046 string characters out of 5482841
- 865823 words of memory out of 5000000
- 52102 multiletter control sequences out of 15000+600000
- 686433 words of font info for 119 fonts, out of 8000000 for 9000
+ 24170 strings out of 469867
+ 472248 string characters out of 5482841
+ 864823 words of memory out of 5000000
+ 51880 multiletter control sequences out of 15000+600000
+ 686479 words of font info for 119 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 101i,15n,107p,1003b,688s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss12.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso8.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on beamer.pdf (28 pages, 1354853 bytes).
-PDF statistics:
- 456 PDF objects out of 1000 (max. 8388607)
- 311 compressed objects within 4 object streams
- 79 named destinations out of 1000 (max. 500000)
- 39262 words of extra memory for PDF output out of 42996 (max. 10000000)
-
+ 101i,15n,107p,1003b,687s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!

@@ -138,6 +138,13 @@ Nous nous concentrons sur trois régions du Sénégal : Kédougou, Tambacounda e
 - Diversité géographique et culturelle
 - Faible taux de couverture réseau
 - Disparités importantes urbain/rural
+---
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/carte senegal.png")
+```
+
 
 **Défis spécifiques :**
 
@@ -150,7 +157,6 @@ Nous nous concentrons sur trois régions du Sénégal : Kédougou, Tambacounda e
 
 ## Carte de la couverture réseau
 
-# Etat de la couverture réseau au Sénégal
 
 
 ```{r , echo=FALSE, fig.align='center', out.width='100%'}
@@ -178,11 +184,6 @@ knitr::include_graphics("images/carte_couverture_4G.png")
 ```
 
 ---
-
-
-
-
-
 
 # État de la couverture réseau
 

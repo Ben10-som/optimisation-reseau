@@ -3,3 +3,5 @@ tidyr
 sf
 knitr
 dplyr
+viridisLite
+viridis
