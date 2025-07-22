@@ -1,0 +1,31 @@
+---
+title: "Rapport d'optimisation des antennes"
+output: pdf_document
+params:
+  resultats: NULL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Résumé
+
+- **Coût total** : `r format(round(params$resultats$cout_total), big.mark = " ")` FCFA
+- **Couverture obtenue** : `r round(params$resultats$couverture, 1)` %
+- **SIR moyen** : `r round(params$resultats$sir_moyen, 1)` dB
+
+# Carte des antennes optimisées
+
+```{r carte, fig.height=5, message=FALSE, warning=FALSE}
+library(leaflet)
+leaflet(params$resultats$positions) %>%
+  addTiles() %>%
+  addCircleMarkers(lng = ~lon, lat = ~lat, color = "blue", radius = 5)
+```
+
+# Détail des antennes
+
+```{r table}
+knitr::kable(params$resultats$positions)
+``` 

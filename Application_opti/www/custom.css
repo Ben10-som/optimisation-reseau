@@ -1,0 +1,290 @@
+/* www/custom.css */
+/* Styles personnalisés pour l'application */
+
+/* Amélioration de l'input de fichiers multiples */
+.multi-file-enhanced .form-control {
+  border: 2px solid #3498db;
+  transition: all 0.3s ease;
+}
+
+.multi-file-enhanced .form-control:hover {
+  border-color: #2980b9;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+.file-input-container {
+  transition: all 0.3s ease;
+}
+
+.file-input-container:hover {
+  transform: translateY(-2px);
+}
+
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Amélioration de la visibilité du bouton de sélection de fichiers */
+input[type="file"] {
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.multi-file-enhanced label {
+  font-weight: bold;
+  color: #3498db;
+}
+
+/* Styles pour les badges de formats de fichiers */
+.format-list {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.format-list .badge {
+  margin: 3px;
+  padding: 5px 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.format-list .badge:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Couleurs pour le mode sombre */
+.dark-mode .format-list .badge {
+  opacity: 0.9;
+}
+
+/* Styles pour la section des formats supportés */
+.format-badges-container {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.format-badges-container h5 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #495057;
+}
+
+.format-badges-container .format-list {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.dark-mode .format-badges-container {
+  background-color: #343a40;
+}
+
+.dark-mode .format-badges-container h5 {
+  color: #f8f9fa;
+}
+
+.dark-mode .format-badges-container .format-list {
+  background-color: #495057;
+}
+
+/* Animation pour les badges */
+@keyframes badge-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.badge:hover {
+  animation: badge-pulse 0.8s infinite;
+  cursor: pointer;
+} 
+
+/* --- HERO MODERNE --- */
+.accueil-hero {
+  background: rgba(255,255,255,0.85);
+  border-radius: 32px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.10);
+  padding: 48px 32px 36px 32px;
+  margin: 48px auto 36px auto;
+  max-width: 950px;
+  position: relative;
+  backdrop-filter: blur(6px) saturate(120%);
+  border: 1.5px solid #e3eafc;
+  transition: box-shadow 0.3s;
+}
+
+/* --- HERO BOX ENCADREE --- */
+.hero-box {
+  background: rgba(255,255,255,0.98);
+  border: 2.5px solid #00c6fb;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(0,198,251,0.08), 0 1.5px 0 #e0eafc;
+  padding: 32px 24px 18px 24px;
+  margin: 0 auto 32px auto;
+  max-width: 800px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+.hero-box:hover {
+  box-shadow: 0 12px 40px rgba(0,198,251,0.13), 0 1.5px 0 #e0eafc;
+}
+
+/* --- CARTES D'ACCUEIL --- */
+.accueil-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  margin: 36px 0 24px 0;
+}
+.accueil-card {
+  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  padding: 28px 22px 20px 22px;
+  min-width: 220px;
+  max-width: 260px;
+  flex: 1 1 220px;
+  text-align: center;
+  transition: transform 0.18s, box-shadow 0.18s;
+  cursor: pointer;
+}
+.accueil-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(0,123,178,0.13);
+  background: linear-gradient(120deg, #d0e6fa 0%, #b8d8f3 100%);
+}
+.accueil-card .fa, .accueil-card .fas, .accueil-card .far, .accueil-card .fal, .accueil-card .fab {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  transition: color 0.2s, transform 0.2s;
+}
+.accueil-card:hover .fa, .accueil-card:hover .fas, .accueil-card:hover .far, .accueil-card:hover .fal, .accueil-card:hover .fab {
+  color: #0072B2;
+  transform: scale(1.15) rotate(-6deg);
+}
+
+/* --- BOUTONS DYNAMIQUES --- */
+.accueil-btns {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  margin: 32px 0 18px 0;
+  flex-wrap: wrap;
+}
+.accueil-btns .btn {
+  font-size: 1.18em;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,114,178,0.08);
+  transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
+}
+.accueil-btns .btn-primary:hover {
+  background: #005b8a;
+  transform: translateY(-2px) scale(1.04);
+}
+.accueil-btns .btn-success:hover {
+  background: #1bbd6a;
+  transform: translateY(-2px) scale(1.04);
+}
+.accueil-btns .btn-warning:hover {
+  background: #f7b731;
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* --- SLOGAN --- */
+.slogan {
+  font-size: 1.25em;
+  font-weight: 500;
+  color: #0072B2;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- FOOTER ACCUEIL --- */
+.accueil-footer {
+  margin-top: 32px;
+  padding: 18px 0 0 0;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(90deg, #0072B2 0%, #00c6fb 100%);
+  border-radius: 0 0 18px 18px;
+  font-size: 1.08em;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,114,178,0.10);
+}
+
+.accueil-supervision {
+  margin-top: 10px;
+  text-align: center;
+  color: #0072B2;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .accueil-hero { padding: 28px 8px 18px 8px; }
+  .accueil-cards { gap: 14px; }
+  .accueil-card { min-width: 160px; max-width: 98vw; padding: 18px 8px; }
+  .accueil-btns { gap: 10px; }
+}
+@media (max-width: 600px) {
+  .accueil-hero { padding: 10px 2vw; }
+  .accueil-cards { flex-direction: column; gap: 10px; }
+  .accueil-card { min-width: 90vw; }
+  .accueil-btns { flex-direction: column; gap: 8px; }
+} 
+
+/* --- BOXES COLOREES POUR LES ATOUTS --- */
+.box-blue {
+  background: linear-gradient(120deg, #e0eafc 0%, #b3d8f7 100%);
+  border: 2px solid #0072B2;
+  color: #0072B2 !important;
+}
+.box-blue .fa, .box-blue .objectif, .box-blue p { color: #0072B2 !important; }
+
+.box-green {
+  background: linear-gradient(120deg, #e6f9f0 0%, #b8f7d8 100%);
+  border: 2px solid #1bbd6a;
+  color: #1bbd6a !important;
+}
+.box-green .fa, .box-green .objectif, .box-green p { color: #1bbd6a !important; }
+
+.box-yellow {
+  background: linear-gradient(120deg, #fffbe6 0%, #fff3b8 100%);
+  border: 2px solid #f7b731;
+  color: #f7b731 !important;
+}
+.box-yellow .fa, .box-yellow .objectif, .box-yellow p { color: #f7b731 !important; }
+
+.box-cyan {
+  background: linear-gradient(120deg, #e0f7fa 0%, #b3ecf7 100%);
+  border: 2px solid #00c6fb;
+  color: #00c6fb !important;
+}
+.box-cyan .fa, .box-cyan .objectif, .box-cyan p { color: #00c6fb !important; }
+
+.accueil-card.box-blue, .accueil-card.box-green, .accueil-card.box-yellow, .accueil-card.box-cyan {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.accueil-card.box-blue:hover, .accueil-card.box-green:hover, .accueil-card.box-yellow:hover, .accueil-card.box-cyan:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(0,123,178,0.13);
+} 
