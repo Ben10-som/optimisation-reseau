@@ -1,19 +1,12 @@
 ---
-title: "Optimisation du placement des antennes au Sénégal"
-author: "SOMA Ben Idriss Diloma"
+title: ""
+author: ""
 date: "`r Sys.Date()`"
 output:
-  word_document:
-    toc: true
-    toc_depth: 2
-  html_document:
-    toc: true
-    toc_float: true
-    df_print: paged
-    toc_depth: 2
-  pdf_document:
-    toc: true
-    toc_depth: 2
+ officedown::rdocx_document:
+    toc_depth: 3        # Profondeur (titres de niveau 1 et 2)
+    number_sections: true  # Numérotation automatique des sections
+    keep_md: true
 ---
 
 
@@ -25,6 +18,155 @@ knitr::opts_chunk$set(echo = FALSE,
                       comment = NA)
 
 ```
+
+
+```{r}
+#Installation et importation des packages
+
+packages <- c("labelled", "haven","dplyr","flextable","officer","officedown","janitor","outliers","naniar","lubridate","ggplot2","gtsummary")
+
+for (package in packages) {
+  if (!requireNamespace(package, quietly = TRUE)) {   # Vérifie si le package n'est pas encore installé
+    install.packages(package)
+  }
+  library(package, character.only = TRUE) # nom du package en nom ou chaine de caractère ()
+}
+
+```
+
+
+
+
+
+```{r page_garde_1}
+
+flextable(data.frame(Contenu = "REPUBLIQUE DU SENEGAL")) %>% #Créer un tableau flextable
+  delete_part(part = "header") %>% #supprimer l'en-tête
+  border_remove() %>% #Supprimer les bordures
+  
+  # Application de la police
+  font(fontname = "Times New Roman", part = "all") %>% 
+  fontsize(size = 14, part = "all") %>% 
+  
+  # Mise en forme du texte
+  bold(i = 1, j = 1) %>% 
+  align(align = "center") %>% 
+  
+  set_table_properties(layout = "autofit", width = 1) #Ajuste la largeur des colonnes automatiquements
+
+```
+
+|                                                     |
+|:---------------------------------------------------:|
+| ![](Documents/Logo SEN.png){width="3cm" height="3cm"} |
+
+
+```{r page_garde_2}
+
+flextable(data.frame(Contenu = c( "**********",
+                                  "Un Peuple - Un But - Une Foi",
+                                  "**********",
+                                  "Agence nationale de la Statistique et de la démographie"))) %>% 
+  delete_part(part = "header") %>% 
+  border_remove() %>% 
+  
+  # Application de la police
+  font(fontname = "Times New Roman", part = "all") %>% 
+  fontsize(size = 14, part = "all") %>%
+  
+  # Mise en forme du texte
+  bold(i = 1:4, j = 1) %>% 
+  italic(i = 2, j = 1) %>% 
+  align(align = "center") %>% 
+  
+  set_table_properties(layout = "autofit", width = 1)
+
+```
+
+|                                          |
+|:----------------------------------------:|
+| ![](Documents/Logo-ANSD.png){width="3.5cm"} |
+
+```{r page_garde_3}
+
+flextable(data.frame(Contenu = c("**********",
+                                  "Ecole nationale de la Statistique et de l'Analyse économique Pierre Ndiaye"))) %>%
+  delete_part(part = "header") %>% 
+  border_remove() %>% 
+  
+  # Application de la police
+  font(fontname = "Times New Roman", part = "all") %>% 
+  fontsize(size = 14, part = "all") %>% 
+  
+  # Mise en forme du texte
+  bold(i = 1:2, j = 1) %>% 
+  align(align = "center") %>% 
+  
+  set_table_properties(layout = "autofit", width = 1)
+
+```
+
+|                                                       |
+|:-----------------------------------------------------:|
+| ![](Documents/ENSAE-Dakar-logo.png){width="2.5cm" height="2cm"} |
+
+##### Projet statistique sur R : Evaluation
+
+```{r page garde_4, include=FALSE}
+
+flextable(data.frame(Contenu = "Projet statistique avec R")) %>%
+  delete_part(part = "header") %>% 
+  border_remove() %>% 
+  
+  # Application de la police
+  font(fontname = "Times New Roman", part = "all") %>% 
+  fontsize(size = 15, part = "all") %>% 
+  
+  # Mise en forme du texte
+  italic(i = 1, j = 1) %>% 
+  align(align = "center") %>% 
+  
+  set_table_properties(layout = "autofit", width = 1)
+
+```
+
+$$
+$$
+
+
+
+```{r page_garde_5}
+donnees <- data.frame(
+  col1 = c("Rédigé par", "SOMA Ben Idriss ","yves Djarakei"),
+  col2 = c("Sous la supervision de", "M. Omar DIOP ", "Docteur en Mathématiques "),
+  stringsAsFactors = FALSE
+)
+flextable(donnees) %>% 
+  delete_part(part = "header") %>% 
+  width(j = 1:2, width = 0.5) %>%  # Répartition égale de la largeur
+  align(j = 1, align = "left") %>% 
+  align(j = 2, align = "right") %>% 
+  border_remove() %>% 
+  bold(i = 1, j = 1:2) %>% 
+  italic(i = 3, j = 1:2) %>% 
+  set_table_properties(layout = "autofit", width = 1) %>%  # Force la largeur totale
+  fontsize(size = 11)  # Ajuste la taille de police si nécessaire
+```
+
+|                                |
+|:------------------------------:|
+| **Année académique 2024-2025** |
+
+
+
+\newpage
+
+
+
+# avant-propos
+
+# revue de la littérature
+
 
 
 # Introduction Générale
@@ -78,7 +220,7 @@ Les zones rurales, en particulier, souffrent d'un manque d'infrastructures de t�
 
 # Contexte
 
-Le Sénégal, situé en Afrique de l'Ouest, compte une population estimée à plus de 18 millions d'habitants en 2023 (source : ANSD). Le pays présente une grande diversité géographique, allant des zones sahéliennes du nord-est aux forêts tropicales du sud-est. Les infrastructures numériques sont principalement concentrées dans les grandes agglomérations de l'ouest (Dakar, Thiès, Mbour).
+Le Sénégal, situé en Afrique de l'Ouest, compte une population estimée à plus de 18 millions d'habitants en 2023 d'après l'ANSD. Le pays présente une grande diversité géographique, allant des zones sahéliennes du nord-est aux forêts tropicales du sud-est. Les infrastructures numériques sont principalement concentrées dans les grandes agglomérations de l'ouest (Dakar, Thiès, Mbour).
 
 ###  Indicateurs clés
 
@@ -109,7 +251,7 @@ Les trois principaux opérateurs du Sénégal (Orange, Free, Expresso) présente
 
 
 
-```{r operator-coverage, echo=FALSE, fig.cap="Comparaison de la couverture réseau par opérateur", message=FALSE, fig.width=8, fig.height=4.5}
+```{r operator-coverage, echo=FALSE, fig.cap="Comparaison de la couverture réseau par opérateur", message=FALSE, fig.width=5, fig.height=4.5, fig.align='center'}
 library(ggplot2)
 library(tidyr)
 
@@ -151,6 +293,8 @@ ggplot(operator_long, aes(x = Region, y = Couverture, fill = Operateur)) +
     plot.caption = element_text(size = 8, hjust = 1),
     panel.grid.major.y = element_line(color = "grey80", linewidth = 0.2)
   )
+
+ggsave("operator_coverage.png", width = 8, height = 5, dpi = 300)
 ```
 
 
@@ -165,9 +309,18 @@ knitr::include_graphics("images/carte_couverture_2G.png")
 
 la région de Dakar, la couverture 2G est presque totale, tandis que les zones rurales comme Tambacounda et Kédougou souffrent d'une couverture très limitée.
 
+---
+
 ```{r , echo=FALSE, fig.align='center', out.width='100%'}
 # Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
 knitr::include_graphics("images/carte_couverture_3G.png")
+```
+
+---
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/carte_couverture_4G.png")
 ```
 
 
@@ -216,8 +369,6 @@ le reseau d'Expresso est le moins étendu, avec une couverture de 85% dans la r�
 
 
 
-
-
 En télécommunications ou dans les réseaux informatiques, un canal de commu
 nication est un médium de transmission d’information, permettant l’acheminement
  d’un message d’une ou plusieurs sources à un ou plusieurs destinataires. Cette trans
@@ -231,7 +382,7 @@ Lors de la transmission d’un signal dans un câble ou dans l’air, celui-ci e
 
 Cette analyse permet d'obtenir le **spectre de fréquences** du signal, c’est-à-dire la répartition de sa puissance selon les différentes fréquences. Pour les signaux réels, l’énergie est souvent concentrée dans une **bande passante limitée**. En dessous d’un certain seuil, la puissance est négligeable, ce qui permet de **délimiter la bande utile** du signal.
 
-```{r frequency-spectrum, echo=FALSE, fig.cap="Spectre de fréquence d'un signal composé", message=FALSE, fig.width=8, fig.height=5}
+```{r frequency-spectrum, echo=FALSE, fig.cap="Spectre de fréquence d'un signal composé", message=FALSE, fig.width=5, fig.height=4.5, fig.align='center'}
 library(ggplot2)
 
 # Simulation d’un signal : somme de sinusoïdes
@@ -306,10 +457,11 @@ $$
 s_P(t) = a_P \cos(2\pi f_P t)
 $$
 
-```{r modulation, echo=FALSE, fig.cap="Modulation d'amplitude : modulant, porteuse et signal modulé", message=FALSE, fig.width=8, fig.height=6}
+```{r modulation, echo=FALSE, fig.cap="Modulation d'amplitude : modulant, porteuse et signal modulé", message=FALSE, fig.width=5, fig.height=4.5, fig.align='center'}
 library(ggplot2)
 library(tidyr)
 library(viridis)
+library(dplyr)
 
 # Paramètres
 f_port <- 50      # Fréquence porteuse (Hz)
@@ -643,7 +795,7 @@ knitr::include_graphics("reflexion_sol.webp")
 ```
 
 
-Les modèles de Walfisch-Bertoni et d’Ikegami, décrits dans [Granatstein (2008)], intègrent les effets de diffraction des ondes au niveau des toits d’immeubles. 
+Les modèles de Walfisch-Bertoni et d’Ikegami, intègrent les effets de diffraction des ondes au niveau des toits d’immeubles. 
 Ces modèles sont particulièrement pertinents lorsque l’antenne est placée au-dessus des bâtiments et que le récepteur se trouve en contrebas, dans une rue.
 
 ## Approche empirique
@@ -868,20 +1020,123 @@ Inspirée par Marty (2011), l’optimisation se fait en deux temps :
 ## 3. Algorithmes proposés
 
 ### a) MADS (Mesh Adaptive Direct Search)
-- **Principe** : méthode directe sans dérivée, qui explore l’espace des variables en construisant un maillage local autour de la meilleure solution courante.
-- **Fonctionnement** : à chaque itération, MADS évalue la fonction objectif en plusieurs points autour de la solution actuelle, selon une grille qui s’affine progressivement.
+- **Principe** : MADS est une méthode d'optimisation sans dérivée conçue pour résoudre des problèmes où la fonction objectif est non différentiable, bruitée ou coûteuse à évaluer, comme dans une formulation "boîte noire". Elle explore l'espace des solutions en construisant un maillage adaptatif autour de la meilleure solution courante, évaluant la fonction objectif à des points stratégiques pour trouver un optimum global ou local. Le maillage s'affine dans les régions prometteuses et se relâche ailleurs, équilibrant exploration globale et exploitation locale.
+Dans le contexte du placement des antennes, MADS optimise les coordonnées continues $  (x_i, y_i)  $ des antennes pour maximiser la couverture réseau, tout en respectant les contraintes géographiques (ex. éviter les zones montagneuses à Kédougou), budgétaires, et un seuil minimal de rapport signal-bruit (SIR).
+
+- **Fonctionnement** : MADS explore l'espace des variables continues $(x_i, y_i) \in \mathbb{R}^2$ pour chaque antenne $i \in A$. À chaque itération $k$, un maillage est défini par :
+$$M_k = \{ x_k + \Delta_k z : z \in \mathbb{Z}^n \}$$
+où :
+
+$ x_k $ : solution courante (vecteur des coordonnées $(x_i, y_i)$).
+$ \Delta_k $ : taille du maillage (scalaire contrôlant la résolution).
+$ z $ : directions entières définissant les points du maillage.
+
+
+Initialisation :
+
+Choisir une solution initiale $ x_0 = \{(x_i, y_i)\}_{i=1}^n $, par exemple, des emplacements basés sur la densité de population (ex. villages à Tambacounda).
+Définir une taille de maillage initiale $\Delta_0 > 0$ (ex. 1 km pour une grille couvrant Kédougou).
+
+
+Étape de recherche :
+
+Évaluer $ f(x) $ à des points choisis librement autour de $ x_k $, pas nécessairement sur le maillage, pour explorer globalement.
+
+
+Étape de sondage (poll) :
+
+Si la recherche échoue, évaluer $ f(x) $ à un ensemble de points sur le maillage $ M_k $, appelés points de sondage, dans des directions prédéfinies (ex. $\pm e_i$, où $ e_i $ sont les vecteurs de base).
+Exemple : déplacer une antenne de 1 km vers le nord ou l'est et calculer la couverture.
+
+Mise à jour du maillage :
+
+Si une meilleure solution $ x_{k+1} $ est trouvée ($ f(x_{k+1}) < f(x_k) $), centrer le maillage sur $ x_{k+1} $ et réduire $\Delta_{k+1} = \tau \Delta_k$ (avec $\tau < 1$, ex. $\tau = 0.5$).
+Sinon, augmenter $\Delta_{k+1} = \tau^{-1} \Delta_k$ pour explorer un espace plus large.
+
+
+Arrêt :
+
+Terminer après un nombre maximal d'itérations, si $\Delta_k < \epsilon$ (ex. $\epsilon = 10 \, \text{m}$), ou si l'amélioration de $ f(x) $ est négligeable.
+
 - **Avantages** :
-  - Gère les contraintes facilement (via barrières ou pénalités)
-  - Ne nécessite pas de gradient (adaptée aux fonctions boîte noire)
-  - Convient aux variables continues (coordonnées des antennes)
+  - Gestion des contraintes : Les contraintes (budget, zones interdites) sont intégrées via des fonctions de pénalité, par exemple :
+$$f_{\text{pénalisée}}(x) = f(x) + \sum_{j} \lambda_j \max(0, g_j(x))$$
+où $ g_j(x) \leq 0 $ sont les contraintes (ex. budget $ B $).
+- Sans dérivée : Convient à la fonction objectif boîte noire, où $ U $, $ I $, et $ C $ dépendent de simulations complexes (ex. propagation avec modèle log-distance).
+- Adapté aux variables continues : Idéal pour optimiser les coordonnées $(x_i, y_i)$, comme placer une antenne sur une colline à Kédougou pour maximiser la portée.
+- Exploration adaptative : Le maillage s'ajuste dynamiquement, concentrant les efforts sur les zones prometteuses.
+  
+- **Inconvénients** : - Coût computationnel : Chaque évaluation de $ f(x) $ nécessite une simulation de propagation (ex. calcul de SIR sur une grille), coûteuse pour de grandes régions comme Tambacounda (59 602 km²).
+- Évolutivité limitée : Pour un grand nombre d'antennes ($ n \gg 10 $), le nombre de points à évaluer explose, nécessitant une discrétisation initiale grossière.
+- Optima locaux : MADS peut converger vers des solutions sous-optimales si l'initialisation est loin de l'optimum global.
 
 ### b) Recherche tabou
-- **Principe** : métaheuristique utilisant une mémoire pour éviter de revisiter les mêmes solutions.
-- **Fonctionnement** : part d’une solution initiale, explore le voisinage (par ex. changement de fréquence d’une antenne), mais interdit temporairement certains mouvements.
-- **Avantages** :
-  - Très adapté aux espaces discrets (fréquences, puissances)
-  - Évite les cycles et minima locaux
-  - Permet d’introduire des critères supplémentaires (coût, interférence)
+- **Principe** : La Recherche Tabou est une métaheuristique pour les problèmes combinatoires, utilisant une liste tabou (mémoire à court terme) pour éviter de revisiter des solutions récentes, empêchant ainsi les cycles et favorisant l'évasion des minima locaux. Elle explore le voisinage d'une solution courante en effectuant des modifications mineures (ex. changer la fréquence d'une antenne) et choisit le meilleur mouvement, même s'il n'améliore pas immédiatement l'objectif.
+Dans ce contexte, la Recherche Tabou optimise les variables discrètes : les fréquences $ f_i \in F $ (ex. 900, 1800, 2100 MHz) et les niveaux de puissance $ p_i \in \{p_{\min}, \ldots, p_{\max}\} $, pour minimiser les interférences tout en maintenant la couverture.
+
+Formulation mathématique
+Soit le sous-problème d'optimisation des fréquences et puissances, avec les emplacements $(x_i, y_i)$ fixés :
+
+Fonction objectif :
+$$\min_{f_i, p_i} \quad f(f, p) = w_2 \cdot I(f, p) + w_1 \cdot U(x, y, p) + w_3 \cdot C(x, y, p)$$
+où $ I(f, p) $ domine, car l'objectif principal est de réduire les interférences.
+
+Contraintes :
+
+Fréquences valides : $ f_i \in F $.
+Puissance : $ p_i^{\min} \leq p_i \leq p_i^{\max} $.
+Interférences : $\text{SIR}_{ij} \geq \theta$ pour les antennes $ i, j $ partageant la même fréquence. 
+
+Le voisinage d'une solution $ s = (f_1, \ldots, f_n, p_1, \ldots, p_n) $ est défini comme l'ensemble des solutions obtenues par un changement unique, par exemple :
+
+Changer $ f_i $ de 900 MHz à 1800 MHz.
+Ajuster $ p_i $ d'un niveau discret (ex. de 20 W à 40 W).
+Fonctionnement
+
+Initialisation :
+
+Choisir une solution initiale $ s_0 = (f_1, \ldots, f_n, p_1, \ldots, p_n) $, par exemple, attribuer des fréquences aléatoires dans $ F = \{900, 1800, 2100\} $ MHz.
+Initialiser une liste tabou vide $ T = \emptyset $.
+
+
+Exploration du voisinage :
+
+Générer l'ensemble des voisins $ N(s_k) $ en modifiant une fréquence ou une puissance (ex. $ f_i: 900 \to 1800 $).
+Évaluer $ f(s) $ pour chaque voisin, calculant $ I(f, p) $ via SIR :
+
+$$\text{SIR}(p_j) = \frac{P_{r_{ij}}}{\sum_{k \neq i} P_{r_{kj}} + P_N}$$
+où $ P_{r_{ij}} = \frac{p_i}{d_{ij}^\alpha} $ est la puissance reçue de l'antenne $ i $ au point $ j $.
+
+
+Liste tabou :
+
+Ajouter le mouvement choisi (ex. "changer $ f_1 $ à 1800 MHz") à $ T $, avec une durée de tabou (ex. 5 itérations).
+Ignorer les mouvements tabous sauf si un critère d'aspiration est satisfait (ex. amélioration
+significative de $ f(s) $).
+
+
+Sélection du mouvement :
+
+Choisir le meilleur voisin non tabou $ s' \in N(s_k) $ minimisant $ f(s) $, ou un voisin tabou si $ f(s') < f(s_{\text{meilleur}}) $.
+
+
+Arrêt :
+
+Terminer après un nombre maximal d'itérations, si aucune amélioration n'est observée, ou si $ I(f, p) $ est suffisamment bas.
+
+Avantages
+
+Optimisation discrète : Idéal pour les fréquences (ex. choisir parmi 900, 1800 MHz) et puissances discrètes, courantes dans les réseaux mobiles.
+Évasion des minima locaux : La liste tabou évite les cycles, et le critère d'aspiration permet d'explorer des solutions prometteuses.
+Flexibilité : Intègre facilement des critères comme le coût énergétique (lié à $ p_i $) ou les réglementations (ex. bandes 5G à 3500 MHz).
+Efficacité locale : Rapide pour ajuster les fréquences dans des zones semi-urbaines comme Matam, où les interférences sont fréquentes.
+
+Inconvénients
+
+Sensibilité aux paramètres : La taille de la liste tabou (ex. 5–10 itérations) et la définition du voisinage influencent fortement les performances.
+Dépendance à l'initialisation : Une mauvaise attribution initiale (ex. toutes les antennes à 900 MHz) peut nécessiter de nombreuses itérations pour converger.
+Coût computationnel : Évaluer tous les voisins peut être coûteux si $ |F| $ ou le nombre d'antennes est grand.
+
 
 ### c) Approche hybride
 - **Stratégie combinée** :

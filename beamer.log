@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.26)  28 JUN 2025 09:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.28)  7 JUL 2025 01:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **beamer.tex
 (./beamer.tex
 LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-05-26>
+L3 programming layer <2025-06-09>
 (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2025/06/15 v3.74 A class for typesetting presentations
 (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/beamerbasemodes.sty (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -617,34 +617,33 @@ Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 \BKM@id=\count369
 ))
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 116.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 115.
 (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-04-14 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count370
-)
-No file beamer.aux.
+) (./beamer.aux)
 \openout1 = `beamer.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
-LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -685,53 +684,53 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 116.
+Package hyperref Info: Link coloring OFF on input line 115.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 116.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 115.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 116.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 115.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 116.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 115.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 116.
+(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 115.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 116.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 116.
+(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 115.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 116.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 116.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 116.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 115.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 116.
+(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 116.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 116.
+(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 115.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 116.
+(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 116.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 116.
+(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 115.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 116.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 116.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 115.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 116.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 115.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 116.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 116.
+(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 116.
+(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 116.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 116.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 115.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 116.
+(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 115.
 (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -745,13 +744,13 @@ Dictionary: translator-numbers-dictionary, Language: English
 ) (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \microtypecontext on input line 116.
-Package microtype Info: Applying patch `item' on input line 116.
-Package microtype Info: Applying patch `toc' on input line 116.
-Package microtype Info: Applying patch `eqnum' on input line 116.
-Package microtype Info: Applying patch `footnote' on input line 116.
-Package microtype Info: Applying patch `verbatim' on input line 116.
-LaTeX Info: Redefining \microtypesetup on input line 116.
+LaTeX Info: Redefining \microtypecontext on input line 115.
+Package microtype Info: Applying patch `item' on input line 115.
+Package microtype Info: Applying patch `toc' on input line 115.
+Package microtype Info: Applying patch `eqnum' on input line 115.
+Package microtype Info: Applying patch `footnote' on input line 115.
+Package microtype Info: Applying patch `verbatim' on input line 115.
+LaTeX Info: Redefining \microtypesetup on input line 115.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
@@ -762,7 +761,7 @@ Package microtype Info: Using default expansion set `alltext-nott'.
 LaTeX Warning: Command \showhyphens   has changed.
                Check if current package is valid.
 
-LaTeX Info: Redefining \showhyphens on input line 116.
+LaTeX Info: Redefining \showhyphens on input line 115.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -770,22 +769,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-No file beamer.nav.
+(./beamer.nav)
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 115--115
+ [][][][]  
+ []
+
 
 Overfull \hbox (137.8884pt too wide) in paragraph at lines 116--116
  [][][][]  
  []
 
-
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 117--117
- [][][][]  
- []
-
-<images/ensae.png, id=27, 228.855pt x 198.7425pt>
-File: images/ensae.png Graphic file (type png)
-<use images/ensae.png>
-Package pdftex.def Info: images/ensae.png  used on input line 117.
-(pdftex.def)             Requested size: 85.60739pt x 74.34326pt.
 
 
 
@@ -795,13 +788,12 @@ Overfull \hbox (137.8884pt too wide) has occurred while \output is active
 
 [1
 
-{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./images/ensae.png>]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 121--121
+{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 120--120
  [][][][]  
  []
 
-No file beamer.toc.
-
+(./beamer.toc)
 
 
 Overfull \hbox (137.8884pt too wide) has occurred while \output is active
@@ -811,7 +803,7 @@ Overfull \hbox (137.8884pt too wide) has occurred while \output is active
 [2
 
 ]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 122--122
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 121--121
  [][][][]  
  []
 
@@ -825,7 +817,7 @@ Overfull \hbox (137.8884pt too wide) has occurred while \output is active
 [3
 
 ]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 156--156
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 155--155
  [][][][]  
  []
 
@@ -839,7 +831,7 @@ Overfull \hbox (137.8884pt too wide) has occurred while \output is active
 [4
 
 ]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 191--191
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 190--190
  [][][][]  
  []
 
@@ -853,7 +845,7 @@ Overfull \hbox (137.8884pt too wide) has occurred while \output is active
 [5
 
 ]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 210--210
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 196--196
  [][][][]  
  []
 
@@ -867,7 +859,7 @@ Overfull \hbox (137.8884pt too wide) has occurred while \output is active
 [6
 
 ]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 239--239
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 198--198
  [][][][]  
  []
 
@@ -881,63 +873,10 @@ Overfull \hbox (137.8884pt too wide) has occurred while \output is active
 [7
 
 ]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 271--271
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 206--206
  [][][][]  
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 271.
-(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmss.fd
-File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 271.
-(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmss.fd
-File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmss' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 271.
-(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 271.
-(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 271.
-(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 271.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 271.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 271.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 271.
-(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 271.
-(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 271.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 271.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 271.
-<images/carte sen.png, id=104, 1204.5pt x 903.375pt>
-File: images/carte sen.png Graphic file (type png)
-<use images/carte sen.png>
-Package pdftex.def Info: images/carte sen.png  used on input line 271.
-(pdftex.def)             Requested size: 154.09093pt x 115.56819pt.
 
 
 
@@ -947,8 +886,8 @@ Overfull \hbox (137.8884pt too wide) has occurred while \output is active
 
 [8
 
-{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./images/carte sen.png>]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 280--280
+]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 209--209
  [][][][]  
  []
 
@@ -962,28 +901,486 @@ Overfull \hbox (137.8884pt too wide) has occurred while \output is active
 [9
 
 ]
-Overfull \hbox (137.8884pt too wide) in paragraph at lines 321--321
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 214--214
  [][][][]  
  []
 
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.321 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+<images/carte_couverture_2G.png, id=155, 578.16pt x 433.62pt>
+File: images/carte_couverture_2G.png Graphic file (type png)
+<use images/carte_couverture_2G.png>
+Package pdftex.def Info: images/carte_couverture_2G.png  used on input line 214.
+(pdftex.def)             Requested size: 342.43474pt x 256.82605pt.
 
- 
+Overfull \vbox (35.62624pt too high) detected at line 214
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[10
+
+ <./images/carte_couverture_2G.png>]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 218--218
+ [][][][]  
+ []
+
+<images/carte_couverture_3G.png, id=164, 578.16pt x 433.62pt>
+File: images/carte_couverture_3G.png Graphic file (type png)
+<use images/carte_couverture_3G.png>
+Package pdftex.def Info: images/carte_couverture_3G.png  used on input line 218.
+(pdftex.def)             Requested size: 342.43474pt x 256.82605pt.
+
+Overfull \vbox (5.61687pt too high) detected at line 218
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[11
+
+ <./images/carte_couverture_3G.png>]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 222--222
+ [][][][]  
+ []
+
+<images/carte_couverture_4G.png, id=172, 578.16pt x 433.62pt>
+File: images/carte_couverture_4G.png Graphic file (type png)
+<use images/carte_couverture_4G.png>
+Package pdftex.def Info: images/carte_couverture_4G.png  used on input line 222.
+(pdftex.def)             Requested size: 342.43474pt x 256.82605pt.
+
+Overfull \vbox (5.61687pt too high) detected at line 222
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[12
+
+ <./images/carte_couverture_4G.png>]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 244--244
+ [][][][]  
+ []
+
+<images/nperfcouverture_orange.png, id=181, 1445.4pt x 623.32875pt>
+File: images/nperfcouverture_orange.png Graphic file (type png)
+<use images/nperfcouverture_orange.png>
+Package pdftex.def Info: images/nperfcouverture_orange.png  used on input line 244.
+(pdftex.def)             Requested size: 342.42592pt x 147.67117pt.
+<images/nperfcouverture_free.png, id=183, 1927.2pt x 1084.05pt>
+File: images/nperfcouverture_free.png Graphic file (type png)
+<use images/nperfcouverture_free.png>
+Package pdftex.def Info: images/nperfcouverture_free.png  used on input line 244.
+(pdftex.def)             Requested size: 342.41122pt x 192.60631pt.
+<images/nperfcouverture_express.png, id=184, 1445.4pt x 621.07031pt>
+File: images/nperfcouverture_express.png Graphic file (type png)
+<use images/nperfcouverture_express.png>
+Package pdftex.def Info: images/nperfcouverture_express.png  used on input line 244.
+(pdftex.def)             Requested size: 342.42592pt x 147.13612pt.
+
+Overfull \vbox (419.46275pt too high) detected at line 244
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[13
+
+ <./images/nperfcouverture_orange.png> <./images/nperfcouverture_free.png> <./images/nperfcouverture_express.png>]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 277--277
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[14
+
+]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 306--306
+ [][][][]  
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 306.
+(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmss.fd
+File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[15
+
+{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 309--309
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[16
+
+]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 318--318
+ [][][][]  
+ []
+
+<beamer_files/figure-beamer/operator-coverage-1.pdf, id=233, 578.16pt x 325.215pt>
+File: beamer_files/figure-beamer/operator-coverage-1.pdf Graphic file (type pdf)
+<use beamer_files/figure-beamer/operator-coverage-1.pdf>
+Package pdftex.def Info: beamer_files/figure-beamer/operator-coverage-1.pdf  used on input line 318.
+(pdftex.def)             Requested size: 342.43474pt x 192.61954pt.
+
+Overfull \vbox (0.96416pt too high) detected at line 318
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[17
+
+ <./beamer_files/figure-beamer/operator-coverage-1.pdf>]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 347--347
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[18
+
+]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 350--350
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[19
+
+]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 378--378
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[20
+
+]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 387--387
+ [][][][]  
+ []
+
+<beamer_files/figure-beamer/frequency-spectrum-1.pdf, id=282, 578.16pt x 361.35pt>
+File: beamer_files/figure-beamer/frequency-spectrum-1.pdf Graphic file (type pdf)
+<use beamer_files/figure-beamer/frequency-spectrum-1.pdf>
+Package pdftex.def Info: beamer_files/figure-beamer/frequency-spectrum-1.pdf  used on input line 387.
+(pdftex.def)             Requested size: 342.43474pt x 214.02171pt.
+
+Overfull \vbox (22.36633pt too high) detected at line 387
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[21
+
+ <./beamer_files/figure-beamer/frequency-spectrum-1.pdf>]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 396--396
+ [][][][]  
+ []
+
+<beamer_files/figure-beamer/modulation-1.pdf, id=297, 578.16pt x 433.62pt>
+File: beamer_files/figure-beamer/modulation-1.pdf Graphic file (type pdf)
+<use beamer_files/figure-beamer/modulation-1.pdf>
+Package pdftex.def Info: beamer_files/figure-beamer/modulation-1.pdf  used on input line 396.
+(pdftex.def)             Requested size: 342.43474pt x 256.82605pt.
+
+Overfull \vbox (65.17067pt too high) detected at line 396
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[22
+
+ <./beamer_files/figure-beamer/modulation-1.pdf>]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 429--429
+ [][][][]  
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 429.
+(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmss.fd
+File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmss' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 429.
+(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 429.
+(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 429.
+(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 429.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 429.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 429.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 429.
+(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 429.
+(c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 429.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 429.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 429.
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[23
+
+{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 431--431
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[24
+
+]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 454--454
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[25
+
+{c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 463--463
+ [][][][]  
+ []
+
+<beamer_files/figure-beamer/friis-model-1.pdf, id=358, 578.16pt x 361.35pt>
+File: beamer_files/figure-beamer/friis-model-1.pdf Graphic file (type pdf)
+<use beamer_files/figure-beamer/friis-model-1.pdf>
+Package pdftex.def Info: beamer_files/figure-beamer/friis-model-1.pdf  used on input line 463.
+(pdftex.def)             Requested size: 342.43474pt x 214.02171pt.
+
+Overfull \vbox (22.9219pt too high) detected at line 463
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[26
+
+ <./beamer_files/figure-beamer/friis-model-1.pdf>]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 465--465
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[27
+
+]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 484--484
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[28
+
+]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 496--496
+ [][][][]  
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[29
+
+]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 526--526
+ [][][][]  
+ []
+
+<images/diffraction.png, id=407, 295.85532pt x 191.21437pt>
+File: images/diffraction.png Graphic file (type png)
+<use images/diffraction.png>
+Package pdftex.def Info: images/diffraction.png  used on input line 526.
+(pdftex.def)             Requested size: 291.07835pt x 188.12697pt.
+
+Overfull \vbox (251.9885pt too high) detected at line 526
+ []
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[30
+
+ <./images/diffraction.png>]
+Overfull \hbox (137.8884pt too wide) in paragraph at lines 538--538
+ [][][][]  
+ []
+
+
+LaTeX Warning: Citation `Granatstein2008' on page 31 undefined on input line 538.
+
+
+
+
+Overfull \hbox (137.8884pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[31
+
+]
+\tf@nav=\write5
+\openout5 = `beamer.nav'.
+
+\tf@toc=\write6
+\openout6 = `beamer.toc'.
+
+\tf@snm=\write7
+\openout7 = `beamer.snm'.
+
+(./beamer.aux)
+ ***********
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-06-09>
+ ***********
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 24170 strings out of 469867
- 472248 string characters out of 5482841
- 864823 words of memory out of 5000000
- 51880 multiletter control sequences out of 15000+600000
- 686479 words of font info for 119 fonts, out of 8000000 for 9000
+ 24547 strings out of 469869
+ 481687 string characters out of 5482863
+ 867790 words of memory out of 5000000
+ 52181 multiletter control sequences out of 15000+600000
+ 686231 words of font info for 117 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 101i,15n,107p,1003b,687s stack positions out of 10000i,1000n,20000p,200000b,200000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 101i,15n,107p,1003b,676s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss12.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso8.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/USER/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on beamer.pdf (31 pages, 4691677 bytes).
+PDF statistics:
+ 538 PDF objects out of 1000 (max. 8388607)
+ 366 compressed objects within 4 object streams
+ 88 named destinations out of 1000 (max. 500000)
+ 39396 words of extra memory for PDF output out of 42996 (max. 10000000)
+

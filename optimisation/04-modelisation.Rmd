@@ -1,101 +1,52 @@
 # Modélisation mathématique {#modelisation}
 
-
-```{r , echo=FALSE, fig.align='center', out.width='50%'}
-# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
-knitr::include_graphics("images/antenne-reseaux-mobiles-4G-3G.png")
-```
-
 ## Définition du problème
 
-Dans le contexte du développement des infrastructures de télécommunication au Sénégal, l’objectif est d’optimiser le déploiement d’antennes afin de maximiser la couverture réseau et de minimiser les coûts et les interférences. Ce problème s’inscrit dans une problématique d’optimisation multi-objectif avec des contraintes géographiques, techniques et économiques fortes.
-
 ### Variables de décision
-- **Localisation des antennes** : positions géographiques discrètes ou continues dans une zone d’étude donnée.
-- **Types d'antennes** : plusieurs modèles d’antennes peuvent exister avec des caractéristiques différentes (portée, coût, consommation).
-- **Puissance d’émission** : niveau de puissance assigné à chaque antenne, influençant la couverture et les interférences.
-- **Fréquences utilisées** : choix des fréquences pour chaque antenne, en tenant compte des interférences potentielles.
-- **Budget alloué** : montant total disponible pour le déploiement des antennes.
+- Localisation des antennes
+- Types d'antennes
+- Puissance d'émission
 
-
-### Fonctions objectifs
-- **Minimisation des coûts** : coûts d'installation, de maintenance et d'exploitation des antennes.
-- **Maximisation de la couverture** : couverture efficace des zones peu ou mal desservies.
-- **Réduction des interférences** : minimisation des conflits de fréquence entre antennes voisines.
-
+### Fonction objectif
+- Minimisation des coûts
+- Maximisation de la couverture
+- Optimisation multi-objectif
 
 ### Contraintes
-- **Budgétaires** : budget total alloué au déploiement des infrastructures.
-- **Géographiques** : contraintes d’implantation liées à la topographie, aux infrastructures existantes et à la réglementation.
-- **Techniques** : compatibilité des fréquences, limites de puissance, capacités des antennes.
+- Budgétaires
+- Géographiques
+- Techniques
 
 ## Formulation mathématique
 
-e de programmation mathématique pour l'optimisation du placement des antennes
+### Structure du modèle
+```{r model-structure, echo=FALSE}
+# Code R pour illustrer la structure du modèle
+```
 
-#### Variables de Décision
-
-- \( A = \{1, \dots, n\} \) : ensemble des antennes
-- \( F = \{f_1, \dots, f_m\} \) : fréquences disponibles
-- \( P = \{p_1, \dots, p_k\} \) : points du territoire à couvrir
-- \( x_i, y_i \) : coordonnées de l’antenne \( i \)
-- \( f_i \in F \) : fréquence de l’antenne \( i \)
-- \( c_i \) : coût d’installation de l’antenne \( i \)
-- \( p_i \) : puissance d’émission de l’antenne \( i \)
-
-#### Fonction Objectif (à minimiser)
-
-\[
-\min_{x_i, y_i, f_i, p_i} \quad w_1 \cdot U(x, y, p) + w_2 \cdot I(f, p) + w_3 \cdot C(x, y, p)
-\]
-
-Avec :
-- \( U(x, y, p) \) : fonction représentant la proportion d’usagers non couverts,
-- \( I(f, p) \) : mesure du niveau global d’interférences dans le réseau,
-- \( C(x, y, p) \) : coût total d’installation et de fonctionnement,
-- \( w_1, w_2, w_3 \) : coefficients pondérant chaque objectif selon leur importance relative.
-
-#### Contraintes
-
-1. **Couverture minimale** :
-\[
-\forall p_j \in P, \quad \exists i \in A : SIR(p_j) \geq SIR^*
-\]
-
-2. **Budget total** :
-\[
-\sum_{i \in A} c_i + c'(p_i) \leq B
-\]
-(où \( c'(p_i) \) est le coût lié à la puissance d’émission)
-
-3. **Interférences limitées** :
-\[
-\forall i \neq j, \ f_i = f_j \Rightarrow SIR_{ij} \geq \theta
-\]
-
-4. **Fréquences valides** :
-\[
-f_i \in F
-\]
-
-5. **Emplacements autorisés** :
-\[
-(x_i, y_i) \in \text{Zone d’implantation possible}
-\]
-
-6. **Bornes sur la puissance** :
-\[
-p_i^{\min} \leq p_i \leq p_i^{\max}
-\]
-
+### Justification de la convexité
+- Propriétés des fonctions
+- Conditions de convexité
+- Implications pour la résolution
 
 ### Analyse de complexité
+- Taille du problème
+- Difficulté de résolution
+- Approches de simplification
 
-Ce problème est **NP-difficile**, en raison :
-- du nombre combinatoire de positions et d'affectations de fréquences possibles,
-- de la nécessité de calculer des métriques complexes comme le **SIR** pour chaque point et chaque combinaison d'antennes.
+## Implémentation
 
-Des stratégies de simplification incluent :
-- la réduction de l’espace de recherche par une discrétisation fine,
-- l’usage de métaheuristiques comme la **recherche tabou**, **MADS**, **algorithmes génétiques**, etc.
+### Préparation des données
+```{r data-prep, echo=TRUE}
+# Code R pour la préparation des données
+```
 
+### Résolution numérique
+```{r numerical-solution, echo=TRUE}
+# Code R pour la résolution
+```
+
+### Validation du modèle
+- Tests de cohérence
+- Sensibilité aux paramètres
+- Robustesse des solutions 

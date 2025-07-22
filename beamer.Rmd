@@ -11,10 +11,7 @@ output:
     toc: true
     fig_caption: true
     keep_tex: true
-header-includes:
-  - \titlegraphic{\includegraphics[width=0.25\textwidth]{images/ensae.png}}  
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
@@ -29,7 +26,7 @@ library(tidyr)
 library(knitr)
 ```
 
-# Introduction Générale
+# Introduction
 
 - La connectivité mobile reste inégale au Sénégal, surtout dans les zones rurales.
 - Le placement des antennes est un levier stratégique pour :
@@ -63,100 +60,18 @@ library(knitr)
 
 **Objectif principal :** Optimiser le placement des antennes pour une meilleure couverture réseau tout en réduisant les interférences
 
-**Objectifs spécifiques :**
 
-- Analyser la couverture réseau actuelle au Sénégal
-- Identifier les zones prioritaires pour l'installation d'antennes
-- Proposer un modèle de simulation pour le placement optimal des antennes
-
-## Méthodologie
-
-**Étapes clés :**
-
-- Analyse des données de couverture réseau
-- Modélisation de la propagation des ondes
-- Simulation du placement des antennes
-- Évaluation des performances du modèle
-
-**Résultats attendus :**
-
-- Amélioration de la couverture réseau dans les zones rurales
-- Réduction des interférences entre antennes
-- Optimisation des coûts d'installation et de maintenance
-
-
----
-
-##  Présentation du Sénégal et de la zone d'étude
-
-\begin{columns}
-  
-  \column{0.5\textwidth}
-  
-  \textbf{Données démographiques et géographiques :}
-  
-  \begin{itemize}
-    \item Population : 18 593 258 d'habitants en 2024
-    \item Superficie : 196 722 km²
-    \item Taux d'urbanisation : ~54,7\% d'après l'ANSD
-    \item Accès à Internet : ~58\% (2022)
-  \end{itemize}
-  
-  \textbf{Répartition administrative :}
-  
-  \begin{itemize}
-    \item 14 régions administratives
-    \item Concentration des infrastructures dans l'ouest
-    \item Zones rurales sous-connectées
-  \end{itemize}
-  
-  \column{0.5\textwidth}
-  
-  \begin{center}
-    \includegraphics[width=0.9\textwidth]{images/carte sen.png}
-  \end{center}
-  
-\end{columns}
-
-
-## Zone d'étude
+# Zone d'étude
 
 Nous nous concentrons sur trois régions du Sénégal : Kédougou, Tambacounda et Matam. Ces régions présentent des défis uniques en matière de connectivité mobile, notamment en raison de leur géographie et de leur densité de population. Ces régions présente,nt des taux de couverture réseau  de .
 
 
-## Présentation des régions cibles
-
-**Régions étudiées :** Kédougou, Tambacounda et Matam
-**Caractéristiques géographiques :**
-- **Kédougou :** Région montagneuse, densité de population faible, accès limité aux infrastructures.
-- **Tambacounda :** Grande région avec des zones rurales étendues, accès limité à Internet.
-- **Matam :** Région frontalière avec des défis d'accès aux services de télécommunication, population majoritairement rurale.
-
-**Caractéristiques communes :**
-
-- Situées dans la partie orientale du Sénégal
-- Diversité géographique et culturelle
-- Faible taux de couverture réseau
-- Disparités importantes urbain/rural
----
-
-```{r , echo=FALSE, fig.align='center', out.width='100%'}
-# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
-knitr::include_graphics("images/carte senegal.png")
-```
 
 
-**Défis spécifiques :**
 
-- Manque d'infrastructures de télécommunication
-- Accès limité à Internet et services mobiles
-- Population principalement rurale
-- Contraintes géographiques importantes
-
-## Vue d'ensemble du Sénégal de la couverture reseau 
+# Vue d'ensemble du Sénégal de la couverture reseau 
 
 ## Carte de la couverture réseau
-
 
 
 ```{r , echo=FALSE, fig.align='center', out.width='100%'}
@@ -164,9 +79,6 @@ knitr::include_graphics("images/carte senegal.png")
 knitr::include_graphics("images/carte_couverture_2G.png")
 ```
 
-
-
-#nouvelle page 
 ---
 
 
@@ -174,7 +86,6 @@ knitr::include_graphics("images/carte_couverture_2G.png")
 # Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
 knitr::include_graphics("images/carte_couverture_3G.png")
 ```
-
 
 ---
 
@@ -185,11 +96,73 @@ knitr::include_graphics("images/carte_couverture_4G.png")
 
 ---
 
+La carte de couverture 4G montre une concentration de la couverture dans les grandes villes notamment à Dakar , tandis que les zones rurales restent largement sous-couvertes, avec des débits souvent insuffisants pour les usages modernes. 
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/nperfcouverture_orange.png")
+```
+
+
+le réseau Orange est le plus étendu, avec une couverture de 95% dans la région de Dakar, mais il reste des zones blanches dans les régions rurales.
+le réseau 4G de Free est beaucoup plus concentré dans les zones urbaines, , mais il est très limité dans les zones rurales.
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/nperfcouverture_free.png")
+```
+ 
+la couverture de Free est légèrement inférieure, avec 90% dans la région de Dakar, mais elle souffre également de lacunes dans les zones rurales.
+
+```{r , echo=FALSE, fig.align='center', out.width='100%'}
+# Vous pouvez ajouter le logo de l'ENSAE ici si vous en avez un
+knitr::include_graphics("images/nperfcouverture_express.png")
+```
+
+
+## Présentation des régions cibles
+
+**Régions étudiées :** Kédougou, Tambacounda et Matam
+
+
+**Caractéristiques communes :**
+
+- Situées dans la partie orientale du Sénégal
+- Diversité géographique et culturelle
+- Faible taux de couverture réseau
+- Disparités importantes urbain/rural
+
+**Défis spécifiques :**
+
+- Manque d'infrastructures de télécommunication
+- Accès limité à Internet et services mobiles
+- Population principalement rurale
+- Contraintes géographiques importantes
+
+
+## Indicateurs clés du Sénégal
+
+**Données démographiques et géographiques :**
+
+- Population : > 18 millions d'habitants (2023)
+- Superficie : 196 722 km²
+- Taux d'urbanisation : ~47%
+- Accès à Internet : ~58% (2022)
+
+**Répartition administrative :**
+
+- 14 régions administratives
+- Concentration des infrastructures dans l'ouest
+- Zones rurales sous-connectées
+
 # État de la couverture réseau
 
 ## Couverture par opérateur
 
-```{r operator-coverage, fig.cap="Comparaison de la couverture par opérateur"}
+```{r operator-coverage, echo=FALSE, fig.cap="Comparaison de la couverture réseau par opérateur", message=FALSE, fig.width=8, fig.height=4.5}
+library(ggplot2)
+library(tidyr)
+
 # Données de couverture par opérateur
 operator_data <- data.frame(
   Region = c("Dakar", "Thiès", "Saint-Louis", "Tambacounda", "Kédougou", "Matam"),
@@ -199,17 +172,35 @@ operator_data <- data.frame(
 )
 
 operator_long <- pivot_longer(operator_data, 
-                            cols = c(Orange, Free, Expresso),
-                            names_to = "Operateur",
-                            values_to = "Couverture")
+                              cols = c(Orange, Free, Expresso),
+                              names_to = "Operateur",
+                              values_to = "Couverture")
 
 ggplot(operator_long, aes(x = Region, y = Couverture, fill = Operateur)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  scale_fill_manual(values = c("Orange" = "orange", "Free" = "red", "Expresso" = "green")) +
-  labs(title = "Couverture réseau par opérateur et par région",
-       x = "Région", y = "Pourcentage de couverture", fill = "Opérateurs") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  geom_bar(stat = "identity", position = position_dodge(width = 0.3), width = 0.4) +
+  geom_text(aes(label = paste0(Couverture, "%")), 
+            position = position_dodge(width = 0.3), 
+            vjust = -0.5, size = 3, fontface = "bold") +
+  scale_fill_manual(values = c("Orange" = "#FF6200", "Free" = "#D81E05", "Expresso" = "#006633"),
+                    labels = c("Orange", "Free", "Expresso")) +
+  scale_y_continuous(labels = function(x) paste0(x, "%"), limits = c(0, 100)) +
+  labs(title = "Couverture Réseau par Opérateur et Région",
+       x = "Région",
+       y = "Couverture (%)",
+       fill = "Opérateur",
+       caption = "Source : Données simulées, 2024") +
+  theme_classic() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    axis.title = element_text(size = 12, face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.title = element_text(size = 11, face = "bold"),
+    legend.text = element_text(size = 10),
+    legend.position = "top",
+    plot.caption = element_text(size = 8, hjust = 1),
+    panel.grid.major.y = element_line(color = "grey80", linewidth = 0.2)
+  )
 ```
 
 ## Analyse de la couverture
@@ -245,14 +236,16 @@ ggplot(operator_long, aes(x = Region, y = Couverture, fill = Operateur)) +
 
 ## Spectre de fréquence et modulation
 
-```{r frequency-spectrum, fig.cap="Spectre de fréquence d'un signal"}
-# Simulation d'un signal : somme de sinusoïdes
+```{r frequency-spectrum, echo=FALSE, fig.cap="Spectre de fréquence d'un signal composé", message=FALSE, fig.width=8, fig.height=5}
+library(ggplot2)
+
+# Simulation d’un signal : somme de sinusoïdes
 f1 <- 50   # Hz
 f2 <- 120  # Hz
 sampling_rate <- 1000  # Hz
 duration <- 1          # seconde
 t <- seq(0, duration, by = 1/sampling_rate)
-signal <- sin(2*pi*f1*t) + 0.5*sin(2*pi*f2*t)
+signal <- sin(2 * pi * f1 * t) + 0.5 * sin(2 * pi * f2 * t)
 
 # Transformée de Fourier
 fft_vals <- abs(fft(signal))^2
@@ -264,39 +257,114 @@ df_spectrum <- data.frame(
   Power = fft_vals[1:(length(freq)/2)]
 )
 
-# Affichage
+# Graphique
 ggplot(df_spectrum, aes(x = Frequency, y = Power)) +
-  geom_line(color = "#0072B2", size = 1) +
-  labs(title = "Spectre de fréquence du signal",
-       x = "Fréquence (Hz)", y = "Puissance") +
-  theme_minimal()
+  geom_line(color = "#1F77B4", size = 1.2) +
+  geom_vline(xintercept = c(f1, f2), linetype = "dashed", color = "grey50", size = 0.8) +
+  geom_text(aes(x = f1, y = max(Power) * 0.9, label = "50 Hz"), 
+            hjust = -0.1, vjust = 0, color = "black", size = 3.5, fontface = "bold") +
+  geom_text(aes(x = f2, y = max(Power) * 0.9, label = "120 Hz"), 
+            hjust = -0.1, vjust = 0, color = "black", size = 3.5, fontface = "bold") +
+  scale_x_continuous(breaks = seq(0, 500, by = 50), limits = c(0, 200)) +
+  scale_y_continuous(labels = function(x) format(x, scientific = FALSE)) +
+  labs(
+    title = "Spectre de Fréquence d'un Signal Composé",
+    subtitle = "Somme de sinusoïdes à 50 Hz et 120 Hz",
+    x = "Fréquence (Hz)",
+    y = "Puissance (unité arbitraire)",
+    caption = "Source : Simulation, 2024"
+  ) +
+  theme_classic(base_size = 12) +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.caption = element_text(size = 8, hjust = 1),
+    axis.title = element_text(size = 11, face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    panel.grid.major.y = element_line(color = "grey80", linewidth = 0.2),
+    panel.grid.minor.y = element_line(color = "grey90", linewidth = 0.1)
+  )
+
+# Enregistrer le graphique
+
+
 ```
 
 ## Modulation du signal
 
-```{r modulation, fig.cap="Modulation d'un signal"}
+```{r modulation, echo=FALSE, fig.cap="Modulation d'amplitude : modulant, porteuse et signal modulé", message=FALSE, fig.width=8, fig.height=6}
+library(ggplot2)
+library(tidyr)
+library(viridis)
+library(dplyr)
+
+
 # Paramètres
 f_port <- 50      # Fréquence porteuse (Hz)
 f_mod <- 5        # Fréquence du signal modulant (Hz)
 a_p <- 1          # Amplitude de la porteuse
 m <- 0.5          # Indice de modulation
-Fs <- 1000        # Fréquence d'échantillonnage
+Fs <- 1000        # Fréquence d'échantillonnage (Hz)
 t <- seq(0, 1, by = 1/Fs)
 
-# Signaux
+# Signal modulant (bande de base)
 modulant <- sin(2 * pi * f_mod * t)
+
+# Porteuse
 porteuse <- a_p * cos(2 * pi * f_port * t)
+
+# Signal modulé en amplitude (AM)
 module <- (1 + m * modulant) * porteuse
 
-# Visualisation
-df <- data.frame(t = t, Porteuse = porteuse, Modulant = modulant, Signal_Modulé = module)
-df_long <- pivot_longer(df, -t, names_to = "Signal", values_to = "Amplitude")
+# Création du dataframe
+df <- data.frame(
+  t = t,
+  Porteuse = porteuse,
+  Modulant = modulant,
+  Signal_Modulé = module
+)
 
+# Format long pour ggplot
+df_long <- pivot_longer(df, -t, names_to = "Signal", values_to = "Amplitude") %>%
+  mutate(
+    Signal = factor(Signal, levels = c("Modulant", "Porteuse", "Signal_Modulé"),
+                    labels = c("Modulant (5 Hz)", "Porteuse (50 Hz)", "Signal Modulé (AM)"))
+  )
+
+# Graphique avec facettes
 ggplot(df_long, aes(x = t, y = Amplitude, color = Signal)) +
-  geom_line() +
-  labs(title = "Modulation AM : onde modulante, porteuse et signal modulé",
-       x = "Temps (s)", y = "Amplitude") +
-  theme_minimal()
+  geom_line(size = 1.2) +
+  facet_wrap(~ Signal, ncol = 1, scales = "free_y") +
+  scale_color_viridis_d(option = "D", begin = 0.2, end = 0.8, 
+                        name = "Type de signal") +
+  scale_x_continuous(breaks = seq(0, 1, by = 0.2), labels = function(x) sprintf("%.1f s", x)) +
+  scale_y_continuous(labels = function(x) sprintf("%.1f", x)) +
+  labs(
+    title = "Modulation d'Amplitude (AM)",
+    subtitle = "Illustration du signal modulant, de la porteuse et du signal modulé",
+    x = "Temps (s)",
+    y = "Amplitude (unité arbitraire)",
+    caption = "Source : Simulation, 2024"
+  ) +
+  theme_classic(base_size = 12) +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.caption = element_text(size = 8, hjust = 1),
+    axis.title = element_text(size = 11, face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    legend.position = "top",
+    legend.title = element_text(size = 11, face = "bold"),
+    legend.text = element_text(size = 10),
+    strip.text = element_text(size = 10, face = "bold", color = "#3A3A3A"),
+    strip.background = element_rect(fill = "grey95", color = "grey80"),
+    panel.grid.major.y = element_line(color = "grey80", linewidth = 0.2),
+    panel.grid.minor.y = element_line(color = "grey90", linewidth = 0.1)
+  )
+
+# Enregistrer le graphique
+
+
 ```
 
 ## Capacité d'un canal - Théorie de Shannon
@@ -338,7 +406,10 @@ $$P_r(d) = \frac{P_e G_e G_r c^2}{(4 \pi d f)^2}$$
 
 ## Simulation du modèle de Friis
 
-```{r friis-model, fig.cap="Propagation des ondes en espace libre"}
+```{r friis-model, echo=FALSE, fig.cap="Puissance reçue en fonction de la distance (modèle de Friis)", message=FALSE, fig.width=8, fig.height=5}
+
+library(ggplot2)
+
 # Paramètres
 P_t <- 1e3  # Puissance transmise en watts
 G_t <- 10   # Gain de l'antenne émettrice (en dB)
@@ -350,17 +421,116 @@ L <- 1      # Pertes système (en dB)
 # Distance
 d <- seq(1, 10000, by = 100)  # Distance de 1 à 10 km
 
-# Calcul de la puissance reçue en dB
-P_r <- P_t + G_t + G_r - 20 * log10(4 * pi * d * f / c) - L
+# Calcul de la puissance reçue en dBm
+# Conversion de P_t (watts) en dBm : P_t_dBm = 10 * log10(P_t * 1000)
+P_t_dBm <- 10 * log10(P_t * 1000)
+P_r <- P_t_dBm + G_t + G_r - 20 * log10(4 * pi * d * f / c) - L
 
-# Visualisation
-df <- data.frame(Distance = d, Puissance_Reçue = P_r)
+# Création du data frame
+df <- data.frame(Distance = d / 1000, Puissance_Reçue = P_r)  # Distance en km
 
+# Graphique
 ggplot(df, aes(x = Distance, y = Puissance_Reçue)) +
-  geom_line(color = "#0072B2", size = 1) +
-  scale_x_log10() +
-  labs(title = "Propagation des ondes en espace libre (modèle de Friis)",
-       x = "Distance (m)", y = "Puissance reçue (dB)") +
-  theme_minimal()
+  geom_line(color = "#1F77B4", size = 1.2) +
+  geom_vline(xintercept = c(1, 5), linetype = "dashed", color = "grey50", size = 0.8) +
+  geom_text(aes(x = 1, y = max(Puissance_Reçue) * 0.9, label = "1 km"), 
+            hjust = -0.1, vjust = 0, color = "black", size = 3.5, fontface = "bold") +
+  geom_text(aes(x = 5, y = max(Puissance_Reçue) * 0.9, label = "5 km"), 
+            hjust = -0.1, vjust = 0, color = "black", size = 3.5, fontface = "bold") +
+  scale_x_continuous(breaks = seq(0, 10, by = 1), labels = function(x) paste0(x, " km")) +
+  scale_y_continuous(breaks = seq(floor(min(P_r)), ceiling(max(P_r)), by = 10), 
+                     labels = function(x) paste0(x, " dBm")) +
+  labs(
+    title = "Propagation des Ondes en Espace Libre (Modèle de Friis)",
+    subtitle = "Puissance reçue à 2.4 GHz avec Pt = 1 kW, Gt = Gr = 10 dB",
+    x = "Distance (km)",
+    y = "Puissance Reçue (dBm)",
+    caption = "Source : Simulation basée sur le modèle de Friis, 2024"
+  ) +
+  theme_classic(base_size = 12) +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 10, hjust = 0.5),
+    plot.caption = element_text(size = 8, hjust = 1),
+    axis.title = element_text(size = 11, face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    panel.grid.major.y = element_line(color = "grey80", linewidth = 0.2),
+    panel.grid.minor.y = element_line(color = "grey90", linewidth = 0.1)
+  )
+
+# Enregistrer le graphique
+
+
 ```
+
+
+
+
+
+# Rapport signal-bruit
+
+## Définition du rapport signal-bruit (SNR)
+
+ Le rapport signal-bruit, souvent noté SIR (pour Signal to Interference Ratio), est
+ défini comme le rapport entre la puissance reçue d’une source PS et la puissance des
+ interférences perturbant la réception PI :
+$$
+\text{SNR} = \frac{P_{signal}}{P_{bruit}}
+$$
+
+
+**Où :**
+- \( P_{signal} \) : puissance du signal utile
+- \( P_{bruit} \) : puissance du bruit de fond
+
+ou encore en décibels
+
+$$
+\text{SIR}_{dB} = 10 \log_{10} \left( \frac{P_{signal}}{P_{bruit}} \right)
+$$
+
+
+## Zone de couverture
+
+La **zone de couverture** d’une antenne est définie comme l’ensemble des points où la puissance reçue dépasse un seuil minimal, généralement fixé par l’opérateur.La zone de couverture d’une antenne est l’ensemble des points du plan où la qualité
+ du signal reçu de cette antenne est suffisante pour pouvoir effectuer une communica
+tion. Elle est définie à partir du rapport signal-bruit, de la façon suivante :
+$$
+\text{Zone de couverture} = \{ x \in \mathbb{R}^2 \mid \text{SIR}(x) \geq \theta \}
+$$
+
+
+## Propagation en présence d’obstacles
+
+
+En présence d'obstacles, la propagation des ondes est modifiée par des phénomènes tels que la diffraction, la réflexion et l'absorption. La diffraction permet aux ondes de courber autour des obstacles, et l'interférence peut produire des configurations d'ondes complexes. 
+Deux types d’approches sont couramment utilisés pour modéliser la propagation des
+ondes lorsque les obstacles sont pris en compte : une approche théorique ou une
+approche empirique.
+
+
+
+```{r echo=FALSE, out.width="85%", fig.align='center',fig.width=8, fig.height=5}
+knitr::include_graphics("images/diffraction.png")
+```
+
+### Approche théorique
+
+L’approche théorique repose sur des modèles mathématiques basés sur les principes de la physique des ondes. Ces modèles prennent en compte les phénomènes de diffraction, de réflexion et d’absorption. Parmi les modèles théoriques les plus connus, on trouve :
+
+Le modèle de réflexion sur le sol, prend en compte deux trajets : un en ligne directe et un autre obtenu par réflexion sur le sol.
+
+
+
+Les modèles de Walfisch-Bertoni et d’Ikegami, décrits dans [Granatstein (2008)], intègrent les effets de diffraction des ondes au niveau des toits d’immeubles. 
+Ces modèles sont particulièrement pertinents lorsque l’antenne est placée au-dessus des bâtiments et que le récepteur se trouve en contrebas, dans une rue.
+
+
+## Approche empirique
+
+L’approche empirique peut être illustrée par le modèle de **Delisle-Egli**, présenté dans \cite{Granatstein2008}, qui est un modèle de propagation en milieu urbain.  
+
+Il se base sur un grand nombre de mesures effectuées dans des villes des États-Unis,  
+qui ont permis d’établir la formule suivante pour l’atténuation de la puissance d’un signal :
+
 
