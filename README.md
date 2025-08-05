@@ -23,9 +23,9 @@ Ces deux méthodes combinées nous ont permis de proposer un placement optimal d
 
 ## Technologies et outils
 
-- Python (NumPy, Matplotlib, etc.)
+- Python , R 
 - Algorithmes d’optimisation
-- Données géographiques simulées
+- Données géographiques 
 
 ## Résultats
 
